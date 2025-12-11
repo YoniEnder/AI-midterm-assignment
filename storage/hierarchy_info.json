@@ -1,0 +1,155 @@
+{
+  "claims": {
+    "01": {
+      "documents": [
+        "claim_document_01.pdf"
+      ],
+      "document_types": [
+        "Chronological"
+      ]
+    },
+    "02": {
+      "documents": [
+        "claim_document_02.pdf"
+      ],
+      "document_types": [
+        "Chronological"
+      ]
+    },
+    "03": {
+      "documents": [
+        "claim_document_03.pdf"
+      ],
+      "document_types": [
+        "Chronological"
+      ]
+    },
+    "04": {
+      "documents": [
+        "claim_document_04.pdf"
+      ],
+      "document_types": [
+        "Chronological"
+      ]
+    },
+    "05": {
+      "documents": [
+        "claim_document_05.pdf"
+      ],
+      "document_types": [
+        "Chronological"
+      ]
+    },
+    "06": {
+      "documents": [
+        "claim_document_06.pdf"
+      ],
+      "document_types": [
+        "Chronological"
+      ]
+    },
+    "07": {
+      "documents": [
+        "claim_document_07.pdf"
+      ],
+      "document_types": [
+        "Chronological"
+      ]
+    },
+    "08": {
+      "documents": [
+        "claim_document_08.pdf"
+      ],
+      "document_types": [
+        "Chronological"
+      ]
+    },
+    "09": {
+      "documents": [
+        "claim_document_09.pdf"
+      ],
+      "document_types": [
+        "Chronological"
+      ]
+    },
+    "10": {
+      "documents": [
+        "claim_document_10.pdf"
+      ],
+      "document_types": [
+        "Chronological"
+      ]
+    },
+    "unknown": {
+      "documents": [
+        "docstore.json"
+      ],
+      "document_types": [
+        "FNOL"
+      ]
+    }
+  },
+  "documents": {
+    "claim_document_01.pdf": {
+      "claim_id": "01",
+      "document_type": "Chronological",
+      "sections": []
+    },
+    "claim_document_02.pdf": {
+      "claim_id": "02",
+      "document_type": "Chronological",
+      "sections": []
+    },
+    "claim_document_03.pdf": {
+      "claim_id": "03",
+      "document_type": "Chronological",
+      "sections": []
+    },
+    "claim_document_04.pdf": {
+      "claim_id": "04",
+      "document_type": "Chronological",
+      "sections": []
+    },
+    "claim_document_05.pdf": {
+      "claim_id": "05",
+      "document_type": "Chronological",
+      "sections": []
+    },
+    "claim_document_06.pdf": {
+      "claim_id": "06",
+      "document_type": "Chronological",
+      "sections": []
+    },
+    "claim_document_07.pdf": {
+      "claim_id": "07",
+      "document_type": "Chronological",
+      "sections": []
+    },
+    "claim_document_08.pdf": {
+      "claim_id": "08",
+      "document_type": "Chronological",
+      "sections": []
+    },
+    "claim_document_09.pdf": {
+      "claim_id": "09",
+      "document_type": "Chronological",
+      "sections": []
+    },
+    "claim_document_10.pdf": {
+      "claim_id": "10",
+      "document_type": "Chronological",
+      "sections": []
+    },
+    "docstore.json": {
+      "claim_id": "unknown",
+      "document_type": "FNOL",
+      "sections": []
+    }
+  },
+  "sections": {
+    "1. Claim Overview": {
+      "claim_id": "01",
+      "document": "claim_document_01.pdf"
+    }
+  }
+}
