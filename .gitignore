@@ -37,6 +37,9 @@ venv.bak/
 # ChromaDB
 chroma_db/
 
+# Timeline data (generated)
+storage/timeline_events.json
+
 # IDE
 .vscode/
 .idea/

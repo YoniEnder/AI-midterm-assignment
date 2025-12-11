@@ -35,6 +35,7 @@ def demonstrate_routing():
     print("Initializing Multi-Agent System...")
     system = MultiAgentSystem(summary_index, hierarchical_index)
     print("System ready!")
+    print("✓ ClaimTimelineAnalyticsTool MCP integrated")
     print()
     print("=" * 80)
     print()
@@ -48,6 +49,10 @@ def demonstrate_routing():
         "What are the main types of insurance claims in the dataset?",
         "What are the key decisions and outcomes across all claims?",
         "Summarize the health-related claims (knee surgery and workplace injury)",
+        # Timeline analytics queries (should use ClaimTimelineAnalyticsTool MCP)
+        "How many hours passed between the accident and the first adjuster inspection for claim 01?",
+        "Did claim 01 violate the 48-hour SLA between FNOL and first adjuster contact?",
+        "What is the total time from FNOL to settlement for claim 01?",
         # Precise queries (should route to Needle-in-a-Haystack)
         "What is the exact claim ID for the Auto Collision claim?",
         "In Claim Document 01, did the other driver acknowledge responsibility?",
@@ -73,6 +78,8 @@ def demonstrate_routing():
         print(f"\n📊 Routing Decision: {result['route']}")
         print(f"🤖 Agent Used: {result['agent_used']}")
         print(f"📚 Index Used: {result['index_used']}")
+        if result.get('timeline_tool_used', False):
+            print(f"🔧 Timeline Tool Used: Yes (ClaimTimelineAnalyticsTool MCP)")
         print("\n💬 Answer:")
         print(result["answer"])
         print()
@@ -95,9 +102,14 @@ def interactive_mode():
     print("Initializing Multi-Agent System...")
     system = MultiAgentSystem(summary_index, hierarchical_index)
     print("System ready!")
+    print("✓ ClaimTimelineAnalyticsTool MCP integrated")
     print()
     print("=" * 80)
     print("Enter your queries (type 'exit' to quit)")
+    print("Try timeline analytics queries like:")
+    print("  - 'How many hours passed between the accident and first inspection?'")
+    print("  - 'Did claim 01 violate the 48-hour SLA?'")
+    print("  - 'What is the total time from FNOL to settlement for claim 01?'")
     print("=" * 80)
     print()
 
@@ -117,6 +129,8 @@ def interactive_mode():
             print(f"\n📊 Routing Decision: {result['route']}")
             print(f"🤖 Agent Used: {result['agent_used']}")
             print(f"📚 Index Used: {result['index_used']}")
+            if result.get('timeline_tool_used', False):
+                print(f"🔧 Timeline Tool Used: Yes (ClaimTimelineAnalyticsTool MCP)")
             print("\n💬 Answer:")
             print(result["answer"])
         except Exception as e:
