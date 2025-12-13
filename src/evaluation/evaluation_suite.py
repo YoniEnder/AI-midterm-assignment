@@ -102,6 +102,36 @@ EVALUATION_TEST_CASES: List[TestCase] = [
         expected_info="Small chunks from Claim Document 09 containing underwriting remarks about misrepresentation",
         category="Precise Factual",
     ),
+    # Test Case 9: High-level summary - Timeline of events
+    TestCase(
+        query="Give me a timeline of key events across all claims",
+        ground_truth="The claims span from January 2024 to February 2024, with various events including auto collisions, health claim disputes, property damage inspections, travel delays, and life insurance reviews. Key events include claim filings, inspections, medical reviews, and settlement decisions across different claim types.",
+        expected_index="Summary Index",
+        expected_route="HIGH_LEVEL",
+        expected_context="Timeline information across all claims, chronological sequence of events, dates and timestamps from various claim types",
+        expected_info="Summary chunks covering temporal information, event sequences, and timelines across all claim documents",
+        category="High-Level Summary",
+    ),
+    # Test Case 10: High-level summary - Key decisions and outcomes
+    TestCase(
+        query="What are the key decisions and outcomes across all claims?",
+        ground_truth="The claims show various outcomes including settlements, denials, approvals, and reviews. Some claims have discrepancies between draft notes and final reports. Key decisions involve responsibility acknowledgments, medical review findings, property damage assessments, and underwriting determinations.",
+        expected_index="Summary Index",
+        expected_route="HIGH_LEVEL",
+        expected_context="Decision-making processes, claim outcomes, settlement information, denial reasons, approval criteria across all claim types",
+        expected_info="Summary chunks covering decision points, outcomes, settlements, denials, and final determinations across the dataset",
+        category="High-Level Summary",
+    ),
+    # Test Case 11: High-level summary - Health-related claims
+    TestCase(
+        query="Summarize the health-related claims (knee surgery and workplace injury)",
+        ground_truth="The dataset contains two health-related claims: a knee surgery reimbursement dispute (Claim Document 05) involving conservative physical therapy completion and a workplace injury claim (Claim Document 07) involving billing code errors. Both involve medical reviews and provider communications.",
+        expected_index="Summary Index",
+        expected_route="HIGH_LEVEL",
+        expected_context="Health insurance claims, knee surgery dispute, workplace injury, medical reviews, provider communications, billing issues",
+        expected_info="Summary chunks from health-related claims covering medical procedures, therapy, billing, and medical review processes",
+        category="High-Level Summary",
+    ),
 ]
 
 

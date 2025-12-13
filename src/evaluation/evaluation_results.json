@@ -1,0 +1,463 @@
+{
+  "timestamp": "2025-12-13T09:10:36.263341",
+  "total_tests": 11,
+  "successful_evaluations": 11,
+  "results": [
+    {
+      "test_case": {
+        "query": "What is the overall summary of all insurance claims?",
+        "category": "High-Level Summary",
+        "expected_route": "HIGH_LEVEL",
+        "expected_index": "Summary Index"
+      },
+      "system_result": {
+        "route": "HIGH_LEVEL",
+        "index_used": "Summary Index",
+        "agent_used": "Summarization Expert Agent",
+        "date_parser_tool_used": false
+      },
+      "evaluation": {
+        "query": "What is the overall summary of all insurance claims?",
+        "route": "HIGH_LEVEL",
+        "index_used": "Summary Index",
+        "correctness": {
+          "score": 0.9,
+          "reasoning": "The system's answer provides a detailed summary of various types of insurance claims, including Auto, Health, Property, Travel, and Life Insurance, which aligns well with the ground truth. It captures the key elements such as claim types, processes, and noted discrepancies. However, it could be considered slightly less comprehensive in summarizing the overall dataset as a whole rather than focusing on individual claims.",
+          "correct": true,
+          "metric": "correctness"
+        },
+        "relevancy": {
+          "score": 0.8,
+          "reasoning": "The correct index (Summary Index) was used, and the answer provides a mostly relevant overview of various types of insurance claims. However, the level of detail in individual claims may detract from the high-level summary expected.",
+          "correct_index": true,
+          "relevant_context": true,
+          "metric": "relevancy"
+        },
+        "recall": {
+          "score": 1.0,
+          "reasoning": "The system successfully retrieved all relevant chunks that summarize the various types of insurance claims, including Auto, Health, Property, Travel, and Life Insurance. It provided a comprehensive overview of each claim type, their outcomes, and noted discrepancies, effectively answering the user's query.",
+          "retrieved_correct": true,
+          "missing_info": [],
+          "metric": "recall"
+        },
+        "overall_score": 0.9000000000000001
+      }
+    },
+    {
+      "test_case": {
+        "query": "In Claim Document 01, did the other driver acknowledge responsibility?",
+        "category": "Precise Factual",
+        "expected_route": "PRECISE",
+        "expected_index": "Hierarchical Index"
+      },
+      "system_result": {
+        "route": "PRECISE",
+        "index_used": "Hierarchical Index",
+        "agent_used": "Needle-in-a-Haystack Agent",
+        "date_parser_tool_used": false
+      },
+      "evaluation": {
+        "query": "In Claim Document 01, did the other driver acknowledge responsibility?",
+        "route": "PRECISE",
+        "index_used": "Hierarchical Index",
+        "correctness": {
+          "score": 1.0,
+          "reasoning": "The system's answer directly addresses the user query by confirming that the other driver acknowledged responsibility. It includes key information from the ground truth, such as the acknowledgment being documented in a call center log and the context that this information is not typically visible to the policyholder. There are no factual errors or contradictions, and the answer is complete with relevant details.",
+          "correct": true,
+          "metric": "correctness"
+        },
+        "relevancy": {
+          "score": 1.0,
+          "reasoning": "The system used the correct index (Hierarchical Index) for the precise query regarding the acknowledgment of responsibility in Claim Document 01. The answer provided relevant information from the internal call log, confirming the other driver's acknowledgment of responsibility, which directly addresses the user's query.",
+          "correct_index": true,
+          "relevant_context": true,
+          "metric": "relevancy"
+        },
+        "recall": {
+          "score": 1.0,
+          "reasoning": "The system successfully retrieved the relevant chunks containing the acknowledgment of responsibility from the internal call log, which aligns with the ground truth. The information is complete and directly answers the user's query.",
+          "retrieved_correct": true,
+          "missing_info": [],
+          "metric": "recall"
+        },
+        "overall_score": 1.0
+      }
+    },
+    {
+      "test_case": {
+        "query": "What was the moisture reading in the earliest inspection for the Apartment Water Damage claim?",
+        "category": "Precise Factual",
+        "expected_route": "PRECISE",
+        "expected_index": "Hierarchical Index"
+      },
+      "system_result": {
+        "route": "PRECISE",
+        "index_used": "Hierarchical Index",
+        "agent_used": "Needle-in-a-Haystack Agent",
+        "date_parser_tool_used": false
+      },
+      "evaluation": {
+        "query": "What was the moisture reading in the earliest inspection for the Apartment Water Damage claim?",
+        "route": "PRECISE",
+        "index_used": "Hierarchical Index",
+        "correctness": {
+          "score": 0.8,
+          "reasoning": "The answer addresses the query by stating that the moisture reading from the earliest inspection was significantly higher than later reported values. It also mentions that the exact numerical value is not provided in the documents, which aligns with the ground truth. However, it lacks the specific mention of the draft note being the only place where the original measurement appears, which is a minor detail. Overall, the answer is mostly correct but not fully complete.",
+          "correct": true,
+          "metric": "correctness"
+        },
+        "relevancy": {
+          "score": 0.8,
+          "reasoning": "The correct index was used, and the context provided is mostly relevant to the query about moisture readings in the earliest inspection. However, the exact numerical value of the moisture reading was not provided, which slightly detracts from the completeness of the answer.",
+          "correct_index": true,
+          "relevant_context": true,
+          "metric": "relevancy"
+        },
+        "recall": {
+          "score": 0.8,
+          "reasoning": "The system provided relevant information regarding the moisture reading from the earliest inspection, indicating it was significantly higher than later reported values. However, it did not provide the exact numerical value, which is a critical piece of information that was expected.",
+          "retrieved_correct": true,
+          "missing_info": [
+            "Exact numerical value of the moisture reading from the earliest inspection"
+          ],
+          "metric": "recall"
+        },
+        "overall_score": 0.8
+      }
+    },
+    {
+      "test_case": {
+        "query": "Did the patient complete conservative physical therapy in Claim Document 05?",
+        "category": "Precise Factual",
+        "expected_route": "PRECISE",
+        "expected_index": "Hierarchical Index"
+      },
+      "system_result": {
+        "route": "PRECISE",
+        "index_used": "Hierarchical Index",
+        "agent_used": "Needle-in-a-Haystack Agent",
+        "date_parser_tool_used": false
+      },
+      "evaluation": {
+        "query": "Did the patient complete conservative physical therapy in Claim Document 05?",
+        "route": "PRECISE",
+        "index_used": "Hierarchical Index",
+        "correctness": {
+          "score": 0.0,
+          "reasoning": "The system's answer incorrectly states that the patient did not complete conservative physical therapy, which directly contradicts the ground truth that confirms the patient did complete several weeks of therapy. Additionally, the answer fails to acknowledge the contradiction with the denial letter, which is a key aspect of the ground truth.",
+          "correct": false,
+          "metric": "correctness"
+        },
+        "relevancy": {
+          "score": 0.9,
+          "reasoning": "The correct index was used, and the answer reflects relevant information from the Claim Document 05, specifically addressing the absence of conservative physical therapy. However, while the context is mostly relevant, it could have included more direct references to physical therapy records or medical reviewer notes for a more comprehensive answer.",
+          "correct_index": true,
+          "relevant_context": true,
+          "metric": "relevancy"
+        },
+        "recall": {
+          "score": 0.0,
+          "reasoning": "The system's answer incorrectly states that the patient did not complete conservative physical therapy, contradicting the ground truth. It failed to retrieve any relevant chunks that confirm the completion of physical therapy, which is critical to answering the query.",
+          "retrieved_correct": false,
+          "missing_info": [
+            "Medical reviewer notes indicating the patient completed several weeks of conservative physical therapy."
+          ],
+          "metric": "recall"
+        },
+        "overall_score": 0.27
+      }
+    },
+    {
+      "test_case": {
+        "query": "What time was the luggage scanned in Claim Document 06?",
+        "category": "Precise Factual",
+        "expected_route": "PRECISE",
+        "expected_index": "Hierarchical Index"
+      },
+      "system_result": {
+        "route": "PRECISE",
+        "index_used": "Hierarchical Index",
+        "agent_used": "Needle-in-a-Haystack Agent",
+        "date_parser_tool_used": false
+      },
+      "evaluation": {
+        "query": "What time was the luggage scanned in Claim Document 06?",
+        "route": "PRECISE",
+        "index_used": "Hierarchical Index",
+        "correctness": {
+          "score": 0.8,
+          "reasoning": "The answer addresses the query by stating that the luggage was scanned at the destination earlier than reported. It includes the specific timestamp of 2024-01-25 at 10:30, which aligns with the ground truth. However, it does not explicitly mention that this timestamp appears only once and is ignored in the claim outcome, which is a key detail from the ground truth.",
+          "correct": true,
+          "metric": "correctness"
+        },
+        "relevancy": {
+          "score": 0.9,
+          "reasoning": "The correct index was used, and the context provided is mostly relevant to the query about the luggage scanning time in Claim Document 06. The answer includes specific details about the scanning timestamp and highlights a discrepancy, which is pertinent to the user's question.",
+          "correct_index": true,
+          "relevant_context": true,
+          "metric": "relevancy"
+        },
+        "recall": {
+          "score": 0.9,
+          "reasoning": "The system answer contains relevant information about the luggage scanning time and mentions the discrepancy in the reported timeline. However, it does not explicitly state the exact timestamp of the luggage scan, which is crucial for a complete answer.",
+          "retrieved_correct": true,
+          "missing_info": [
+            "Exact timestamp of the luggage scan (2024-01-25 at 10:30) should be clearly stated as part of the answer."
+          ],
+          "metric": "recall"
+        },
+        "overall_score": 0.8600000000000001
+      }
+    },
+    {
+      "test_case": {
+        "query": "What billing code error was mentioned in Claim Document 07?",
+        "category": "Precise Factual",
+        "expected_route": "PRECISE",
+        "expected_index": "Hierarchical Index"
+      },
+      "system_result": {
+        "route": "PRECISE",
+        "index_used": "Hierarchical Index",
+        "agent_used": "Needle-in-a-Haystack Agent",
+        "date_parser_tool_used": false
+      },
+      "evaluation": {
+        "query": "What billing code error was mentioned in Claim Document 07?",
+        "route": "PRECISE",
+        "index_used": "Hierarchical Index",
+        "correctness": {
+          "score": 0.6,
+          "reasoning": "The system's answer mentions a billing code error and attempts to contact the provider, but it does not explicitly state that a provider confirmed an incorrect coding or that the correction was not reflected in the reimbursement decision, which are key details from the ground truth.",
+          "correct": false,
+          "metric": "correctness"
+        },
+        "relevancy": {
+          "score": 0.9,
+          "reasoning": "The correct index was used, and the context provided is mostly relevant to the query about the billing code error in Claim Document 07. However, it could have included more specific details about the nature of the billing code error itself.",
+          "correct_index": true,
+          "relevant_context": true,
+          "metric": "relevancy"
+        },
+        "recall": {
+          "score": 0.6,
+          "reasoning": "The system provided information about an attempt to clarify coding details, but it did not include the specific one-line note from the provider confirming the billing code error. This note is crucial to fully answer the user's query regarding the billing code error mentioned in Claim Document 07.",
+          "retrieved_correct": false,
+          "missing_info": [
+            "Provider's one-line note confirming the billing code error",
+            "Details about the incorrect coding and its impact on reimbursement"
+          ],
+          "metric": "recall"
+        },
+        "overall_score": 0.69
+      }
+    },
+    {
+      "test_case": {
+        "query": "What are the main types of insurance claims in the dataset?",
+        "category": "High-Level Categorization",
+        "expected_route": "HIGH_LEVEL",
+        "expected_index": "Summary Index"
+      },
+      "system_result": {
+        "route": "HIGH_LEVEL",
+        "index_used": "Summary Index",
+        "agent_used": "Summarization Expert Agent",
+        "date_parser_tool_used": false
+      },
+      "evaluation": {
+        "query": "What are the main types of insurance claims in the dataset?",
+        "route": "HIGH_LEVEL",
+        "index_used": "Summary Index",
+        "correctness": {
+          "score": 1.0,
+          "reasoning": "The system's answer directly addresses the user query by providing a comprehensive overview of the main types of insurance claims in the dataset, matching the ground truth exactly in terms of categories and examples.",
+          "correct": true,
+          "metric": "correctness"
+        },
+        "relevancy": {
+          "score": 1.0,
+          "reasoning": "The correct index (Summary Index) was used for a high-level overview of insurance claim types, and the context provided is highly relevant, offering a comprehensive breakdown of various claim types along with specific examples.",
+          "correct_index": true,
+          "relevant_context": true,
+          "metric": "relevancy"
+        },
+        "recall": {
+          "score": 1.0,
+          "reasoning": "The system successfully retrieved all relevant chunks that categorize the main types of insurance claims in the dataset, providing detailed information for each type.",
+          "retrieved_correct": true,
+          "missing_info": [],
+          "metric": "recall"
+        },
+        "overall_score": 1.0
+      }
+    },
+    {
+      "test_case": {
+        "query": "Was there evidence of misrepresentation in Claim Document 09?",
+        "category": "Precise Factual",
+        "expected_route": "PRECISE",
+        "expected_index": "Hierarchical Index"
+      },
+      "system_result": {
+        "route": "PRECISE",
+        "index_used": "Hierarchical Index",
+        "agent_used": "Needle-in-a-Haystack Agent",
+        "date_parser_tool_used": false
+      },
+      "evaluation": {
+        "query": "Was there evidence of misrepresentation in Claim Document 09?",
+        "route": "PRECISE",
+        "index_used": "Hierarchical Index",
+        "correctness": {
+          "score": 0.9,
+          "reasoning": "The system's answer correctly addresses the user query by stating that there is no explicit mention of misrepresentation in Claim Document 09 and that an internal review was conducted, which aligns with the ground truth. It captures the essence of the ground truth, although it does not explicitly mention the underwriting remark stating no evidence of misrepresentation. Overall, it provides a comprehensive overview of the situation.",
+          "correct": true,
+          "metric": "correctness"
+        },
+        "relevancy": {
+          "score": 0.9,
+          "reasoning": "The correct index was used, and the context provided is mostly relevant to the query about misrepresentation in Claim Document 09. It includes details about the internal review and the timeline of events, which are pertinent to assessing misrepresentation, although it could have included more specific details about the underwriting remarks.",
+          "correct_index": true,
+          "relevant_context": true,
+          "metric": "relevancy"
+        },
+        "recall": {
+          "score": 0.6,
+          "reasoning": "The system answer provides some relevant information regarding the internal review for misrepresentation but fails to include the specific underwriting remark that explicitly states there was no evidence of misrepresentation. This key detail is crucial for fully answering the user's query.",
+          "retrieved_correct": false,
+          "missing_info": [
+            "Underwriting remark stating there was no evidence of misrepresentation"
+          ],
+          "metric": "recall"
+        },
+        "overall_score": 0.81
+      }
+    },
+    {
+      "test_case": {
+        "query": "Give me a timeline of key events across all claims",
+        "category": "High-Level Summary",
+        "expected_route": "HIGH_LEVEL",
+        "expected_index": "Summary Index"
+      },
+      "system_result": {
+        "route": "HIGH_LEVEL",
+        "index_used": "Summary Index",
+        "agent_used": "Summarization Expert Agent",
+        "date_parser_tool_used": false
+      },
+      "evaluation": {
+        "query": "Give me a timeline of key events across all claims",
+        "route": "HIGH_LEVEL",
+        "index_used": "Summary Index",
+        "correctness": {
+          "score": 0.9,
+          "reasoning": "The system's answer provides a comprehensive timeline of key events across various claims, covering auto, health, property, travel, and life insurance claims. It includes specific timestamps and key events that align with the ground truth. However, there is one claim (AC-2024-0193) that falls outside the specified date range of January to February 2024, which slightly detracts from the overall accuracy.",
+          "correct": true,
+          "metric": "correctness"
+        },
+        "relevancy": {
+          "score": 1.0,
+          "reasoning": "The system used the correct index (Summary Index) and provided a comprehensive and relevant timeline of key events across all claims, aligning well with the user's request for chronological information.",
+          "correct_index": true,
+          "relevant_context": true,
+          "metric": "relevancy"
+        },
+        "recall": {
+          "score": 0.9,
+          "reasoning": "The system provided a comprehensive timeline of key events across various claims, covering auto, health, property, travel, and life insurance claims. Most relevant chunks were retrieved, and the information is structured and detailed. However, there is a minor gap as the timeline does not explicitly mention the overall span of claims from January to February 2024, which was part of the user's query.",
+          "retrieved_correct": true,
+          "missing_info": [
+            "Overall span of claims from January 2024 to February 2024"
+          ],
+          "metric": "recall"
+        },
+        "overall_score": 0.93
+      }
+    },
+    {
+      "test_case": {
+        "query": "What are the key decisions and outcomes across all claims?",
+        "category": "High-Level Summary",
+        "expected_route": "HIGH_LEVEL",
+        "expected_index": "Summary Index"
+      },
+      "system_result": {
+        "route": "HIGH_LEVEL",
+        "index_used": "Summary Index",
+        "agent_used": "Summarization Expert Agent",
+        "date_parser_tool_used": false
+      },
+      "evaluation": {
+        "query": "What are the key decisions and outcomes across all claims?",
+        "route": "HIGH_LEVEL",
+        "index_used": "Summary Index",
+        "correctness": {
+          "score": 0.9,
+          "reasoning": "The system's answer provides a comprehensive summary of key decisions and outcomes across various claims, aligning closely with the ground truth. It includes details about settlements, denials, approvals, and reviews, as well as discrepancies noted in the claims. The only minor omission is the explicit mention of underwriting determinations, but overall, it captures the essence of the ground truth effectively.",
+          "correct": true,
+          "metric": "correctness"
+        },
+        "relevancy": {
+          "score": 0.9,
+          "reasoning": "The correct index (Summary Index) was used, and the context provided is mostly relevant to the user's query about key decisions and outcomes across all claims. However, while the information is comprehensive, it could have included more explicit references to decision-making processes, settlement information, and denial reasons for a perfect score.",
+          "correct_index": true,
+          "relevant_context": true,
+          "metric": "relevancy"
+        },
+        "recall": {
+          "score": 0.9,
+          "reasoning": "The system retrieved a comprehensive summary of key decisions and outcomes across various claims, including settlements, approvals, and reviews. However, it did not explicitly mention denials or the discrepancies between draft notes and final reports, which are important aspects of the ground truth.",
+          "retrieved_correct": true,
+          "missing_info": [
+            "Denials",
+            "Discrepancies between draft notes and final reports"
+          ],
+          "metric": "recall"
+        },
+        "overall_score": 0.9000000000000001
+      }
+    },
+    {
+      "test_case": {
+        "query": "Summarize the health-related claims (knee surgery and workplace injury)",
+        "category": "High-Level Summary",
+        "expected_route": "HIGH_LEVEL",
+        "expected_index": "Summary Index"
+      },
+      "system_result": {
+        "route": "HIGH_LEVEL",
+        "index_used": "Summary Index",
+        "agent_used": "Summarization Expert Agent",
+        "date_parser_tool_used": false
+      },
+      "evaluation": {
+        "query": "Summarize the health-related claims (knee surgery and workplace injury)",
+        "route": "HIGH_LEVEL",
+        "index_used": "Summary Index",
+        "correctness": {
+          "score": 1.0,
+          "reasoning": "The system's answer accurately summarizes both health-related claims, including the knee surgery reimbursement dispute and the workplace injury claim, matching the key details from the ground truth. All relevant information is present and correctly described.",
+          "correct": true,
+          "metric": "correctness"
+        },
+        "relevancy": {
+          "score": 0.8,
+          "reasoning": "The correct index (Summary Index) was used, and the context provided includes relevant information about both knee surgery and workplace injury claims. However, the workplace injury claim details are not directly related to the user's request for a summary of health-related claims, which slightly reduces the relevance.",
+          "correct_index": true,
+          "relevant_context": true,
+          "metric": "relevancy"
+        },
+        "recall": {
+          "score": 1.0,
+          "reasoning": "The system successfully retrieved both health-related claims, including the knee surgery reimbursement dispute and the workplace injury claim, providing detailed timelines and key decisions for each. All relevant information was included.",
+          "retrieved_correct": true,
+          "missing_info": [],
+          "metric": "recall"
+        },
+        "overall_score": 0.94
+      }
+    }
+  ]
+}

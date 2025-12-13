@@ -51,7 +51,7 @@ class NeedleInHaystackAgent:
         # - Large chunks (800-1200 tokens): High-level context
         self.query_engine = self.index.as_query_engine(
             llm=self.llm,
-            similarity_top_k=20,  # Increased to retrieve more chunks for better recall
+            similarity_top_k=30,  # Increased to retrieve more chunks for better recall of rare information
             response_mode="compact",
         )
 
@@ -79,10 +79,13 @@ CRITICAL INSTRUCTIONS:
 - Search THOROUGHLY through ALL retrieved chunks - information may appear only once
 - Pay special attention to draft notes, call logs, internal memos, and one-off mentions
 - Information that appears only once is often the most important - don't dismiss it
-- If the query mentions a specific claim document (e.g., "Claim Document 01"), focus on chunks with matching claim_id
+- If the query mentions a specific claim document (e.g., "Claim Document 01"), focus on chunks with matching claim_id or document metadata
 - Check ALL sections including: call logs, draft notes, internal communications, medical reviewer notes, provider notes, underwriting remarks
 - If initial chunks don't contain the answer, consider related terms and synonyms
 - Be persistent - rare information requires careful examination of all retrieved chunks
+- For numerical queries (readings, measurements, times), extract the EXACT value even if mentioned only once
+- For yes/no questions, search for both positive and negative statements in all chunks
+- If query asks about "Claim Document XX", search for that specific document number in all forms (01, 1, Document 01, etc.)
 
 Your role is to:
 - Find exact details, dates, names, numbers, and specific facts - even if mentioned only once
@@ -158,12 +161,19 @@ If you find information in draft notes, call logs, or internal memos, explicitly
                 [
                     f"claim {doc_num}",
                     f"document {doc_num}",
+                    f"claim document {doc_num}",
                 ]
             )
             # Add zero-padded version only if doc_num is a valid integer
             try:
                 doc_num_int = int(doc_num)
-                expanded_terms.append(f"claim document {doc_num_int:02d}")
+                expanded_terms.extend(
+                    [
+                        f"claim document {doc_num_int:02d}",
+                        f"document {doc_num_int:02d}",
+                        f"claim {doc_num_int:02d}",
+                    ]
+                )
             except ValueError:
                 # If not a valid integer, just add the original
                 expanded_terms.append(f"claim document {doc_num}")
@@ -230,15 +240,18 @@ If you find information in draft notes, call logs, or internal memos, explicitly
         answer = str(response)
 
         # Fallback: If answer seems incomplete or says "not available", try expanded query
-        if any(
-            phrase in answer.lower()
-            for phrase in [
-                "not available",
-                "cannot find",
-                "no information",
-                "unable to",
-            ]
-        ):
+        incomplete_phrases = [
+            "not available",
+            "cannot find",
+            "no information",
+            "unable to",
+            "no mention",
+            "does not mention",
+            "not found",
+            "unclear",
+        ]
+
+        if any(phrase in answer.lower() for phrase in incomplete_phrases):
             # Try with expanded query
             expanded_prompt = self.precise_prompt.format(
                 query=f"{query} (Also search for: {expanded_query})"
@@ -246,10 +259,34 @@ If you find information in draft notes, call logs, or internal memos, explicitly
             fallback_response = self.query_engine.query(expanded_prompt)
             fallback_answer = str(fallback_response)
 
-            # Use fallback if it seems more informative
-            if (
-                len(fallback_answer) > len(answer) * 1.2
-            ):  # Fallback is significantly longer
+            # Use fallback if it seems more informative or doesn't contain incomplete phrases
+            if len(fallback_answer) > len(answer) * 1.2 or not any(
+                phrase in fallback_answer.lower() for phrase in incomplete_phrases
+            ):
                 return fallback_answer
+
+        # Additional fallback: For queries asking about specific values or yes/no, try direct retrieval
+        if any(
+            keyword in query.lower()
+            for keyword in [
+                "reading",
+                "value",
+                "measurement",
+                "time",
+                "did",
+                "was there",
+            ]
+        ):
+            # Try a more direct query focusing on the specific information
+            direct_query = f"Find the exact information: {query}. Search all chunks including draft notes and internal documents."
+            direct_prompt = self.precise_prompt.format(query=direct_query)
+            direct_response = self.query_engine.query(direct_prompt)
+            direct_answer = str(direct_response)
+
+            # Use direct answer if it's more informative and doesn't contain incomplete phrases
+            if len(direct_answer) > len(answer) * 1.1 and not any(
+                phrase in direct_answer.lower() for phrase in incomplete_phrases
+            ):
+                return direct_answer
 
         return answer
