@@ -1,0 +1,152 @@
+<?xml version="1.0" ?>
+<mxfile host="app.diagrams.net" modified="2025-12-11T18:07:49.466432Z" agent="5.0" version="21.0.0" etag="diagram" type="device">
+  <diagram name="Multi-Agent System" id="multi-agent-diagram">
+    <mxGraphModel dx="1800" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="user" value="User Query" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="700" y="40" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="manager" value="Manager Router Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A90E2;strokeColor=#000000;fontStyle=1;fontSize=12;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="700" y="160" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="summary_index" value="Summary Index&#10;&#10;(Large Chunks)&#10;top_k=15" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD93D;strokeColor=#000000;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="500" width="200" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="hierarchical_index" value="Hierarchical Index&#10;&#10;(Multi-size Chunks)&#10;top_k=20" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD93D;strokeColor=#000000;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="700" width="200" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="summarization_agent" value="Summarization&#10;Expert Agent&#10;&#10;tree_summarize" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#50C878;strokeColor=#000000;fontStyle=1;fontSize=11;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="500" width="200" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="needle_agent" value="Needle-in-a-&#10;Haystack Agent&#10;&#10;compact + expansion" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF6B6B;strokeColor=#000000;fontStyle=1;fontSize=11;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="700" width="200" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="expansion" value="Query Expansion&#10;&#10;Synonyms + Variations" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFA500;strokeColor=#000000;fontStyle=1;fontSize=9;alpha=0.7;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="650" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="fallback" value="Fallback Retry&#10;&#10;If incomplete" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFA500;strokeColor=#000000;fontStyle=1;fontSize=9;alpha=0.7;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="750" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="mcp_tool" value="ClaimTimelineAnalyticsTool (MCP)&#10;&#10;time_diff | sla_check |&#10;timeline_summary_stats |&#10;events_in_range" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9B59B6;strokeColor=#000000;fontStyle=1;fontSize=11;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="600" y="1000" width="400" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="enhanced" value="Enhanced Features:&#10;• Query Expansion&#10;• Fallback Retry" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;fontStyle=1;fontSize=8;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1000" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow1" value="Query" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#34495E;" edge="1" parent="1" source="user" target="manager">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow2" value="HIGH_LEVEL" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#50C878;" edge="1" parent="1" source="manager" target="summarization_agent">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow3" value="PRECISE" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#FF6B6B;" edge="1" parent="1" source="manager" target="needle_agent">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow4" value="Select" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#34495E;strokeDashArray=5 5;dashed=1;" edge="1" parent="1" source="manager" target="summary_index">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow5" value="Select" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#34495E;strokeDashArray=5 5;dashed=1;" edge="1" parent="1" source="manager" target="hierarchical_index">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow6" value="Query" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#50C878;" edge="1" parent="1" source="summarization_agent" target="summary_index">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow7" value="Query" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#FF6B6B;" edge="1" parent="1" source="needle_agent" target="hierarchical_index">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow8" value="15 Chunks" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#50C878;strokeDashArray=2 2;dashed=1;" edge="1" parent="1" source="summary_index" target="summarization_agent">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow9" value="20 Chunks" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#FF6B6B;strokeDashArray=2 2;dashed=1;" edge="1" parent="1" source="hierarchical_index" target="needle_agent">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow_expand" value="Expand" style="endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#FFA500;" edge="1" parent="1" source="needle_agent" target="expansion">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow_retry" value="Retry with Expanded Query" style="endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#FFA500;strokeDashArray=5 5;dashed=1;" edge="1" parent="1" source="expansion" target="hierarchical_index">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow_fallback" value="Fallback" style="endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#FFA500;strokeDashArray=2 2;dashed=1;" edge="1" parent="1" source="fallback" target="needle_agent">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow10" value="Timeline Query" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#9B59B6;" edge="1" parent="1" source="summarization_agent" target="mcp_tool">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow11" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#9B59B6;" edge="1" parent="1" source="needle_agent" target="mcp_tool">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow12" value="Analytics Results" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#9B59B6;strokeDashArray=2 2;dashed=1;" edge="1" parent="1" source="mcp_tool" target="summarization_agent">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow13" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#9B59B6;strokeDashArray=2 2;dashed=1;" edge="1" parent="1" source="mcp_tool" target="needle_agent">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow14" value="Answer" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#34495E;" edge="1" parent="1" source="summarization_agent" target="user">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow15" value="Answer" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#34495E;" edge="1" parent="1" source="needle_agent" target="user">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="0" y="0" as="sourcePoint"/>
+            <mxPoint x="0" y="0" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="title" value="Multi-Agent System with MCP Integration&#10;Enhanced with Query Expansion &amp; Fallback Mechanism" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="10" width="600" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

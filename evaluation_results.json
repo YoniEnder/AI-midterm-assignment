@@ -1,327 +1,63 @@
 {
-  "timestamp": "2025-12-11T12:13:37.064036",
+  "timestamp": "2025-12-11T13:30:54.079720",
   "total_tests": 8,
-  "successful_evaluations": 8,
+  "successful_evaluations": 0,
   "results": [
     {
       "test_case": {
         "query": "What is the overall summary of all insurance claims?",
-        "category": "High-Level Summary",
-        "expected_route": "HIGH_LEVEL",
-        "expected_index": "Summary Index"
+        "category": "High-Level Summary"
       },
-      "system_result": {
-        "route": "HIGH_LEVEL",
-        "index_used": "Summary Index",
-        "agent_used": "Summarization Expert Agent",
-        "timeline_tool_used": false
-      },
-      "evaluation": {
-        "query": "What is the overall summary of all insurance claims?",
-        "route": "HIGH_LEVEL",
-        "index_used": "Summary Index",
-        "correctness": {
-          "score": 0.7,
-          "reasoning": "The system's answer provides a detailed overview of the insurance claims process for various types of insurance, which is relevant to the user's query. However, it does not mention the specific types of claims in the dataset, such as knee surgery, workplace injury, travel delay, and lost luggage, which are mentioned in the ground truth. It also does not mention the discrepancies between draft notes and final reports.",
-          "correct": true,
-          "metric": "correctness"
-        },
-        "relevancy": {
-          "score": 0.9,
-          "reasoning": "The correct index was used and the context is mostly relevant. The system provided a comprehensive overview of different types of insurance claims and their processes. However, the detailed examples of specific cases, while informative, may not be necessary for a high-level summary.",
-          "correct_index": true,
-          "relevant_context": true,
-          "metric": "relevancy"
-        },
-        "recall": {
-          "score": 0.7,
-          "reasoning": "The system retrieved relevant chunks of information about the types of insurance claims and the general process for each. However, it did not provide a summary of all claims, instead focusing on two specific cases. It also did not mention any discrepancies between draft notes and final reports, which is a key part of the ground truth.",
-          "retrieved_correct": true,
-          "missing_info": "Summary of all claims, discrepancies between draft notes and final reports",
-          "metric": "recall"
-        },
-        "overall_score": 0.76
-      }
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}"
     },
     {
       "test_case": {
         "query": "In Claim Document 01, did the other driver acknowledge responsibility?",
-        "category": "Precise Factual",
-        "expected_route": "PRECISE",
-        "expected_index": "Hierarchical Index"
+        "category": "Precise Factual"
       },
-      "system_result": {
-        "route": "PRECISE",
-        "index_used": "Hierarchical Index",
-        "agent_used": "Needle-in-a-Haystack Agent",
-        "timeline_tool_used": false
-      },
-      "evaluation": {
-        "query": "In Claim Document 01, did the other driver acknowledge responsibility?",
-        "route": "PRECISE",
-        "index_used": "Hierarchical Index",
-        "correctness": {
-          "score": 0.0,
-          "reasoning": "The system's answer does not contain any of the key information from the ground truth. It incorrectly states that there is no information available on whether the other driver acknowledged responsibility, while the ground truth states that the other driver did acknowledge responsibility.",
-          "correct": false,
-          "metric": "correctness"
-        },
-        "relevancy": {
-          "score": 0.9,
-          "reasoning": "The AI system used the correct Hierarchical Index for the precise query. The context topics are mostly relevant, but the system's answer does not provide specific information from the document sections.",
-          "correct_index": true,
-          "relevant_context": true,
-          "metric": "relevancy"
-        },
-        "recall": {
-          "score": 0.0,
-          "reasoning": "The system failed to retrieve any relevant information from Claim Document 01. It did not provide any information about the other driver's acknowledgment of responsibility.",
-          "retrieved_correct": false,
-          "missing_info": "Information from the call log about the other driver's acknowledgment of responsibility is missing.",
-          "metric": "recall"
-        },
-        "overall_score": 0.27
-      }
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}"
     },
     {
       "test_case": {
         "query": "What was the moisture reading in the earliest inspection for the Apartment Water Damage claim?",
-        "category": "Precise Factual",
-        "expected_route": "PRECISE",
-        "expected_index": "Hierarchical Index"
+        "category": "Precise Factual"
       },
-      "system_result": {
-        "route": "PRECISE",
-        "index_used": "Hierarchical Index",
-        "agent_used": "Needle-in-a-Haystack Agent",
-        "timeline_tool_used": false
-      },
-      "evaluation": {
-        "query": "What was the moisture reading in the earliest inspection for the Apartment Water Damage claim?",
-        "route": "PRECISE",
-        "index_used": "Hierarchical Index",
-        "correctness": {
-          "score": 0.8,
-          "reasoning": "The system's answer correctly identifies that the moisture reading from the earliest inspection was significantly higher than later reported values. However, it does not mention that the original measurement appears only once in a draft note, which is a key detail from the ground truth.",
-          "correct": true,
-          "metric": "correctness"
-        },
-        "relevancy": {
-          "score": 0.9,
-          "reasoning": "The AI system used the correct Hierarchical Index for this precise query. The context used is mostly relevant, as it refers to the moisture reading from the earliest inspection. However, it does not explicitly mention the Apartment Water Damage claim, which could have made the context more specific and relevant.",
-          "correct_index": true,
-          "relevant_context": true,
-          "metric": "relevancy"
-        },
-        "recall": {
-          "score": 0.9,
-          "reasoning": "The system retrieved the correct information about the moisture reading from the earliest inspection being higher than later reported values. However, it did not mention that this information was found in a draft note.",
-          "retrieved_correct": true,
-          "missing_info": "The source of the information (draft note) is missing.",
-          "metric": "recall"
-        },
-        "overall_score": 0.8600000000000001
-      }
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}"
     },
     {
       "test_case": {
         "query": "Did the patient complete conservative physical therapy in Claim Document 05?",
-        "category": "Precise Factual",
-        "expected_route": "PRECISE",
-        "expected_index": "Hierarchical Index"
+        "category": "Precise Factual"
       },
-      "system_result": {
-        "route": "PRECISE",
-        "index_used": "Hierarchical Index",
-        "agent_used": "Needle-in-a-Haystack Agent",
-        "timeline_tool_used": false
-      },
-      "evaluation": {
-        "query": "Did the patient complete conservative physical therapy in Claim Document 05?",
-        "route": "PRECISE",
-        "index_used": "Hierarchical Index",
-        "correctness": {
-          "score": 0.0,
-          "reasoning": "The system's answer does not contain any of the key information from the ground truth. It does not confirm that the patient completed conservative physical therapy, which is the main point of the user's query.",
-          "correct": false,
-          "metric": "correctness"
-        },
-        "relevancy": {
-          "score": 0.9,
-          "reasoning": "The AI system used the correct index, Hierarchical Index, for this precise query. The context used is mostly relevant, including the Claim Document 05, medical reviewer notes, and denial letter. However, the physical therapy records are not mentioned in the system's answer, which could have provided more specific information about the patient's therapy completion.",
-          "correct_index": true,
-          "relevant_context": true,
-          "metric": "relevancy"
-        },
-        "recall": {
-          "score": 0.0,
-          "reasoning": "The system failed to retrieve any relevant information from Claim Document 05. It did not provide any information about the patient's completion of conservative physical therapy.",
-          "retrieved_correct": false,
-          "missing_info": "Information about the patient's completion of conservative physical therapy from Claim Document 05 is missing.",
-          "metric": "recall"
-        },
-        "overall_score": 0.27
-      }
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}"
     },
     {
       "test_case": {
         "query": "What time was the luggage scanned in Claim Document 06?",
-        "category": "Precise Factual",
-        "expected_route": "PRECISE",
-        "expected_index": "Hierarchical Index"
+        "category": "Precise Factual"
       },
-      "system_result": {
-        "route": "PRECISE",
-        "index_used": "Hierarchical Index",
-        "agent_used": "Needle-in-a-Haystack Agent",
-        "timeline_tool_used": false
-      },
-      "evaluation": {
-        "query": "What time was the luggage scanned in Claim Document 06?",
-        "route": "PRECISE",
-        "index_used": "Hierarchical Index",
-        "correctness": {
-          "score": 0.4,
-          "reasoning": "The system's answer is somewhat relevant but incomplete. It correctly states that the specific time of the luggage scan in Claim Document 06 is not mentioned, but it fails to include the key information from the ground truth that the luggage was scanned earlier than reported and that this timestamp was ignored in the claim outcome.",
-          "correct": false,
-          "metric": "correctness"
-        },
-        "relevancy": {
-          "score": 0.9,
-          "reasoning": "The AI system used the correct hierarchical index for this precise query. The context of the answer is mostly relevant, as it pertains to Claim Document 06 and the scanning of luggage. However, it does not provide information on airline baggage records, scanning timestamps, or the claim outcome, which could have added more depth to the response.",
-          "correct_index": true,
-          "relevant_context": true,
-          "metric": "relevancy"
-        },
-        "recall": {
-          "score": 0.0,
-          "reasoning": "The system failed to retrieve any relevant information from Claim Document 06 regarding the time the luggage was scanned. The answer provided does not contain any information about the baggage scanning timestamps or airline records.",
-          "retrieved_correct": false,
-          "missing_info": "Information about the time the luggage was scanned and airline baggage records from Claim Document 06",
-          "metric": "recall"
-        },
-        "overall_score": 0.43000000000000005
-      }
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}"
     },
     {
       "test_case": {
         "query": "What billing code error was mentioned in Claim Document 07?",
-        "category": "Precise Factual",
-        "expected_route": "PRECISE",
-        "expected_index": "Hierarchical Index"
+        "category": "Precise Factual"
       },
-      "system_result": {
-        "route": "PRECISE",
-        "index_used": "Hierarchical Index",
-        "agent_used": "Needle-in-a-Haystack Agent",
-        "timeline_tool_used": false
-      },
-      "evaluation": {
-        "query": "What billing code error was mentioned in Claim Document 07?",
-        "route": "PRECISE",
-        "index_used": "Hierarchical Index",
-        "correctness": {
-          "score": 0.0,
-          "reasoning": "The system's answer does not address the user's query correctly. It states that there is no information about a billing code error in Claim Document 07, which contradicts the ground truth that a provider confirmed a billing code error.",
-          "correct": false,
-          "metric": "correctness"
-        },
-        "relevancy": {
-          "score": 1.0,
-          "reasoning": "The AI system used the correct Hierarchical Index for the precise query. The context topics mentioned are relevant to the user's query, even though the system couldn't find the specific information asked for.",
-          "correct_index": true,
-          "relevant_context": true,
-          "metric": "relevancy"
-        },
-        "recall": {
-          "score": 0.0,
-          "reasoning": "The system failed to retrieve any relevant information from Claim Document 07 about the billing code error. It incorrectly stated that the context does not provide information about a billing code error in Claim Document 07.",
-          "retrieved_correct": false,
-          "missing_info": "The system did not retrieve the provider's note about the incorrectly coded billed charge and the lack of correction in the reimbursement decision.",
-          "metric": "recall"
-        },
-        "overall_score": 0.3
-      }
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}"
     },
     {
       "test_case": {
         "query": "What are the main types of insurance claims in the dataset?",
-        "category": "High-Level Categorization",
-        "expected_route": "HIGH_LEVEL",
-        "expected_index": "Summary Index"
+        "category": "High-Level Categorization"
       },
-      "system_result": {
-        "route": "HIGH_LEVEL",
-        "index_used": "Summary Index",
-        "agent_used": "Summarization Expert Agent",
-        "timeline_tool_used": false
-      },
-      "evaluation": {
-        "query": "What are the main types of insurance claims in the dataset?",
-        "route": "HIGH_LEVEL",
-        "index_used": "Summary Index",
-        "correctness": {
-          "score": 0.8,
-          "reasoning": "The system's answer correctly identifies the main types of insurance claims in the dataset, which are Auto, Home, Property, and Health Insurance Claims. However, it misses out on mentioning Travel and Life Insurance claims which are part of the ground truth. The system's answer also provides detailed examples for each type of claim, which is not required but adds value to the response.",
-          "correct": true,
-          "metric": "correctness"
-        },
-        "relevancy": {
-          "score": 1.0,
-          "reasoning": "The AI system used the correct index and provided highly relevant context. It gave a comprehensive overview of the different types of insurance claims in the dataset, including examples and details about the claim process for each type.",
-          "correct_index": true,
-          "relevant_context": true,
-          "metric": "relevancy"
-        },
-        "recall": {
-          "score": 0.9,
-          "reasoning": "The system retrieved most of the relevant chunks and provided detailed examples for each type of claim. However, it missed the information about Travel claims and Life Insurance claims.",
-          "retrieved_correct": true,
-          "missing_info": "Travel claims and Life Insurance claims",
-          "metric": "recall"
-        },
-        "overall_score": 0.8900000000000001
-      }
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}"
     },
     {
       "test_case": {
         "query": "Was there evidence of misrepresentation in Claim Document 09?",
-        "category": "Precise Factual",
-        "expected_route": "PRECISE",
-        "expected_index": "Hierarchical Index"
+        "category": "Precise Factual"
       },
-      "system_result": {
-        "route": "PRECISE",
-        "index_used": "Hierarchical Index",
-        "agent_used": "Needle-in-a-Haystack Agent",
-        "timeline_tool_used": false
-      },
-      "evaluation": {
-        "query": "Was there evidence of misrepresentation in Claim Document 09?",
-        "route": "PRECISE",
-        "index_used": "Hierarchical Index",
-        "correctness": {
-          "score": 0.8,
-          "reasoning": "The system's answer correctly states that there was no evidence of misrepresentation in Claim Document 09, which directly addresses the user's query. However, it does not mention that the claim was initially flagged for contestability review, which is a key detail from the ground truth. The system's answer also adds an extra detail about an internal review that took place on a specific date, which is not mentioned in the ground truth.",
-          "correct": true,
-          "metric": "correctness"
-        },
-        "relevancy": {
-          "score": 0.9,
-          "reasoning": "The AI system used the correct Hierarchical Index and provided a direct answer to the user's query. However, it did not explicitly mention the expected context topics such as underwriting remarks, misrepresentation evidence, and contestability review.",
-          "correct_index": true,
-          "relevant_context": true,
-          "metric": "relevancy"
-        },
-        "recall": {
-          "score": 0.8,
-          "reasoning": "The system correctly retrieved the information that there was no evidence of misrepresentation in Claim Document 09. However, it did not mention the underwriting remark or the fact that the claim was initially flagged for contestability review.",
-          "retrieved_correct": true,
-          "missing_info": "Underwriting remark, claim initially flagged for contestability review",
-          "metric": "recall"
-        },
-        "overall_score": 0.8300000000000001
-      }
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}"
     }
   ]
 }

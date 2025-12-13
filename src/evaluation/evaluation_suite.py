@@ -10,6 +10,7 @@ from dataclasses import dataclass
 @dataclass
 class TestCase:
     """Test case with query and expected results"""
+
     query: str
     ground_truth: str
     expected_index: str  # "Summary Index" or "Hierarchical Index"
@@ -29,9 +30,8 @@ EVALUATION_TEST_CASES: List[TestCase] = [
         expected_route="HIGH_LEVEL",
         expected_context="High-level overview of all claims, claim types, general patterns, and outcomes across the dataset",
         expected_info="Summary chunks from all claim documents covering claim types, general outcomes, and patterns",
-        category="High-Level Summary"
+        category="High-Level Summary",
     ),
-    
     # Test Case 2: Precise factual query - Claim Document 01
     TestCase(
         query="In Claim Document 01, did the other driver acknowledge responsibility?",
@@ -40,9 +40,8 @@ EVALUATION_TEST_CASES: List[TestCase] = [
         expected_route="PRECISE",
         expected_context="Claim Document 01 (Auto Collision), internal call log, driver acknowledgment, communication records",
         expected_info="Small/medium chunks from Claim Document 01 containing call log information about driver acknowledgment",
-        category="Precise Factual"
+        category="Precise Factual",
     ),
-    
     # Test Case 3: Precise factual query - Claim Document 03
     TestCase(
         query="What was the moisture reading in the earliest inspection for the Apartment Water Damage claim?",
@@ -51,9 +50,8 @@ EVALUATION_TEST_CASES: List[TestCase] = [
         expected_route="PRECISE",
         expected_context="Claim Document 03 (Apartment Water Damage), moisture readings, inspection reports, draft notes",
         expected_info="Small chunks from Claim Document 03 containing moisture reading measurements, particularly from draft notes",
-        category="Precise Factual"
+        category="Precise Factual",
     ),
-    
     # Test Case 4: Precise factual query - Claim Document 05
     TestCase(
         query="Did the patient complete conservative physical therapy in Claim Document 05?",
@@ -62,9 +60,8 @@ EVALUATION_TEST_CASES: List[TestCase] = [
         expected_route="PRECISE",
         expected_context="Claim Document 05 (Health - Knee Surgery Dispute), medical reviewer notes, physical therapy records, denial letter",
         expected_info="Small/medium chunks from Claim Document 05 containing medical reviewer notes about physical therapy completion",
-        category="Precise Factual"
+        category="Precise Factual",
     ),
-    
     # Test Case 5: Precise factual query - Claim Document 06
     TestCase(
         query="What time was the luggage scanned in Claim Document 06?",
@@ -73,9 +70,8 @@ EVALUATION_TEST_CASES: List[TestCase] = [
         expected_route="PRECISE",
         expected_context="Claim Document 06 (Travel Delay + Lost Luggage), airline baggage records, scanning timestamps, claim outcome",
         expected_info="Small chunks from Claim Document 06 containing baggage scanning timestamps and airline records",
-        category="Precise Factual"
+        category="Precise Factual",
     ),
-    
     # Test Case 6: Precise factual query - Claim Document 07
     TestCase(
         query="What billing code error was mentioned in Claim Document 07?",
@@ -84,9 +80,8 @@ EVALUATION_TEST_CASES: List[TestCase] = [
         expected_route="PRECISE",
         expected_context="Claim Document 07 (Workplace Injury - Health), billing codes, provider notes, reimbursement decisions",
         expected_info="Small chunks from Claim Document 07 containing provider notes about billing code errors",
-        category="Precise Factual"
+        category="Precise Factual",
     ),
-    
     # Test Case 7: High-level query about claim types
     TestCase(
         query="What are the main types of insurance claims in the dataset?",
@@ -95,9 +90,8 @@ EVALUATION_TEST_CASES: List[TestCase] = [
         expected_route="HIGH_LEVEL",
         expected_context="Overview of claim types across all documents, categorization of different insurance claim types",
         expected_info="Summary chunks covering claim type classifications and distributions across the dataset",
-        category="High-Level Categorization"
+        category="High-Level Categorization",
     ),
-    
     # Test Case 8: Precise factual query - Claim Document 09
     TestCase(
         query="Was there evidence of misrepresentation in Claim Document 09?",
@@ -106,7 +100,7 @@ EVALUATION_TEST_CASES: List[TestCase] = [
         expected_route="PRECISE",
         expected_context="Claim Document 09 (Life Insurance - Critical Illness Review), underwriting remarks, misrepresentation evidence, contestability review",
         expected_info="Small chunks from Claim Document 09 containing underwriting remarks about misrepresentation",
-        category="Precise Factual"
+        category="Precise Factual",
     ),
 ]
 
@@ -114,10 +108,3 @@ EVALUATION_TEST_CASES: List[TestCase] = [
 def get_test_cases() -> List[TestCase]:
     """Get all test cases"""
     return EVALUATION_TEST_CASES
-
-
-def get_test_case_by_category(category: str) -> List[TestCase]:
-    """Get test cases filtered by category"""
-    return [tc for tc in EVALUATION_TEST_CASES if tc.category == category]
-
-

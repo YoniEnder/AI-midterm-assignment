@@ -15,7 +15,7 @@ from llama_index.core.schema import Document
 from llama_index.llms.openai import OpenAI
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.vector_stores.chroma import ChromaVectorStore
-from src.document_processor import HierarchicalDocumentProcessor
+from src.indexing.document_processor import HierarchicalDocumentProcessor
 import chromadb
 import os
 import json
@@ -31,8 +31,12 @@ def setup_llm_settings():
     if not api_key:
         raise ValueError("OPENAI_API_KEY environment variable not set")
 
-    Settings.llm = OpenAI(temperature=0, model="gpt-4", api_key=api_key)
-    Settings.embed_model = OpenAIEmbedding(api_key=api_key)
+    indexing_model = os.getenv("INDEXING_MODEL", "gpt-4o-mini")
+    embedding_model = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
+
+    Settings.llm = OpenAI(temperature=0, model=indexing_model, api_key=api_key)
+    # OpenAIEmbedding uses 'model_name' parameter, not 'model'
+    Settings.embed_model = OpenAIEmbedding(model_name=embedding_model, api_key=api_key)
 
 
 def create_hierarchical_index(
@@ -46,6 +50,28 @@ def create_hierarchical_index(
     - Medium chunks (400-600 tokens): Balanced reasoning
     - Large chunks (800-1200 tokens): High-level context
     """
+    # Check if collection already exists and has data (before processing documents)
+    chroma_client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
+    try:
+        collection = chroma_client.get_collection(name=collection_name)
+        if collection.count() > 0:
+            print(
+                f"  ✓ Using existing ChromaDB collection: {collection_name} ({collection.count()} vectors)"
+            )
+            vector_store = ChromaVectorStore(chroma_collection=collection)
+            storage_context = StorageContext.from_defaults(vector_store=vector_store)
+            index = VectorStoreIndex([], storage_context=storage_context)
+            print("  ✓ Using existing Hierarchical Index from ChromaDB")
+            return index
+        else:
+            print(
+                f"  Collection {collection_name} exists but is empty, will recreate..."
+            )
+            chroma_client.delete_collection(name=collection_name)
+    except Exception:
+        # Collection doesn't exist, will create it
+        pass
+
     print("  Processing documents with hierarchical structure...")
     processor = HierarchicalDocumentProcessor(llm=Settings.llm)
 
@@ -83,21 +109,9 @@ def create_hierarchical_index(
         }
         json.dump(json_hierarchy, f, indent=2)
 
-    # Initialize ChromaDB client
-    print("  Connecting to ChromaDB...")
-    chroma_client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
-
-    # Get or create collection
-    try:
-        collection = chroma_client.get_collection(name=collection_name)
-        print(f"  Using existing ChromaDB collection: {collection_name}")
-        # Clear existing collection if it exists (optional - remove if you want to append)
-        chroma_client.delete_collection(name=collection_name)
-        collection = chroma_client.create_collection(name=collection_name)
-        print(f"  Cleared and recreated collection: {collection_name}")
-    except Exception:
-        collection = chroma_client.create_collection(name=collection_name)
-        print(f"  Created new ChromaDB collection: {collection_name}")
+    # Create new collection
+    collection = chroma_client.create_collection(name=collection_name)
+    print(f"  Created new ChromaDB collection: {collection_name}")
 
     # Create ChromaVectorStore
     vector_store = ChromaVectorStore(chroma_collection=collection)
@@ -120,6 +134,28 @@ def create_summary_index(
     Uses ChromaDB for storage
     Uses large chunks with hierarchical metadata - summarization happens on-the-fly during queries
     """
+    # Check if collection already exists and has data (before processing documents)
+    chroma_client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
+    try:
+        collection = chroma_client.get_collection(name=collection_name)
+        if collection.count() > 0:
+            print(
+                f"  ✓ Using existing ChromaDB collection: {collection_name} ({collection.count()} vectors)"
+            )
+            vector_store = ChromaVectorStore(chroma_collection=collection)
+            storage_context = StorageContext.from_defaults(vector_store=vector_store)
+            index = SummaryIndex([], storage_context=storage_context)
+            print("  ✓ Using existing Summary Index from ChromaDB")
+            return index
+        else:
+            print(
+                f"  Collection {collection_name} exists but is empty, will recreate..."
+            )
+            chroma_client.delete_collection(name=collection_name)
+    except Exception:
+        # Collection doesn't exist, will create it
+        pass
+
     print("  Processing documents for Summary Index...")
     processor = HierarchicalDocumentProcessor(llm=Settings.llm)
 
@@ -150,21 +186,10 @@ def create_summary_index(
         print("  Warning: No large chunks found, using all chunks for Summary Index")
         large_nodes = nodes
 
-    # Initialize ChromaDB client
+    # Create new collection
     print("  Connecting to ChromaDB...")
-    chroma_client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
-
-    # Get or create collection
-    try:
-        collection = chroma_client.get_collection(name=collection_name)
-        print(f"  Using existing ChromaDB collection: {collection_name}")
-        # Clear existing collection if it exists (optional - remove if you want to append)
-        chroma_client.delete_collection(name=collection_name)
-        collection = chroma_client.create_collection(name=collection_name)
-        print(f"  Cleared and recreated collection: {collection_name}")
-    except Exception:
-        collection = chroma_client.create_collection(name=collection_name)
-        print(f"  Created new ChromaDB collection: {collection_name}")
+    collection = chroma_client.create_collection(name=collection_name)
+    print(f"  Created new ChromaDB collection: {collection_name}")
 
     # Create ChromaVectorStore
     vector_store = ChromaVectorStore(chroma_collection=collection)

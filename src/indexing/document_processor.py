@@ -4,6 +4,7 @@ Implements Claim → Document → Section → Chunk hierarchy with metadata extr
 """
 
 import re
+import os
 from typing import List, Dict, Tuple, Optional
 from datetime import datetime
 from llama_index.core.schema import Document, TextNode
@@ -14,6 +15,9 @@ from llama_index.core import Settings
 from pydantic import BaseModel, Field
 import tiktoken
 import json
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class ClaimMetadata(BaseModel):
@@ -48,7 +52,12 @@ class HierarchicalDocumentProcessor:
 
     def __init__(self, llm: Optional[LLM] = None):
         self.encoding = tiktoken.get_encoding("cl100k_base")
-        self.llm = llm or Settings.llm or OpenAI(temperature=0, model="gpt-4")
+        if llm is None:
+            llm = Settings.llm
+        if llm is None:
+            metadata_model = os.getenv("METADATA_EXTRACTION_MODEL", "gpt-4o-mini")
+            llm = OpenAI(temperature=0, model=metadata_model)
+        self.llm = llm
 
     def extract_metadata_from_text(self, text: str, filename: str) -> Dict:
         """
