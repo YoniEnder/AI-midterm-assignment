@@ -67,6 +67,9 @@ def demonstrate_routing():
         "What happened overall in the auto collision claims and what are the specific claim IDs?",  # Mixed query
     ]
 
+    # Limit to first 10 queries
+    test_queries = test_queries[:10]
+
     for i, query in enumerate(test_queries, 1):
         print(f"\n{'=' * 80}")
         print(f"Query {i}: {query}")

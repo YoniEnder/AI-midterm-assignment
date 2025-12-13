@@ -103,16 +103,26 @@ Return the extracted metadata in the structured format."""
 
         try:
             # Try to use structured output if available (OpenAI models support this)
+            # Note: structured_predict may have issues with string prompts in some versions
+            # So we'll try it but fall back gracefully to JSON mode
             if hasattr(self.llm, "structured_predict"):
-                # Use LlamaIndex's structured output
-                response = self.llm.structured_predict(
-                    output_cls=ClaimMetadata, prompt=prompt
-                )
-                metadata = (
-                    response.model_dump()
-                    if hasattr(response, "model_dump")
-                    else response.dict()
-                )
+                try:
+                    response = self.llm.structured_predict(
+                        output_cls=ClaimMetadata, prompt=prompt
+                    )
+                    metadata = (
+                        response.model_dump()
+                        if hasattr(response, "model_dump")
+                        else response.dict()
+                    )
+                except (AttributeError, TypeError) as e:
+                    # Handle specific error about format_messages or other attribute errors
+                    # This happens when structured_predict expects a different format
+                    # Fall back to JSON mode silently
+                    if "format_messages" in str(e) or "'str' object has no attribute" in str(e):
+                        metadata = self._extract_with_json_mode(prompt)
+                    else:
+                        raise
             else:
                 # Fallback to JSON mode parsing (works with all LLMs)
                 metadata = self._extract_with_json_mode(prompt)
@@ -121,8 +131,10 @@ Return the extracted metadata in the structured format."""
             return metadata
 
         except Exception as e:
-            print(f"    Warning: LLM metadata extraction failed for {filename}: {e}")
-            print("    Falling back to basic metadata extraction")
+            # Only print warning for unexpected errors (not the format_messages issue)
+            if "format_messages" not in str(e):
+                print(f"    Warning: LLM metadata extraction failed for {filename}: {e}")
+                print("    Falling back to basic metadata extraction")
             # Fallback to basic extraction
             return self._extract_metadata_fallback(text, filename)
 

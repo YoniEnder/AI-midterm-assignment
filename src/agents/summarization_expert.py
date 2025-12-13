@@ -8,7 +8,7 @@ Can use DateParserTool MCP for date parsing
 from typing import Optional
 import re
 import os
-from llama_index.core import SummaryIndex
+from llama_index.core import SummaryIndex, VectorStoreIndex
 from llama_index.core.prompts import PromptTemplate
 from llama_index.llms.openai import OpenAI
 from dotenv import load_dotenv
@@ -36,7 +36,7 @@ class SummarizationExpertAgent:
 
     def __init__(
         self,
-        summary_index: SummaryIndex,
+        summary_index: VectorStoreIndex,
         date_parser_tool: Optional[DateParserTool] = None,
     ):
         self.index = summary_index

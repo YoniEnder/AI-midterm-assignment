@@ -6,7 +6,6 @@ Implements hierarchical structure: Claim → Document → Section → Chunk
 
 from llama_index.core import (
     VectorStoreIndex,
-    SummaryIndex,
     SimpleDirectoryReader,
     Settings,
     StorageContext,
@@ -21,8 +20,28 @@ import os
 import json
 from pathlib import Path
 
-# ChromaDB configuration
-CHROMA_DB_PATH = "./chroma_db"
+# ChromaDB configuration - use absolute path for persistence
+# Get project root (two levels up from this file: src/indexing/index_setup.py)
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+CHROMA_DB_PATH = str(PROJECT_ROOT / "chroma_db")
+
+# Ensure the directory exists
+Path(CHROMA_DB_PATH).mkdir(parents=True, exist_ok=True)
+
+# Centralized ChromaDB client for persistence across sessions
+_chroma_client = None
+
+
+def get_chroma_client():
+    """
+    Get or create a persistent ChromaDB client.
+    This ensures the same client is reused across all operations,
+    maintaining persistence between sessions.
+    """
+    global _chroma_client
+    if _chroma_client is None:
+        _chroma_client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
+    return _chroma_client
 
 
 def setup_llm_settings():
@@ -51,12 +70,13 @@ def create_hierarchical_index(
     - Large chunks (800-1200 tokens): High-level context
     """
     # Check if collection already exists and has data (before processing documents)
-    chroma_client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
+    chroma_client = get_chroma_client()
     try:
         collection = chroma_client.get_collection(name=collection_name)
-        if collection.count() > 0:
+        count = collection.count()
+        if count > 0:
             print(
-                f"  ✓ Using existing ChromaDB collection: {collection_name} ({collection.count()} vectors)"
+                f"  ✓ Using existing ChromaDB collection: {collection_name} ({count} vectors)"
             )
             vector_store = ChromaVectorStore(chroma_collection=collection)
             storage_context = StorageContext.from_defaults(vector_store=vector_store)
@@ -128,23 +148,25 @@ def create_hierarchical_index(
 
 def create_summary_index(
     documents: list[Document], collection_name: str = "summary_index"
-) -> SummaryIndex:
+) -> VectorStoreIndex:
     """
-    Create a SummaryIndex using LlamaIndex's built-in summarization
-    Uses ChromaDB for storage
+    Create a VectorStoreIndex for summary queries (uses tree_summarize mode)
+    Uses ChromaDB for storage with proper persistence
     Uses large chunks with hierarchical metadata - summarization happens on-the-fly during queries
+    Note: Using VectorStoreIndex instead of SummaryIndex for better ChromaDB persistence
     """
     # Check if collection already exists and has data (before processing documents)
-    chroma_client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
+    chroma_client = get_chroma_client()
     try:
         collection = chroma_client.get_collection(name=collection_name)
-        if collection.count() > 0:
+        count = collection.count()
+        if count > 0:
             print(
-                f"  ✓ Using existing ChromaDB collection: {collection_name} ({collection.count()} vectors)"
+                f"  ✓ Using existing ChromaDB collection: {collection_name} ({count} vectors)"
             )
             vector_store = ChromaVectorStore(chroma_collection=collection)
             storage_context = StorageContext.from_defaults(vector_store=vector_store)
-            index = SummaryIndex([], storage_context=storage_context)
+            index = VectorStoreIndex([], storage_context=storage_context)
             print("  ✓ Using existing Summary Index from ChromaDB")
             return index
         else:
@@ -194,17 +216,19 @@ def create_summary_index(
     # Create ChromaVectorStore
     vector_store = ChromaVectorStore(chroma_collection=collection)
 
-    # Create Summary Index with large chunks
-    # LlamaIndex's SummaryIndex will handle summarization automatically when queried
-    # using tree_summarize response mode - no upfront API calls needed!
-    print("\n  Creating Summary Index with LlamaIndex's built-in summarization...")
+    # Create VectorStoreIndex with large chunks
+    # Note: Using VectorStoreIndex for proper ChromaDB persistence
+    # The query engine will use tree_summarize mode for summarization
+    print("\n  Creating Summary Index with ChromaDB storage...")
     print(
-        "    Note: Summarization happens on-the-fly during queries (no upfront API calls)"
+        "    Note: Summarization happens on-the-fly during queries using tree_summarize mode"
     )
     storage_context = StorageContext.from_defaults(vector_store=vector_store)
-    index = SummaryIndex(large_nodes, storage_context=storage_context)
+    index = VectorStoreIndex(large_nodes, storage_context=storage_context)
 
-    print("  ✓ Summary Index created and stored in ChromaDB")
+    # Verify that data was persisted to ChromaDB
+    final_count = collection.count()
+    print(f"  ✓ Summary Index created and stored in ChromaDB ({final_count} vectors)")
     print(
         "    Summarization will be handled automatically by LlamaIndex during queries"
     )
@@ -214,7 +238,7 @@ def create_summary_index(
 
 def load_or_create_indexes(
     data_path: str = "./data",
-) -> tuple[SummaryIndex, VectorStoreIndex]:
+) -> tuple[VectorStoreIndex, VectorStoreIndex]:
     """
     Load existing indexes from ChromaDB or create new ones from documents
     Returns: (summary_index, hierarchical_index)
@@ -225,86 +249,112 @@ def load_or_create_indexes(
     hierarchical_collection_name = "hierarchical_index"
 
     # Try to load existing indexes from ChromaDB
+    chroma_client = get_chroma_client()
+
+    summary_index = None
+    hierarchical_index = None
+    need_documents = False
+
+    # Check Summary Index
     try:
-        chroma_client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
-
-        # Check if collections exist and have data
-        try:
-            summary_collection = chroma_client.get_collection(
-                name=summary_collection_name
-            )
-            hierarchical_collection = chroma_client.get_collection(
-                name=hierarchical_collection_name
-            )
-
-            # Check if collections have data
-            if summary_collection.count() == 0 or hierarchical_collection.count() == 0:
-                raise ValueError("Collections exist but are empty")
-
-            # Create vector stores from existing collections
+        summary_collection = chroma_client.get_collection(name=summary_collection_name)
+        summary_count = summary_collection.count()
+        if summary_count > 0:
+            print(f"✓ Found existing Summary Index with {summary_count} vectors")
             summary_vector_store = ChromaVectorStore(
                 chroma_collection=summary_collection
+            )
+            summary_storage_context = StorageContext.from_defaults(
+                vector_store=summary_vector_store
+            )
+            summary_index = VectorStoreIndex(
+                [], storage_context=summary_storage_context
+            )
+        else:
+            print(
+                f"Summary Index exists but is empty ({summary_count} vectors), will recreate"
+            )
+            need_documents = True
+            try:
+                chroma_client.delete_collection(name=summary_collection_name)
+            except Exception:
+                pass
+    except Exception:
+        print("Summary Index doesn't exist, will create")
+        need_documents = True
+
+    # Check Hierarchical Index
+    try:
+        hierarchical_collection = chroma_client.get_collection(
+            name=hierarchical_collection_name
+        )
+        hierarchical_count = hierarchical_collection.count()
+        if hierarchical_count > 0:
+            print(
+                f"✓ Found existing Hierarchical Index with {hierarchical_count} vectors"
             )
             hierarchical_vector_store = ChromaVectorStore(
                 chroma_collection=hierarchical_collection
             )
-
-            # Create storage contexts
-            summary_storage_context = StorageContext.from_defaults(
-                vector_store=summary_vector_store
-            )
             hierarchical_storage_context = StorageContext.from_defaults(
                 vector_store=hierarchical_vector_store
             )
-
-            # Reconstruct indexes from ChromaDB
-            summary_index = SummaryIndex([], storage_context=summary_storage_context)
             hierarchical_index = VectorStoreIndex(
                 [], storage_context=hierarchical_storage_context
             )
+        else:
+            print(
+                f"Hierarchical Index exists but is empty ({hierarchical_count} vectors), will recreate"
+            )
+            need_documents = True
+            try:
+                chroma_client.delete_collection(name=hierarchical_collection_name)
+            except Exception:
+                pass
+    except Exception:
+        print("Hierarchical Index doesn't exist, will create")
+        need_documents = True
 
-            print("✓ Loaded existing indexes from ChromaDB")
-            print(f"  Summary Index: {summary_collection.count()} vectors")
-            print(f"  Hierarchical Index: {hierarchical_collection.count()} vectors")
-            return summary_index, hierarchical_index
-        except ValueError as e:
-            print(f"Collections don't exist or are empty: {e}")
-            raise
-        except Exception as e:
-            print(f"Error loading collections: {e}")
-            raise
+    # If both indexes exist and have data, return them
+    if summary_index is not None and hierarchical_index is not None:
+        print("\n✓ Loaded both existing indexes from ChromaDB")
+        return summary_index, hierarchical_index
 
-    except Exception as e:
-        print(f"Could not load existing indexes from ChromaDB: {e}")
-        print("Creating new indexes from documents...")
+    # If we need to create any indexes, load documents
+    if need_documents:
+        print("\nLoading documents...")
+        reader = SimpleDirectoryReader(data_path, recursive=True)
+        documents = reader.load_data()
 
-    # Load documents
-    reader = SimpleDirectoryReader(data_path, recursive=True)
-    documents = reader.load_data()
+        if not documents:
+            raise ValueError(f"No documents found in {data_path}")
 
-    if not documents:
-        raise ValueError(f"No documents found in {data_path}")
+        print(f"Loaded {len(documents)} documents")
 
-    print(f"Loaded {len(documents)} documents")
+    # Create missing indexes
+    if summary_index is None:
+        print("\n" + "=" * 80)
+        print("Creating Summary Index with ChromaDB storage...")
+        print("=" * 80)
+        summary_index = create_summary_index(documents, summary_collection_name)
+        print("=" * 80)
+        print("✓ Summary Index created and stored in ChromaDB")
+    else:
+        print("\n✓ Using existing Summary Index (skipping creation)")
 
-    # Create indexes
+    if hierarchical_index is None:
+        print("\n" + "=" * 80)
+        print("Creating Hierarchical Index with ChromaDB storage...")
+        print("=" * 80)
+        hierarchical_index = create_hierarchical_index(
+            documents, hierarchical_collection_name
+        )
+        print("=" * 80)
+        print("✓ Hierarchical Index created and stored in ChromaDB")
+    else:
+        print("\n✓ Using existing Hierarchical Index (skipping creation)")
+
     print("\n" + "=" * 80)
-    print("Creating Summary Index with ChromaDB storage...")
-    print("=" * 80)
-    summary_index = create_summary_index(documents, summary_collection_name)
-    print("=" * 80)
-    print("✓ Summary Index created and stored in ChromaDB")
-
-    print("\n" + "=" * 80)
-    print("Creating Hierarchical Index with ChromaDB storage...")
-    print("=" * 80)
-    hierarchical_index = create_hierarchical_index(
-        documents, hierarchical_collection_name
-    )
-    print("=" * 80)
-    print("✓ Hierarchical Index created and stored in ChromaDB")
-
-    print("\n" + "=" * 80)
-    print("✓ All indexes created and stored in ChromaDB successfully")
+    print("✓ All indexes ready")
     print("=" * 80)
     return summary_index, hierarchical_index

@@ -30,7 +30,7 @@ class MultiAgentSystem:
     """
 
     def __init__(
-        self, summary_index: SummaryIndex, hierarchical_index: VectorStoreIndex
+        self, summary_index: VectorStoreIndex, hierarchical_index: VectorStoreIndex
     ):
         self.manager = ManagerRouterAgent(summary_index, hierarchical_index)
 
