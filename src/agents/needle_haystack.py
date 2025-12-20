@@ -180,7 +180,7 @@ If you find information in draft notes, call logs, or internal memos, explicitly
 
         return " ".join(expanded_terms)
 
-    def answer(self, query: str) -> str:
+    def answer(self, query: str, return_chunks: bool = False) -> str | dict:
         """Answer precise factual queries using the Hierarchical Index with multi-size chunks"""
         # Check if this needs date parsing
         if self.date_parser_tool and self._needs_date_parsing(query):
@@ -222,7 +222,10 @@ If you find information in draft notes, call logs, or internal memos, explicitly
                                 f"{time_diff['difference_hours']} hours)"
                             )
 
-                    return f"Based on date parsing:\n\n" + "\n".join(date_info)
+                    answer = f"Based on date parsing:\n\n" + "\n".join(date_info)
+                    if return_chunks:
+                        return {"answer": answer, "chunks": []}
+                    return answer
 
             except Exception as e:
                 print(
@@ -234,6 +237,24 @@ If you find information in draft notes, call logs, or internal memos, explicitly
 
         # Create enhanced prompt with expanded query
         formatted_prompt = self.precise_prompt.format(query=query)
+
+        # Get retrieval results with scores if needed
+        if return_chunks:
+            retriever = self.index.as_retriever(similarity_top_k=30)
+            retrieved_nodes = retriever.retrieve(query)
+            
+            # Get top 3 chunks with scores
+            top_chunks = []
+            for i, node in enumerate(retrieved_nodes[:3]):
+                score = node.score if hasattr(node, 'score') else getattr(node, 'score', 0.0)
+                chunk_text = node.text[:300] + "..." if len(node.text) > 300 else node.text
+                metadata = node.metadata if hasattr(node, 'metadata') else {}
+                top_chunks.append({
+                    "rank": i + 1,
+                    "score": float(score) if score else 0.0,
+                    "text": chunk_text,
+                    "metadata": metadata
+                })
 
         # Try primary query
         response = self.query_engine.query(formatted_prompt)
@@ -263,7 +284,7 @@ If you find information in draft notes, call logs, or internal memos, explicitly
             if len(fallback_answer) > len(answer) * 1.2 or not any(
                 phrase in fallback_answer.lower() for phrase in incomplete_phrases
             ):
-                return fallback_answer
+                answer = fallback_answer
 
         # Additional fallback: For queries asking about specific values or yes/no, try direct retrieval
         if any(
@@ -287,6 +308,8 @@ If you find information in draft notes, call logs, or internal memos, explicitly
             if len(direct_answer) > len(answer) * 1.1 and not any(
                 phrase in direct_answer.lower() for phrase in incomplete_phrases
             ):
-                return direct_answer
+                answer = direct_answer
 
+        if return_chunks:
+            return {"answer": answer, "chunks": top_chunks}
         return answer

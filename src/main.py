@@ -12,7 +12,9 @@ sys.path.insert(0, str(parent_dir))
 
 from src.agents import MultiAgentSystem
 from src.indexing import load_or_create_indexes
+from src.evaluation.evaluator import SystemEvaluator
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
 
@@ -106,6 +108,14 @@ def interactive_mode():
     print("System ready!")
     print("✓ DateParserTool MCP integrated")
     print()
+
+    # Initialize evaluator
+    judge_model = os.getenv("JUDGE_MODEL", "gpt-4o-mini")
+    print(f"Initializing Evaluator (Judge: {judge_model})...")
+    evaluator = SystemEvaluator(judge_model=judge_model)
+    print("✓ Evaluator initialized")
+    print()
+
     print("=" * 80)
     print("Enter your queries (type 'exit' to quit)")
     print("Try date parsing queries like:")
@@ -126,17 +136,81 @@ def interactive_mode():
             continue
 
         try:
-            result = system.query(query)
+            result = system.query(query, return_chunks=True)
 
             print(f"\n📊 Routing Decision: {result['route']}")
             print(f"🤖 Agent Used: {result['agent_used']}")
             print(f"📚 Index Used: {result['index_used']}")
             if result.get("date_parser_tool_used", False):
                 print(f"🔧 Date Parser Tool Used: Yes (DateParserTool MCP)")
+
+            # Display top 3 chunks with scores
+            chunks = result.get("chunks", [])
+            if chunks:
+                print("\n📄 Top 3 Most Relevant Chunks:")
+                print("-" * 80)
+                for chunk in chunks:
+                    score = chunk.get("score", 0.0)
+                    rank = chunk.get("rank", 0)
+                    text = chunk.get("text", "")
+                    metadata = chunk.get("metadata", {})
+
+                    print(f"\n  Rank {rank} | Relevance Score: {score:.4f}")
+                    if metadata:
+                        metadata_str = ", ".join(
+                            [f"{k}: {v}" for k, v in list(metadata.items())[:3]]
+                        )
+                        if metadata_str:
+                            print(f"  Metadata: {metadata_str}")
+                    print(f"  Text: {text}")
+                print("-" * 80)
+            else:
+                print("\n📄 No chunks retrieved (date parsing mode)")
+
             print("\n💬 Answer:")
             print(result["answer"])
+
+            # Run evaluation
+            print("\n" + "=" * 80)
+            print("📊 Evaluation (LLM-as-a-Judge)")
+            print("=" * 80)
+            try:
+                # Evaluate relevancy (doesn't require ground truth)
+                expected_index = (
+                    "Summary Index"
+                    if result["route"] == "HIGH_LEVEL"
+                    else "Hierarchical Index"
+                )
+                expected_context = f"Information relevant to: {query}"
+
+                relevancy = evaluator.evaluate_relevancy(
+                    query=query,
+                    answer=result["answer"],
+                    expected_index=expected_index,
+                    actual_index=result["index_used"],
+                    expected_context=expected_context,
+                )
+
+                print(f"\n✓ Relevancy Score: {relevancy.get('score', 0.0):.2f}/1.0")
+                print(
+                    f"  Correct Index: {'✓' if relevancy.get('correct_index', False) else '✗'}"
+                )
+                print(
+                    f"  Relevant Context: {'✓' if relevancy.get('relevant_context', False) else '✗'}"
+                )
+                reasoning = relevancy.get("reasoning", "N/A")
+                if len(reasoning) > 250:
+                    reasoning = reasoning[:250] + "..."
+                print(f"  Reasoning: {reasoning}")
+
+            except Exception as e:
+                print(f"⚠️  Evaluation error: {e}")
+
         except Exception as e:
             print(f"\n❌ Error: {e}")
+            import traceback
+
+            traceback.print_exc()
 
 
 def main():

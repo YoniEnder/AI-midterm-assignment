@@ -91,7 +91,7 @@ Provide a comprehensive, well-structured response that covers all relevant infor
         query_lower = query.lower()
         return any(keyword in query_lower for keyword in DATE_PARSING_KEYWORDS)
 
-    def answer(self, query: str) -> str:
+    def answer(self, query: str, return_chunks: bool = False) -> str | dict:
         """Answer high-level questions using the Summary Index with LlamaIndex's built-in summarization"""
         # Check if this needs date parsing
         if self.date_parser_tool and self._needs_date_parsing(query):
@@ -123,7 +123,10 @@ Provide a comprehensive, well-structured response that covers all relevant infor
                                 f"{time_diff['difference_hours']} hours)"
                             )
 
-                    return f"Based on date parsing:\n\n" + "\n".join(date_info)
+                    answer = f"Based on date parsing:\n\n" + "\n".join(date_info)
+                    if return_chunks:
+                        return {"answer": answer, "chunks": []}
+                    return answer
 
             except Exception as e:
                 print(
@@ -132,6 +135,36 @@ Provide a comprehensive, well-structured response that covers all relevant infor
 
         formatted_prompt = self.summarization_prompt.format(query=query)
 
-        # Query the summary index - LlamaIndex handles summarization automatically via tree_summarize
-        response = self.query_engine.query(formatted_prompt)
-        return str(response)
+        # Get retrieval results with scores
+        if return_chunks:
+            retriever = self.index.as_retriever(similarity_top_k=15)
+            retrieved_nodes = retriever.retrieve(query)
+
+            # Get top 3 chunks with scores
+            top_chunks = []
+            for i, node in enumerate(retrieved_nodes[:3]):
+                score = (
+                    node.score
+                    if hasattr(node, "score")
+                    else getattr(node, "score", 0.0)
+                )
+                chunk_text = (
+                    node.text[:300] + "..." if len(node.text) > 300 else node.text
+                )
+                metadata = node.metadata if hasattr(node, "metadata") else {}
+                top_chunks.append(
+                    {
+                        "rank": i + 1,
+                        "score": float(score) if score else 0.0,
+                        "text": chunk_text,
+                        "metadata": metadata,
+                    }
+                )
+
+            # Query the summary index - LlamaIndex handles summarization automatically via tree_summarize
+            response = self.query_engine.query(formatted_prompt)
+            return {"answer": str(response), "chunks": top_chunks}
+        else:
+            # Query the summary index - LlamaIndex handles summarization automatically via tree_summarize
+            response = self.query_engine.query(formatted_prompt)
+            return str(response)

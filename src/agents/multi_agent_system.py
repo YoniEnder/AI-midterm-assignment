@@ -45,7 +45,7 @@ class MultiAgentSystem:
             hierarchical_index, date_parser_tool=self.date_parser_tool
         )
 
-    def query(self, user_query: str) -> dict:
+    def query(self, user_query: str, return_chunks: bool = False) -> dict:
         """
         Main entry point for queries
         Returns a dictionary with routing decision and answer
@@ -57,12 +57,20 @@ class MultiAgentSystem:
         index_type = "Summary Index" if route == "HIGH_LEVEL" else "Hierarchical Index"
 
         # Step 3: Route to appropriate agent
+        chunks = []
         if route == "HIGH_LEVEL":
-            answer = self.summarization_agent.answer(user_query)
+            result = self.summarization_agent.answer(user_query, return_chunks=return_chunks)
             agent_used = "Summarization Expert Agent"
         else:
-            answer = self.needle_agent.answer(user_query)
+            result = self.needle_agent.answer(user_query, return_chunks=return_chunks)
             agent_used = "Needle-in-a-Haystack Agent"
+
+        # Extract answer and chunks from result
+        if return_chunks and isinstance(result, dict):
+            answer = result["answer"]
+            chunks = result.get("chunks", [])
+        else:
+            answer = result if isinstance(result, str) else result.get("answer", "")
 
         # Check if date parser tool was used
         date_parser_tool_used = False
@@ -79,4 +87,5 @@ class MultiAgentSystem:
             "agent_used": agent_used,
             "date_parser_tool_used": date_parser_tool_used,
             "answer": answer,
+            "chunks": chunks if return_chunks else [],
         }
