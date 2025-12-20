@@ -262,15 +262,15 @@ If you find information in draft notes, call logs, or internal memos, explicitly
 
         # Fallback: If answer seems incomplete or says "not available", try expanded query
         incomplete_phrases = [
-            "not available",
-            "cannot find",
-            "no information",
-            "unable to",
+                "not available",
+                "cannot find",
+                "no information",
+                "unable to",
             "no mention",
             "does not mention",
             "not found",
             "unclear",
-        ]
+            ]
 
         if any(phrase in answer.lower() for phrase in incomplete_phrases):
             # Try with expanded query

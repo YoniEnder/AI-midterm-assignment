@@ -147,7 +147,12 @@ def interactive_mode():
             # Display top 3 chunks with scores
             chunks = result.get("chunks", [])
             if chunks:
-                print("\n📄 Top 3 Most Relevant Chunks:")
+                # Clarify what type of chunks are being shown
+                if result["route"] == "HIGH_LEVEL":
+                    print("\n📄 Top 3 Most Relevant Summary Chunks:")
+                    print("   Note: These are pre-computed document summaries")
+                else:
+                    print("\n📄 Top 3 Most Relevant Chunks:")
                 print("-" * 80)
                 for chunk in chunks:
                     score = chunk.get("score", 0.0)

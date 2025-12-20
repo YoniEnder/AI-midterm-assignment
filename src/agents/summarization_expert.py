@@ -45,11 +45,12 @@ class SummarizationExpertAgent:
         self.date_parser_tool = date_parser_tool
 
         # Create query engine using LlamaIndex's built-in tree_summarize
-        # This automatically handles summarization on-the-fly using the hierarchical structure
+        # The Summary Index contains pre-computed summary chunks, which will be further
+        # synthesized using tree_summarize for comprehensive answers
         self.query_engine = self.index.as_query_engine(
             llm=self.llm,
-            response_mode="tree_summarize",  # LlamaIndex's built-in hierarchical summarization
-            similarity_top_k=15,  # Increased to retrieve more chunks for comprehensive summarization
+            response_mode="tree_summarize",  # Synthesize multiple pre-computed summary chunks
+            similarity_top_k=15,  # Retrieve multiple summary chunks for comprehensive synthesis
         )
 
         # Define summarization prompt as a function
@@ -60,13 +61,13 @@ class SummarizationExpertAgent:
         return PromptTemplate(
             """You are a Summarization Expert Agent specializing in high-level analysis.
 
-The Summary Index uses LlamaIndex's built-in tree_summarize with hierarchical structure:
-- Large chunks organized by Claim → Document → Section hierarchy
+The Summary Index contains pre-computed summary chunks organized by Claim → Document → Section hierarchy:
+- Each chunk is a pre-computed summary of a document or section
 - Metadata includes: claim_id, document_type, section, timestamp_range
-- Summarization happens automatically using the hierarchical structure
+- Multiple summary chunks will be synthesized using tree_summarize for comprehensive answers
 
 Your role is to:
-- Provide comprehensive overviews and summaries using the hierarchical structure
+- Provide comprehensive overviews by synthesizing multiple pre-computed summary chunks
 - Include ALL claim types mentioned in the dataset (Auto, Health, Property, Travel, Life Insurance)
 - Mention discrepancies between draft notes and final reports when relevant
 - Explain timelines and sequences of events
@@ -78,11 +79,11 @@ Your role is to:
 
 Use the Summary Index to answer the following query. 
 Focus on high-level insights rather than specific details.
-The tree_summarize response mode will automatically summarize relevant chunks hierarchically.
+The tree_summarize response mode will synthesize multiple pre-computed summary chunks.
 
 Query: {query}
 
-Provide a comprehensive, well-structured response that covers all relevant information from the hierarchical structure.
+Provide a comprehensive, well-structured response that covers all relevant information from the summary chunks.
 """
         )
 
@@ -161,10 +162,10 @@ Provide a comprehensive, well-structured response that covers all relevant infor
                     }
                 )
 
-            # Query the summary index - LlamaIndex handles summarization automatically via tree_summarize
+            # Query the summary index - synthesizes pre-computed summary chunks via tree_summarize
             response = self.query_engine.query(formatted_prompt)
             return {"answer": str(response), "chunks": top_chunks}
         else:
-            # Query the summary index - LlamaIndex handles summarization automatically via tree_summarize
+            # Query the summary index - synthesizes pre-computed summary chunks via tree_summarize
             response = self.query_engine.query(formatted_prompt)
             return str(response)

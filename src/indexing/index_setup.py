@@ -10,7 +10,7 @@ from llama_index.core import (
     Settings,
     StorageContext,
 )
-from llama_index.core.schema import Document
+from llama_index.core.schema import Document, TextNode
 from llama_index.llms.openai import OpenAI
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.vector_stores.chroma import ChromaVectorStore
@@ -146,14 +146,55 @@ def create_hierarchical_index(
     return index
 
 
+def _generate_summary_for_chunks(chunks: list[TextNode], llm) -> str:
+    """
+    Generate a summary for a group of chunks using LLM
+    """
+    # Combine all chunk texts
+    combined_text = "\n\n".join([chunk.text for chunk in chunks])
+
+    # Get metadata from first chunk (they should all have similar metadata)
+    metadata = chunks[0].metadata if chunks else {}
+    claim_id = metadata.get("claim_id", "Unknown")
+    doc_type = metadata.get("document_type", "Unknown")
+    section = metadata.get("section", "Unknown")
+
+    prompt = f"""Summarize the following insurance claim document content. 
+Focus on key decisions, outcomes, timeline, and important details.
+
+Claim ID: {claim_id}
+Document Type: {doc_type}
+Section: {section}
+
+Document Content:
+{combined_text}
+
+Provide a comprehensive summary that captures:
+- Key decisions and outcomes
+- Important timeline information
+- Significant details and entities
+- Any discrepancies or notable patterns
+
+Summary:"""
+
+    try:
+        response = llm.complete(prompt)
+        return response.text.strip()
+    except Exception as e:
+        print(f"    Warning: Summary generation failed: {e}")
+        # Fallback: return first 500 chars of combined text
+        return (
+            combined_text[:500] + "..." if len(combined_text) > 500 else combined_text
+        )
+
+
 def create_summary_index(
     documents: list[Document], collection_name: str = "summary_index"
 ) -> VectorStoreIndex:
     """
-    Create a VectorStoreIndex for summary queries (uses tree_summarize mode)
+    Create a VectorStoreIndex with pre-computed summary chunks
     Uses ChromaDB for storage with proper persistence
-    Uses large chunks with hierarchical metadata - summarization happens on-the-fly during queries
-    Note: Using VectorStoreIndex instead of SummaryIndex for better ChromaDB persistence
+    Generates summaries during indexing for better query performance
     """
     # Check if collection already exists and has data (before processing documents)
     chroma_client = get_chroma_client()
@@ -196,7 +237,7 @@ def create_summary_index(
     # Small/medium chunks are used in Hierarchical Index for precise queries
     large_nodes = [n for n in nodes if n.metadata.get("chunk_size") == "large"]
 
-    print(f"  Using {len(large_nodes)} large chunks for Summary Index")
+    print(f"  Using {len(large_nodes)} large chunks to generate summaries")
     print("    (Small/medium chunks are in Hierarchical Index for precise queries)")
     print(
         f"  Hierarchy: {len(hierarchy_info['claims'])} claims, "
@@ -208,6 +249,42 @@ def create_summary_index(
         print("  Warning: No large chunks found, using all chunks for Summary Index")
         large_nodes = nodes
 
+    # Group chunks by document (filename) to create summaries per document
+    # This ensures each document gets a summary chunk
+    chunks_by_document = {}
+    for node in large_nodes:
+        filename = node.metadata.get("filename", "unknown")
+        if filename not in chunks_by_document:
+            chunks_by_document[filename] = []
+        chunks_by_document[filename].append(node)
+
+    print(
+        f"\n  Generating pre-computed summaries for {len(chunks_by_document)} documents..."
+    )
+
+    # Use a summarization model (can be different from indexing model)
+    summarization_model = os.getenv("SUMMARIZATION_MODEL", "gpt-4o-mini")
+    api_key = os.getenv("OPENAI_API_KEY")
+    summary_llm = OpenAI(temperature=0.3, model=summarization_model, api_key=api_key)
+
+    summary_nodes = []
+    for i, (filename, doc_chunks) in enumerate(chunks_by_document.items(), 1):
+        print(f"    Generating summary {i}/{len(chunks_by_document)}: {filename}...")
+
+        # Generate summary for this document's chunks
+        summary_text = _generate_summary_for_chunks(doc_chunks, summary_llm)
+
+        # Create a summary node with metadata from the original chunks
+        # Use metadata from the first chunk (they should all be from the same document)
+        base_metadata = doc_chunks[0].metadata.copy()
+        base_metadata["is_summary"] = True
+        base_metadata["source_chunks"] = len(doc_chunks)
+
+        summary_node = TextNode(text=summary_text, metadata=base_metadata)
+        summary_nodes.append(summary_node)
+
+    print(f"  Generated {len(summary_nodes)} pre-computed summary chunks")
+
     # Create new collection
     print("  Connecting to ChromaDB...")
     collection = chroma_client.create_collection(name=collection_name)
@@ -216,22 +293,17 @@ def create_summary_index(
     # Create ChromaVectorStore
     vector_store = ChromaVectorStore(chroma_collection=collection)
 
-    # Create VectorStoreIndex with large chunks
-    # Note: Using VectorStoreIndex for proper ChromaDB persistence
-    # The query engine will use tree_summarize mode for summarization
-    print("\n  Creating Summary Index with ChromaDB storage...")
-    print(
-        "    Note: Summarization happens on-the-fly during queries using tree_summarize mode"
-    )
+    # Create VectorStoreIndex with pre-computed summary chunks
+    print("\n  Creating Summary Index with pre-computed summaries in ChromaDB...")
     storage_context = StorageContext.from_defaults(vector_store=vector_store)
-    index = VectorStoreIndex(large_nodes, storage_context=storage_context)
+    index = VectorStoreIndex(summary_nodes, storage_context=storage_context)
 
     # Verify that data was persisted to ChromaDB
     final_count = collection.count()
-    print(f"  ✓ Summary Index created and stored in ChromaDB ({final_count} vectors)")
     print(
-        "    Summarization will be handled automatically by LlamaIndex during queries"
+        f"  ✓ Summary Index created and stored in ChromaDB ({final_count} summary chunks)"
     )
+    print("    Summaries are pre-computed and ready for querying")
 
     return index
 
