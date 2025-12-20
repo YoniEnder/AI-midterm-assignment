@@ -7,6 +7,7 @@ DATE_PARSING_KEYWORDS = [
     "date",
     "when",
     "timestamp",
+    "time",
     "format",
     "parse date",
     "what date",

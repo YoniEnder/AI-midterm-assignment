@@ -125,6 +125,7 @@ def run_evaluation():
                         "date_parser_tool_used": system_result.get(
                             "date_parser_tool_used", False
                         ),
+                        "answer": answer,
                     },
                     "evaluation": evaluation,
                 }
