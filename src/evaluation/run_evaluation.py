@@ -3,11 +3,11 @@ Run System Evaluation
 Executes test suite and evaluates system performance using LLM-as-a-judge
 """
 
-import sys
-from pathlib import Path
 import json
-from datetime import datetime
 import re
+import sys
+from datetime import datetime
+from pathlib import Path
 
 # Add project root directory to path
 # __file__ is src/evaluation/run_evaluation.py
@@ -15,15 +15,29 @@ import re
 project_root = Path(__file__).parent.parent.parent.resolve()
 sys.path.insert(0, str(project_root))
 
-from src.agents import MultiAgentSystem
-from src.indexing import load_or_create_indexes
-from src.evaluation.evaluator import SystemEvaluator
-from src.evaluation.evaluation_suite import get_test_cases
-from src.evaluation.regex_suite import get_regex_test_cases
-from src.evaluation.human_grader_suite import get_human_grader_test_cases
 from dotenv import load_dotenv
 
+from src.agents import MultiAgentSystem
+from src.evaluation.evaluation_suite import get_test_cases
+from src.evaluation.evaluator import SystemEvaluator
+from src.evaluation.human_grader_suite import get_human_grader_test_cases
+from src.evaluation.regex_suite import get_regex_test_cases
+from src.indexing import load_or_create_indexes
+
 load_dotenv()
+
+
+def _format_usage(usage: dict | None) -> str:
+    if not usage:
+        return "Usage: llm_total=0 (p=0 c=0) | embed_tokens=0"
+    llm = usage.get("llm", {}) if isinstance(usage, dict) else {}
+    emb = usage.get("embeddings", {}) if isinstance(usage, dict) else {}
+    p = llm.get("prompt_tokens", 0)
+    c = llm.get("completion_tokens", 0)
+    t = llm.get("total_tokens", 0)
+    e = emb.get("total_tokens", 0)
+    return f"Usage: llm_total={t} (p={p} c={c}) | embed_tokens={e}"
+
 
 def _regex_flag_names(flags: int) -> list[str]:
     names: list[str] = []
@@ -53,13 +67,19 @@ def run_regex_tests(system: MultiAgentSystem) -> dict:
         try:
             system_result = system.query(tc.query)
             target_text = (
-                system_result["answer"] if tc.target == "answer" else system_result["route"]
+                system_result["answer"]
+                if tc.target == "answer"
+                else system_result["route"]
             )
             match = re.search(tc.pattern, target_text, flags=tc.flags)
+            print(f"  {_format_usage(system_result.get('usage'))}")
 
             enforcement_ok = True
             enforcement_errors: list[str] = []
-            if tc.expected_route is not None and system_result.get("route") != tc.expected_route:
+            if (
+                tc.expected_route is not None
+                and system_result.get("route") != tc.expected_route
+            ):
                 enforcement_ok = False
                 enforcement_errors.append(
                     f"route expected {tc.expected_route} got {system_result.get('route')}"
@@ -72,10 +92,10 @@ def run_regex_tests(system: MultiAgentSystem) -> dict:
                 enforcement_errors.append(
                     f"agent expected {tc.expected_agent_used} got {system_result.get('agent_used')}"
                 )
-            if (
-                getattr(tc, "expected_date_parser_tool_used", None) is not None
-                and system_result.get("date_parser_tool_used")
-                != getattr(tc, "expected_date_parser_tool_used")
+            if getattr(
+                tc, "expected_date_parser_tool_used", None
+            ) is not None and system_result.get("date_parser_tool_used") != getattr(
+                tc, "expected_date_parser_tool_used"
             ):
                 enforcement_ok = False
                 enforcement_errors.append(
@@ -94,6 +114,7 @@ def run_regex_tests(system: MultiAgentSystem) -> dict:
             print(f"  Query: {tc.query}")
             print(f"  Target: {tc.target}")
             print(f"  Pattern: {tc.pattern}")
+
             def _one_line(s: str) -> str:
                 return re.sub(r"\s+", " ", s).strip()
 
@@ -112,7 +133,9 @@ def run_regex_tests(system: MultiAgentSystem) -> dict:
             else:
                 # Print a small start-of-answer excerpt: first sentence if possible, else first N chars.
                 cleaned = target_text.strip()
-                first_sentence = re.split(r"(?<=[.!?])\s+|\n+", cleaned, maxsplit=1)[0].strip()
+                first_sentence = re.split(r"(?<=[.!?])\s+|\n+", cleaned, maxsplit=1)[
+                    0
+                ].strip()
                 excerpt = first_sentence if first_sentence else cleaned[:200]
                 if len(excerpt) > 240:
                     excerpt = excerpt[:240] + "..."
@@ -138,6 +161,7 @@ def run_regex_tests(system: MultiAgentSystem) -> dict:
                         "date_parser_tool_used": system_result.get(
                             "date_parser_tool_used", False
                         ),
+                        "usage": system_result.get("usage"),
                     },
                     "enforcement": {
                         "expected_route": tc.expected_route,
@@ -166,7 +190,9 @@ def run_regex_tests(system: MultiAgentSystem) -> dict:
             )
 
     print("-" * 80)
-    print(f"Regex Tests Passed: {passed}/{len(test_cases)} ({passed/len(test_cases)*100:.1f}%)")
+    print(
+        f"Regex Tests Passed: {passed}/{len(test_cases)} ({passed/len(test_cases)*100:.1f}%)"
+    )
 
     return {"total": len(test_cases), "passed": passed, "results": results}
 
@@ -187,6 +213,7 @@ def run_human_grader_tests(system: MultiAgentSystem, interactive: bool = False) 
         system_result = system.query(tc.query)
 
         answer = system_result.get("answer", "")
+        print(f"  {_format_usage(system_result.get('usage'))}")
         # Print a capped answer so terminal output stays readable
         answer_preview = answer
         if len(answer_preview) > 2000:
@@ -228,6 +255,7 @@ def run_human_grader_tests(system: MultiAgentSystem, interactive: bool = False) 
                     "date_parser_tool_used": system_result.get(
                         "date_parser_tool_used", False
                     ),
+                    "usage": system_result.get("usage"),
                     "answer": answer,
                 },
                 "human": {"pass": human_pass},
@@ -257,6 +285,7 @@ def run_evaluation():
 
     # Initialize evaluator
     import os
+
     judge_model = os.getenv("JUDGE_MODEL", "gpt-4o-mini")
     print(f"Initializing Evaluator (Judge: {judge_model})...")
     evaluator = SystemEvaluator(judge_model=judge_model)
@@ -290,6 +319,7 @@ def run_evaluation():
             print(f"Agent: {system_result['agent_used']}")
             if system_result.get("date_parser_tool_used"):
                 print("Date Parser Tool Used: Yes")
+            print(_format_usage(system_result.get("usage")))
             print()
             print(
                 f"Answer: {answer[:200]}..."
@@ -339,6 +369,7 @@ def run_evaluation():
                         "date_parser_tool_used": system_result.get(
                             "date_parser_tool_used", False
                         ),
+                        "usage": system_result.get("usage"),
                         "answer": answer,
                     },
                     "evaluation": evaluation,

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-15T17:55:13.796405",
+  "timestamp": "2026-01-15T18:42:44.874387",
   "total_tests": 12,
   "successful_evaluations": 12,
   "results": [
@@ -15,7 +15,17 @@
         "index_used": "Summary Index",
         "agent_used": "Summarization Expert Agent",
         "date_parser_tool_used": false,
-        "answer": "The overall summary of the insurance claims encompasses a diverse range of claim types, including Auto, Health, Property, Travel, and Life Insurance, reflecting a comprehensive analysis of the claims processing landscape.\n\n### 1. **Life Insurance Claim (CLM-2033-1009)**\n- **Document Type:** Life Insurance\n- **Timeline:** February 1-4, 2024\n- **Key Decisions and Outcomes:** The claim was processed efficiently, resulting in a lump-sum benefit payment authorized for the beneficiary. The claim was closed with no further actions required.\n- **Important Entities:** Policyholder Ron Cohen, Insurer GlobalSure.\n- **Discrepancies:** Internal notes indicated several clarifications were needed regarding the sequence of events, and a temporary hold on payment was due to a system error unrelated to the claim's validity.\n\n### 2. **Health Claim (CLM-2031-1007)**\n- **Document Type:** Health\n- **Timeline:** January 26-29, 2024\n- **Key Decisions and Outcomes:** The claim related to a workplace injury was closed with partial reimbursement issued to the insured, Lior Regev. An appeal was submitted with additional documentation.\n- **Discrepancies:** Discrepancies in early event descriptions led to multiple clarifications. A manual review was triggered due to higher-than-expected charges.\n\n### 3. **Auto Collision Claims**\n   - **Claim ID: CLM-2026-1002**\n     - **Timeline:** January 11-14, 2024\n     - **Key Outcomes:** The claim was closed after confirming satisfaction with repairs. A temporary vehicle was provided during the repair process.\n     - **Discrepancies:** Clarifications were needed regarding initial descriptions of the incident, and overdue maintenance was noted but not highlighted.\n   \n   - **Claim ID: AC-2024-0193**\n     - **Timeline:** March 12-29, 2024\n     - **Key Outcomes:** The claim was accepted with 100% liability from the at-fault driver\u2019s insurer, and repair costs were authorized.\n     - **Discrepancies:** The acceptance of liability was not communicated in the final decision letter, which could lead to misunderstandings.\n\n   - **Claim ID: CLM-2025-1001**\n     - **Timeline:** January 8-11, 2024\n     - **Key Outcomes:** The claim was processed efficiently, with the vehicle returned to the policyholder, Daniel Cohen, and satisfaction confirmed.\n     - **Discrepancies:** Several phone conversations were documented to clarify discrepancies in incident descriptions.\n\n### 4. **Property Damage Claims**\n   - **Claim ID: CLM-2027-1003**\n     - **Timeline:** January 14-17, 2024\n     - **Key Outcomes:** The claim was closed with partial payment for urgent repairs due to water damage.\n     - **Discrepancies:** Clarifications were needed regarding initial damage descriptions, and thorough checks were conducted before closure.\n\n   - **Claim ID: CLM-2028-1004**\n     - **Timeline:** January 17-20, 2024\n     - **Key Outcomes:** The claim was closed with no further action required after a kitchen fire.\n     - **Discrepancies:** Internal notes indicated discrepancies in payment calculations due to a provider accepting a lower fee.\n\n   - **Claim ID: CLM-2032-1008**\n     - **Timeline:** January 29 - February 1, 2024\n     - **Key Outcomes:** A partial payment was issued for storm damage, and the claim was closed with no further actions required.\n     - **Discrepancies:** Notes suggested earlier damage that was not included in the final decision rationale.\n\n   - **Claim ID: CLM-2034-1010**\n     - **Timeline:** February 4-7, 2024\n     - **Key Outcomes:** The claim was processed and closed with a partial payment for urgent repairs following water damage.\n     - **Discrepancies:** Several phone conversations were noted to clarify the sequence of events.\n\n### 5. **Travel Claim (CLM-2030-1006)**\n- **Document Type:** Travel\n- **Timeline:** January 23-26, 2024\n- **Key Decisions and Outcomes:** The claim was closed with reimbursements processed for travel delays and lost luggage.\n- **Discrepancies:** Internal notes indicated discrepancies in the sequence of events, although the claim process adhered to standard procedures.\n\n### **Overall Insights**\nThe claims processing across various types exhibited a structured approach with timely actions taken by both policyholders and insurers. Discrepancies often arose from early descriptions of events, necessitating clarifications through multiple communications. The efficiency of the claims handling was evident, with most claims processed and closed within a short timeframe, reflecting a commitment to thoroughness and accuracy in the claims management process."
+        "usage": {
+          "llm": {
+            "prompt_tokens": 6783,
+            "completion_tokens": 1168,
+            "total_tokens": 7951
+          },
+          "embeddings": {
+            "total_tokens": 265
+          }
+        },
+        "answer": "The overall summary of all insurance claims encompasses a diverse range of claim types, including Auto, Health, Property, Travel, and Life Insurance, processed by various insurers within specific timelines. Each claim reflects a structured approach to claims management, with key decisions, outcomes, and discrepancies noted throughout the processes.\n\n### 1. **Life Insurance Claim (CLM-2033-1009)**\n- **Insurer:** GlobalSure\n- **Key Decisions and Outcomes:** The claim was processed efficiently, resulting in a lump-sum benefit payment authorized for the beneficiary, Ron Cohen. The claim was closed with no further actions required.\n- **Timeline:** The claim was initiated on February 1, 2024, with documentation received and validated the same day. By February 3, the benefit amount was calculated, and payment was authorized.\n- **Discrepancies:** Internal notes indicated phone conversations to clarify discrepancies in early descriptions, although the claim processing was otherwise streamlined.\n\n### 2. **Health Claim (CLM-2031-1007)**\n- **Insurer:** AlphaShield\n- **Key Decisions and Outcomes:** The claim, related to a workplace injury for Lior Regev, was closed with partial reimbursement issued. An appeal was submitted for additional medical documentation.\n- **Timeline:** The claim unfolded from January 26 to January 29, 2024, with assessments and procedures documented. A manual review was triggered due to higher-than-expected charges.\n- **Discrepancies:** Notable discrepancies in early descriptions led to multiple clarifications, indicating potential issues in documentation.\n\n### 3. **Auto Collision Claims**\n   - **Claim ID: CLM-2026-1002**\n     - **Insurer:** SafeRoad Mutual Insurance\n     - **Outcome:** Closed after vehicle repairs and satisfaction confirmation for Yael Ben-Ami.\n     - **Timeline:** From January 11 to January 14, 2024, with efficient processing and a temporary vehicle provided.\n     - **Discrepancies:** Internal notes noted phone conversations to clarify discrepancies in incident descriptions.\n\n   - **Claim ID: AC-2024-0193**\n     - **Insurer:** SafeRoad Mutual Insurance\n     - **Outcome:** Closed with repair costs approved for Daniel Cohen after a rear-end collision.\n     - **Timeline:** The accident occurred on March 12, 2024, with a structured response and documentation of events.\n     - **Discrepancies:** Internal notes indicated acceptance of liability by the at-fault driver\u2019s insurer was not communicated in the final decision letter.\n\n   - **Claim ID: CLM-2025-1001**\n     - **Insurer:** SafeRoad Mutual Insurance\n     - **Outcome:** Closed with vehicle return and satisfaction confirmed for Daniel Cohen.\n     - **Timeline:** From January 8 to January 11, 2024, with timely actions taken post-accident.\n     - **Discrepancies:** Similar to previous claims, discrepancies in initial descriptions were noted.\n\n### 4. **Property Damage Claims**\n   - **Claim ID: CLM-2027-1003**\n     - **Insurer:** SecureHome Insurance\n     - **Outcome:** Closed with partial payment for urgent repairs for Avi Levi due to water damage.\n     - **Timeline:** From January 14 to January 17, 2024, with immediate emergency services engaged.\n     - **Discrepancies:** Clarifications were needed for initial damage descriptions.\n\n   - **Claim ID: CLM-2028-1004**\n     - **Insurer:** SecureHome Insurance\n     - **Outcome:** Closed with a thorough review of policy terms for Sarah Mizrahi after a kitchen fire.\n     - **Timeline:** From January 17 to January 20, 2024, with a structured approach to damage assessment.\n     - **Discrepancies:** Financial reconciliation issues were noted due to a provider accepting a reduced fee.\n\n   - **Claim ID: CLM-2032-1008**\n     - **Insurer:** SecureHome Insurance\n     - **Outcome:** Closed with partial payment for urgent repairs for Dana Shahar due to storm damage.\n     - **Timeline:** From January 29 to February 1, 2024, with immediate action taken to mitigate damage.\n     - **Discrepancies:** Internal notes indicated potential earlier damage that was not reflected in the final decision.\n\n   - **Claim ID: CLM-2034-1010**\n     - **Insurer:** SecureHome Insurance\n     - **Outcome:** Closed with partial payment for urgent repairs for Tal Ben-David due to flooding.\n     - **Timeline:** From February 4 to February 7, 2024, with rapid response actions documented.\n     - **Discrepancies:** Phone conversations clarified discrepancies in the initial damage report.\n\n### 5. **Travel Claim (CLM-2030-1006)**\n- **Insurer:** Blue Horizon Insurance\n- **Key Decisions and Outcomes:** The claim was processed for Noam Azulay due to a flight delay and lost luggage, resulting in reimbursements and closure.\n- **Timeline:** From January 23 to January 26, 2024, with timely documentation and follow-ups.\n- **Discrepancies:** Initial discrepancies in event descriptions were noted, although the claims process adhered to standard procedures.\n\n### **Conclusion**\nThe claims processed across various types demonstrate a structured approach to claims management, with timely responses and thorough documentation. Discrepancies often arose from initial descriptions or documentation issues, highlighting the importance of clear communication and accurate record-keeping. Each claim reflects the insurer's commitment to adhering to standard procedures while ensuring policyholders receive the necessary support and reimbursements."
       },
       "evaluation": {
         "query": "What is the overall summary of all insurance claims?",
@@ -23,20 +33,20 @@
         "index_used": "Summary Index",
         "correctness": {
           "score": 1.0,
-          "reasoning": "The answer directly addresses the query by providing a comprehensive summary of all insurance claims, covering all claim types mentioned in the ground truth (Auto Collision, Health, Property Damage, Travel, Life Insurance). It includes details on timelines, key outcomes, discrepancies, and overall insights, matching the ground truth's scope and content without factual errors or omissions.",
+          "reasoning": "The answer directly addresses the query by providing an overall summary of all insurance claims, covering the various types mentioned in the ground truth (Auto Collision, Health, Property Damage, Travel, Life Insurance). It includes details on claim stages, timelines, outcomes, and discrepancies, matching the ground truth comprehensively without factual errors or omissions.",
           "correct": true,
           "metric": "correctness"
         },
         "relevancy": {
           "score": 1.0,
-          "reasoning": "The system used the correct Summary Index and provided a comprehensive, high-level overview of all insurance claims, covering claim types, timelines, key outcomes, discrepancies, and overall insights, which aligns perfectly with the expected context.",
+          "reasoning": "The system used the correct Summary Index as expected for a high-level overview query. The answer comprehensively covers all insurance claim types, general patterns, timelines, key decisions, outcomes, and discrepancies, reflecting relevant and appropriate context segments. The level of detail and structure aligns well with what a human expert would provide for such a summary.",
           "correct_index": true,
           "relevant_context": true,
           "metric": "relevancy"
         },
         "recall": {
           "score": 1.0,
-          "reasoning": "The system answer comprehensively covers all insurance claim types mentioned in the ground truth, including Auto, Health, Property, Travel, and Life Insurance. It provides detailed summaries of each claim, including timelines, key outcomes, discrepancies, and overall insights, matching the expected information. No significant information appears missing.",
+          "reasoning": "The system answer comprehensively covers all insurance claim types mentioned in the ground truth, including Auto Collision, Health, Property Damage, Travel, and Life Insurance. It provides detailed summaries of key decisions, outcomes, timelines, and discrepancies for each claim, reflecting the structured approach and patterns noted in the ground truth. No significant information or claim types appear missing.",
           "retrieved_correct": true,
           "missing_info": "",
           "metric": "recall"
@@ -56,33 +66,43 @@
         "index_used": "Hierarchical Index",
         "agent_used": "Needle-in-a-Haystack Agent",
         "date_parser_tool_used": false,
-        "answer": "In Claim Document 01 (Claim ID: CLM-2025-1001), the other driver did acknowledge responsibility. This acknowledgment is documented in a call center log entry, which states that during a conversation, the other driver verbally accepted responsibility for the collision. This information is found in the internal notes section, which is not typically visible to the policyholder.\n\n**Source Context:**\n- **Claim ID:** CLM-2025-1001\n- **Document Type:** Auto Collision\n- **Section:** Internal Notes and Context\n- **Details:** \"In one internal call log entry, the opposing party informally acknowledged responsibility, but this remark does not appear in any outbound correspondence.\""
+        "usage": {
+          "llm": {
+            "prompt_tokens": 35933,
+            "completion_tokens": 318,
+            "total_tokens": 36251
+          },
+          "embeddings": {
+            "total_tokens": 1107
+          }
+        },
+        "answer": "In Claim Document 01 (Claim ID: CLM-2025-1001), the other driver did acknowledge responsibility. This acknowledgment is documented in a call log entry where it states that \"the other driver verbally accepts responsibility.\" This information is found in the internal notes section, which is not normally visible to the policyholder. \n\nThe relevant details are as follows:\n- **Claim ID**: CLM-2025-1001\n- **Document Type**: Auto Collision\n- **Section**: Internal Notes and Context\n- **Date of Acknowledgment**: The specific date of the call log entry is not provided, but it is noted within the timeline of events that occurred between January 8 and January 11, 2024.\n\nThis acknowledgment is significant as it may influence the handling of the claim and any subsequent actions taken by the insurer."
       },
       "evaluation": {
         "query": "In Claim Document 01, did the other driver acknowledge responsibility?",
         "route": "PRECISE",
         "index_used": "Hierarchical Index",
         "correctness": {
-          "score": 1.0,
-          "reasoning": "The answer directly addresses the query by confirming the other driver acknowledged responsibility. It includes the key detail that this acknowledgment was informal and documented only in an internal call log, not in any outbound communication, matching the ground truth exactly without factual errors or omissions.",
+          "score": 0.9,
+          "reasoning": "The answer directly addresses the query by confirming the other driver acknowledged responsibility in an internal call log, matching the ground truth. It correctly notes that this acknowledgment is informal and found in internal notes not visible to the policyholder. However, it does not explicitly state that this acknowledgment was never included in any outbound communication or summary letter, which is a key detail in the ground truth.",
           "correct": true,
           "metric": "correctness"
         },
         "relevancy": {
           "score": 1.0,
-          "reasoning": "The system used the correct hierarchical index for a precise query about a specific claim document. The answer directly references the internal call log and driver acknowledgment within Claim Document 01, matching the expected context topics. The retrieved chunks are appropriate and align with what a human expert would use.",
+          "reasoning": "The system used the correct hierarchical index for a precise query about a specific claim document. The answer references relevant sections such as the internal call log and driver acknowledgment within Claim Document 01, providing detailed and appropriate context that a human expert would also consider.",
           "correct_index": true,
           "relevant_context": true,
           "metric": "relevancy"
         },
         "recall": {
           "score": 1.0,
-          "reasoning": "The system answer correctly retrieved the relevant chunk from the internal notes section of Claim Document 01, accurately reflecting that the other driver informally acknowledged responsibility in an internal call log, and noted that this was not included in outbound communication. The information is sufficient and complete to answer the query.",
+          "reasoning": "The system answer correctly retrieved information from the internal notes section of Claim Document 01, specifically the call log entry where the other driver verbally accepts responsibility. This matches the ground truth that the acknowledgment was informal and documented internally but not included in outbound communications. The retrieved information is sufficient and relevant to answer the query fully.",
           "retrieved_correct": true,
           "missing_info": "",
           "metric": "recall"
         },
-        "overall_score": 1.0
+        "overall_score": 0.96
       }
     },
     {
@@ -97,6 +117,16 @@
         "index_used": "Hierarchical Index",
         "agent_used": "Needle-in-a-Haystack Agent",
         "date_parser_tool_used": true,
+        "usage": {
+          "llm": {
+            "prompt_tokens": 13774,
+            "completion_tokens": 43,
+            "total_tokens": 13817
+          },
+          "embeddings": {
+            "total_tokens": 29
+          }
+        },
         "answer": "Based on date parsing:\n\n- Found: 'The earliest inspection for the Apartment Water Da...' \u2192 Normalized: 2024-01-14T18:30:00\n- Found: '2024-01-14' \u2192 Normalized: 2024-01-14T00:00:00"
       },
       "evaluation": {
@@ -105,25 +135,25 @@
         "index_used": "Hierarchical Index",
         "correctness": {
           "score": 0.3,
-          "reasoning": "The answer provides dates related to the earliest inspection but does not mention the moisture reading or that it was significantly higher than the final report value. It fails to directly answer the moisture reading part of the query and lacks completeness and key details from the ground truth.",
+          "reasoning": "The answer provides dates related to the earliest inspection but does not mention the moisture reading or that it was significantly higher than the final report value. It lacks the key detail about the moisture reading and the context from the ground truth, making it incomplete and not directly addressing the query.",
           "correct": false,
           "metric": "correctness"
         },
         "relevancy": {
           "score": 0.7,
-          "reasoning": "The system used the correct hierarchical index appropriate for detailed queries. However, the answer focuses mainly on date parsing and does not explicitly provide the moisture reading from the earliest inspection, which is a key part of the user query. The context appears partially relevant but incomplete for fully answering the question.",
+          "reasoning": "The system used the correct hierarchical index appropriate for the precise query. However, the answer only references date parsing without explicitly providing the moisture reading or detailed inspection report content. The context appears partially relevant but lacks completeness regarding moisture readings and inspection details.",
           "correct_index": true,
           "relevant_context": false,
           "metric": "relevancy"
         },
         "recall": {
-          "score": 0.4,
-          "reasoning": "The system retrieved date information related to the earliest inspection but failed to include the actual moisture reading from the draft note, which is critical to fully answer the query. The relevant chunks containing the moisture measurement and its comparison to the final report value were missing.",
+          "score": 0.5,
+          "reasoning": "The system retrieved date information related to the earliest inspection but failed to include the actual moisture reading value from the draft note, which is critical to fully answer the query.",
           "retrieved_correct": false,
-          "missing_info": "The specific moisture reading from the earliest inspection and the note that it was significantly higher than the final report value.",
+          "missing_info": "The specific moisture reading measurement from the earliest inspection, particularly from the draft note, is missing.",
           "metric": "recall"
         },
-        "overall_score": 0.44999999999999996
+        "overall_score": 0.48
       }
     },
     {
@@ -138,7 +168,17 @@
         "index_used": "Hierarchical Index",
         "agent_used": "Needle-in-a-Haystack Agent",
         "date_parser_tool_used": false,
-        "answer": "In Claim Document 05, there is no mention of the patient completing conservative physical therapy. The timeline of events includes visits to a physician, diagnostic imaging, and a surgical procedure, but there are no records indicating that conservative physical therapy was attempted or completed. \n\nThe relevant details from Claim Document 05 (Claim ID: CLM-2029-1005) are as follows:\n\n- **Claim ID**: CLM-2029-1005\n- **Document Type**: Health\n- **Timeline of Events**:\n  - 2024-01-20 08:30 \u2013 Insured visits physician for assessment of ongoing symptoms and receives diagnostic referral.\n  - 2024-01-20 13:30 \u2013 Diagnostic imaging appointment completed; results indicate condition requiring follow-up.\n  - 2024-01-20 18:30 \u2013 Specialist consultation scheduled at a clinic outside the standard network.\n  - 2024-01-20 23:30 \u2013 Pre-authorization team reviews procedure codes and plan requirements.\n  - 2024-01-21 04:30 \u2013 Surgical or therapeutic procedure performed at provider facility.\n  - 2024-01-21 09:30 \u2013 Provider submits itemized bill including professional and facility fees.\n  - 2024-01-21 14:30 \u2013 Claims engine adjudicates initial claim lines based on fee schedule.\n  - 2024-01-21 19:30 \u2013 Manual review requested due to higher-than-expected billed charges.\n  - 2024-01-22 00:30 \u2013 Medical reviewer adds notes about treatment necessity and prior conservative care.\n  - 2024-01-22 05:30 \u2013 Contact attempted with provider billing office to clarify coding details.\n  - 2024-01-22 10:30 \u2013 Insured receives explanation of benefits showing partial reimbursement.\n  - 2024-01-22 15:30 \u2013 Insured submits appeal with additional medical documentation.\n  - 2024-01-22 20:30 \u2013 Appeal team performs second-level review and documents final determination.\n  - 2024-01-23 01:30 \u2013 Outcome letter generated and mailed to insured detailing allowed and denied amounts.\n\nThe internal notes indicate that there were discussions about treatment necessity and prior conservative care, but they do not specify that physical therapy was completed. \n\nThus, the answer to the query is: **No, the patient did not complete conservative physical therapy in Claim Document 05.**"
+        "usage": {
+          "llm": {
+            "prompt_tokens": 49376,
+            "completion_tokens": 883,
+            "total_tokens": 50259
+          },
+          "embeddings": {
+            "total_tokens": 1699
+          }
+        },
+        "answer": "In Claim Document 05, there is no mention of the patient completing conservative physical therapy. The timeline of events includes visits to a physician, diagnostic imaging, and a surgical procedure, but it does not specify any conservative treatment or rehabilitation such as physical therapy. \n\nThe relevant details from Claim Document 05 (Claim ID: CLM-2029-1005) are as follows:\n\n- **Claim ID**: CLM-2029-1005\n- **Policyholder**: Moran Levi\n- **Insurer**: CarePlus Health\n- **Policy Number**: MED-SMART-556201\n- **Timeline of Events**:\n  - 2024-01-20 08:30 \u2013 Insured visits physician for assessment of ongoing symptoms and receives diagnostic referral.\n  - 2024-01-20 13:30 \u2013 Diagnostic imaging appointment completed; results indicate condition requiring follow-up.\n  - 2024-01-20 18:30 \u2013 Specialist consultation scheduled at a clinic outside the standard network.\n  - 2024-01-20 23:30 \u2013 Pre-authorization team reviews procedure codes and plan requirements.\n  - 2024-01-21 04:30 \u2013 Surgical or therapeutic procedure performed at provider facility.\n  - 2024-01-21 09:30 \u2013 Provider submits itemized bill including professional and facility fees.\n  - 2024-01-21 14:30 \u2013 Claims engine adjudicates initial claim lines based on fee schedule.\n  - 2024-01-21 19:30 \u2013 Manual review requested due to higher-than-expected billed charges.\n  - 2024-01-22 00:30 \u2013 Medical reviewer adds notes about treatment necessity and prior conservative care.\n  - 2024-01-22 05:30 \u2013 Contact attempted with provider billing office to clarify coding details.\n  - 2024-01-22 10:30 \u2013 Insured receives explanation of benefits showing partial reimbursement.\n  - 2024-01-22 15:30 \u2013 Insured submits appeal with additional medical documentation.\n  - 2024-01-22 20:30 \u2013 Appeal team performs second-level review and documents final determination.\n  - 2024-01-23 01:30 \u2013 Outcome letter generated and mailed to insured detailing allowed and denied amounts.\n\nThe internal notes do mention \"treatment necessity and prior conservative care,\" but there is no specific reference to the completion of physical therapy or rehabilitation. \n\nThus, the answer to the query is: **No, the patient did not complete conservative physical therapy as there is no record of it in Claim Document 05.**"
       },
       "evaluation": {
         "query": "Did the patient complete conservative physical therapy in Claim Document 05?",
@@ -146,22 +186,22 @@
         "index_used": "Hierarchical Index",
         "correctness": {
           "score": 0.2,
-          "reasoning": "The answer directly addresses the query but contradicts the ground truth by stating that the patient did not complete conservative physical therapy, whereas the ground truth clearly states that a medical reviewer noted the patient completed several weeks of conservative physical therapy. The answer omits this key information and incorrectly concludes the patient did not complete conservative care.",
+          "reasoning": "The answer states that there is no mention of the patient completing conservative physical therapy in Claim Document 05, directly contradicting the ground truth which clearly states that a medical reviewer noted the patient completed several weeks of conservative physical therapy. The answer misses this key information and thus is factually incorrect and incomplete.",
           "correct": false,
           "metric": "correctness"
         },
         "relevancy": {
           "score": 1.0,
-          "reasoning": "The system used the correct hierarchical index for a precise query about Claim Document 05 and included detailed timeline events, medical reviewer notes, and relevant document sections. The context directly addresses the presence or absence of conservative physical therapy completion, matching what a human expert would consider.",
+          "reasoning": "The system used the correct hierarchical index for a precise query about Claim Document 05 and included detailed timeline events, medical reviewer notes, and relevant claim details. The context directly addresses the presence or absence of conservative physical therapy completion, matching what a human expert would consider.",
           "correct_index": true,
           "relevant_context": true,
           "metric": "relevancy"
         },
         "recall": {
           "score": 0.2,
-          "reasoning": "The system answer states there is no mention of completed conservative physical therapy and only references general notes about treatment necessity and prior conservative care without specifying the medical reviewer's note that the patient completed several weeks of conservative physical therapy. This contradicts the ground truth and misses the critical chunk confirming therapy completion.",
+          "reasoning": "The system answer states there is no mention of the patient completing conservative physical therapy, but the ground truth explicitly notes that a medical reviewer indicated the patient completed several weeks of conservative physical therapy. The system only references generic internal notes about 'treatment necessity and prior conservative care' without extracting or highlighting the specific note confirming completion of physical therapy. Therefore, the retrieved information is insufficient and misses the critical chunk that contradicts the denial letter.",
           "retrieved_correct": false,
-          "missing_info": "Medical reviewer notes explicitly stating the patient completed several weeks of conservative physical therapy, which contradicts the denial letter's statement.",
+          "missing_info": "Specific medical reviewer notes confirming the patient completed several weeks of conservative physical therapy.",
           "metric": "recall"
         },
         "overall_score": 0.44
@@ -179,6 +219,16 @@
         "index_used": "Hierarchical Index",
         "agent_used": "Needle-in-a-Haystack Agent",
         "date_parser_tool_used": true,
+        "usage": {
+          "llm": {
+            "prompt_tokens": 12342,
+            "completion_tokens": 24,
+            "total_tokens": 12366
+          },
+          "embeddings": {
+            "total_tokens": 21
+          }
+        },
         "answer": "Based on date parsing:\n\n- Found: 'What time and date was the luggage scanned in Clai...' \u2192 Normalized: 1900-01-06T00:00:00\n- Found: 'The luggage was scanned at the destination on 2024...' \u2192 Normalized: 2024-01-24T19:30:00\n- Found: '2024-01-24' \u2192 Normalized: 2024-01-24T00:00:00"
       },
       "evaluation": {
@@ -187,22 +237,22 @@
         "index_used": "Hierarchical Index",
         "correctness": {
           "score": 0.4,
-          "reasoning": "The answer provides several normalized timestamps but does not clearly state the specific time and date the luggage was scanned in Claim Document 06. It also fails to mention the key detail from the ground truth that the luggage was scanned earlier than the reported time and that this timestamp was ignored in the claim outcome. Thus, it is incomplete and lacks critical context.",
+          "reasoning": "The answer provides several normalized timestamps but does not clearly state the specific time and date the luggage was scanned in Claim Document 06. It also fails to mention the key detail from the ground truth that the scanned timestamp appears only once and is ignored in the claim outcome. Thus, it is incomplete and lacks critical context.",
           "correct": false,
           "metric": "correctness"
         },
         "relevancy": {
           "score": 0.9,
-          "reasoning": "The system used the correct hierarchical index suitable for precise document queries and retrieved timestamps related to luggage scanning from Claim Document 06. While the answer includes multiple date formats and a placeholder date (1900-01-06), it does reflect relevant context about scanning times. Some retrieved chunks could be more focused, but overall the context aligns well with the query.",
+          "reasoning": "The system used the correct hierarchical index suitable for precise document queries and retrieved timestamps related to luggage scanning from Claim Document 06. However, the inclusion of a normalized date '1900-01-06T00:00:00' appears irrelevant or erroneous, slightly reducing the relevance of the context.",
           "correct_index": true,
           "relevant_context": true,
           "metric": "relevancy"
         },
         "recall": {
           "score": 0.8,
-          "reasoning": "The system retrieved multiple timestamps related to luggage scanning, including the key timestamp at the destination on 2024-01-24T19:30:00, which aligns with the ground truth. However, it did not explicitly mention that this timestamp appears only once and is ignored in the claim outcome, which is a critical detail from the expected chunks.",
+          "reasoning": "The system retrieved multiple timestamps related to luggage scanning, including the key timestamp at the destination on 2024-01-24T19:30:00, which aligns with the ground truth. However, it did not explicitly mention that this timestamp appears only once and is ignored in the claim outcome, which is a critical detail. Overall, most relevant chunks were retrieved but some contextual information is missing.",
           "retrieved_correct": true,
-          "missing_info": "The detail that the scanned timestamp appears only once and is ignored in the claim outcome is missing.",
+          "missing_info": "The detail that the scanned timestamp appears only once and is ignored in the claim outcome.",
           "metric": "recall"
         },
         "overall_score": 0.67
@@ -220,7 +270,17 @@
         "index_used": "Hierarchical Index",
         "agent_used": "Needle-in-a-Haystack Agent",
         "date_parser_tool_used": false,
-        "answer": "In Claim Document 07, a billing code error was noted during the timeline of events. Specifically, on **2024-01-28 at 05:30**, there was an attempt to contact the provider billing office to clarify coding details. This indicates that there were discrepancies or issues related to the billing codes that required further investigation.\n\nThe claim ID for this document is **CLM-2031-1007**, and it pertains to a health claim involving a workplace injury. The document type is categorized as **Health**, and the relevant section is **Claim Overview**. The timeline of events spans from **2024-01-26 to 2024-01-29**.\n\nThis information is critical as it highlights the need for clarification regarding the billing codes, which could impact the processing and reimbursement of the claim."
+        "usage": {
+          "llm": {
+            "prompt_tokens": 17508,
+            "completion_tokens": 150,
+            "total_tokens": 17658
+          },
+          "embeddings": {
+            "total_tokens": 545
+          }
+        },
+        "answer": "In Claim Document 07, a billing code error was noted during the timeline of events. Specifically, on **2024-01-28 at 05:30**, there was an attempt to contact the provider billing office to clarify coding details. This indicates that there were discrepancies or issues related to the billing codes that required further investigation.\n\nThe claim ID for this document is **CLM-2031-1007**, and it pertains to a health claim involving a workplace injury (back strain). The document type is categorized as **Health**, and the relevant section is the **Claim Overview**. \n\nThis information is critical as it highlights the need for clarification regarding the billing codes, which can impact the processing and reimbursement of the claim."
       },
       "evaluation": {
         "query": "What billing code error was mentioned in Claim Document 07?",
@@ -228,20 +288,20 @@
         "index_used": "Hierarchical Index",
         "correctness": {
           "score": 0.5,
-          "reasoning": "The answer mentions a billing code error and an attempt to clarify coding details, which is somewhat relevant. However, it does not explicitly state that a provider confirmed a billed charge was incorrectly coded in a one-line note, nor does it mention that the correction was never reflected in the reimbursement decision. Key details from the ground truth are missing, making the answer incomplete.",
+          "reasoning": "The answer mentions a billing code error and an attempt to clarify coding details, which is somewhat relevant. However, it does not explicitly state that a provider confirmed a billing code was incorrectly coded in a one-line note, nor does it mention that the correction was never reflected in the reimbursement decision. Key details from the ground truth are missing, making the answer incomplete.",
           "correct": false,
           "metric": "correctness"
         },
         "relevancy": {
           "score": 1.0,
-          "reasoning": "The system used the correct Hierarchical Index as expected for a precise query about a specific claim document. The answer references relevant sections such as the timeline of events, billing code issues, provider billing office contact, and claim details, all of which are pertinent to the query about billing code errors in Claim Document 07. The context is appropriate and aligns with what a human expert would use.",
+          "reasoning": "The system used the Hierarchical Index as expected for a precise query about a specific claim document. The answer references the correct document (Claim Document 07), includes relevant details about the billing code error, provider contact attempts, and the claim context (workplace injury, health claim). The retrieved context is appropriate and aligns with what a human expert would use.",
           "correct_index": true,
           "relevant_context": true,
           "metric": "relevancy"
         },
         "recall": {
           "score": 0.5,
-          "reasoning": "The answer references a billing code issue and an attempt to clarify coding details, which is related but does not include the key detail that a provider confirmed in a one-line note that a billed charge was incorrectly coded and that the correction was never reflected in reimbursement. The retrieved information is from the correct document and section but lacks the critical provider note and the outcome of the error.",
+          "reasoning": "The answer references a billing code issue and an attempt to clarify coding details, which is related but does not explicitly mention the provider's one-line note confirming the incorrect coding or that the correction was never reflected in reimbursement. The retrieved information is from the correct document but lacks the critical detail about the provider's confirmation and the impact on reimbursement.",
           "retrieved_correct": false,
           "missing_info": "The provider's one-line note confirming the incorrect billing code and the fact that the correction was never reflected in the reimbursement decision.",
           "metric": "recall"
@@ -261,7 +321,17 @@
         "index_used": "Summary Index",
         "agent_used": "Summarization Expert Agent",
         "date_parser_tool_used": false,
-        "answer": "The dataset encompasses a variety of insurance claims, categorized into five main types: Auto, Health, Property, Travel, and Life Insurance. Each claim type reflects distinct circumstances and processing timelines, showcasing the structured approach taken by the respective insurers.\n\n### 1. Auto Insurance Claims\n- **Claim IDs:** CLM-2026-1002, AC-2024-0193, CLM-2025-1001\n- **Insurers:** SafeRoad Mutual Insurance\n- **Key Events:**\n  - Claims related to auto collisions involved timely reporting, inspections, and repair approvals. For instance, in CLM-2025-1001, the claim was processed efficiently following a low-speed collision, with the vehicle returned to the policyholder promptly.\n  - In AC-2024-0193, the claim adjuster accepted full liability from the at-fault driver's insurer, although this was not communicated in the final decision letter, indicating a discrepancy in the documentation process.\n- **Timelines:** Each auto claim followed a structured timeline, with initial reports, inspections, and final payments processed within a few days.\n\n### 2. Health Insurance Claims\n- **Claim IDs:** CLM-2031-1007, CLM-2029-1005\n- **Insurers:** AlphaShield, CarePlus Health\n- **Key Events:**\n  - Claims involved medical procedures, with partial reimbursements issued. For instance, CLM-2029-1005 involved knee surgery, where higher-than-expected charges triggered a manual review and subsequent appeal by the insured.\n  - Discrepancies noted in billing processes and treatment necessity highlighted the complexity of health claims, necessitating thorough documentation and communication.\n\n### 3. Property Damage Claims\n- **Claim IDs:** CLM-2027-1003, CLM-2028-1004, CLM-2032-1008, CLM-2034-1010\n- **Insurers:** SecureHome Insurance\n- **Key Events:**\n  - Claims were primarily related to water damage and fire incidents. In CLM-2032-1008, storm damage prompted urgent repairs, while CLM-2028-1004 involved a kitchen fire in a rental property.\n  - The processing of these claims included emergency mitigation services, inspections, and contractor negotiations. Notably, discrepancies in initial damage descriptions and billing errors were documented, indicating areas for improvement in communication and financial reconciliation.\n\n### 4. Travel Insurance Claims\n- **Claim ID:** CLM-2030-1006\n- **Insurer:** Blue Horizon Insurance\n- **Key Events:**\n  - This claim involved a significant flight delay and lost luggage, with reimbursements processed for essential purchases. The timeline reflected prompt actions taken by the policyholder and insurer, although initial discrepancies in event descriptions were noted.\n  \n### 5. Life Insurance Claims\n- **Claim ID:** CLM-2033-1009\n- **Insurer:** GlobalSure\n- **Key Events:**\n  - The claim was processed following the death of the policyholder, resulting in a lump-sum benefit payment to the beneficiary. The timeline demonstrated efficient handling, with all necessary documentation verified and processed within a few days.\n  \n### Discrepancies and Patterns\nAcross the various claims, notable discrepancies were identified, particularly between draft notes and final reports. For example:\n- In auto claims, the acceptance of liability by the at-fault party was not consistently communicated in final decision letters.\n- Health claims often faced challenges with billing discrepancies, leading to manual reviews and appeals.\n- Property claims revealed inconsistencies in initial damage assessments and subsequent repair estimates, indicating potential areas for improvement in documentation and communication.\n\n### Conclusion\nThe dataset illustrates a comprehensive overview of insurance claims across multiple types, each with unique timelines, key decisions, and processing patterns. The structured approach to handling these claims reflects the insurers' commitment to thoroughness and efficiency, while also highlighting areas for potential improvement in communication and documentation practices."
+        "usage": {
+          "llm": {
+            "prompt_tokens": 6787,
+            "completion_tokens": 843,
+            "total_tokens": 7630
+          },
+          "embeddings": {
+            "total_tokens": 267
+          }
+        },
+        "answer": "The dataset encompasses a variety of insurance claims, categorized into five main types: Auto, Health, Property Damage, Travel, and Life Insurance. Each claim type exhibits distinct characteristics, timelines, and outcomes, reflecting the diverse nature of insurance coverage and the processes involved in claim handling.\n\n### 1. **Auto Insurance Claims**\n   - **Claim IDs:** CLM-2026-1002, AC-2024-0193, CLM-2025-1001\n   - **Key Outcomes:** Claims related to auto collisions were processed efficiently, with final statuses indicating closure after confirming vehicle repairs and satisfaction from policyholders. Temporary replacement vehicles were often authorized during repair periods.\n   - **Timelines:** The claims were initiated promptly following accidents, with First Notice of Loss (FNOL) registered on the same day. Inspections and damage assessments were conducted swiftly, leading to timely authorizations for repairs and payments.\n   - **Discrepancies:** Internal notes highlighted discrepancies in early descriptions of incidents, particularly regarding the acknowledgment of liability by other drivers, which were not always reflected in official reports.\n\n### 2. **Health Insurance Claims**\n   - **Claim IDs:** CLM-2031-1007, CLM-2029-1005\n   - **Key Outcomes:** Health claims involved surgical procedures and subsequent reimbursements. Claims were processed according to standard procedures, with some resulting in partial reimbursements and appeals submitted for additional documentation.\n   - **Timelines:** The process included initial assessments, surgeries, and reviews of medical records, often requiring manual reviews due to higher-than-expected charges. Appeals were generated following initial adjudications.\n   - **Discrepancies:** There were noted discrepancies in billing processes and treatment necessity, leading to multiple communications with policyholders to clarify details.\n\n### 3. **Property Damage Claims**\n   - **Claim IDs:** CLM-2027-1003, CLM-2028-1004, CLM-2032-1008, CLM-2034-1010\n   - **Key Outcomes:** Claims related to property damage, particularly from water intrusion and fire, were processed with urgency. Partial payments were issued for urgent repairs, and claims were ultimately closed after thorough assessments and confirmations of completed repairs.\n   - **Timelines:** The claims were initiated immediately after damage reports, with emergency services engaged to mitigate further issues. Inspections and estimates were conducted swiftly, leading to prompt resolutions.\n   - **Discrepancies:** Internal notes indicated inconsistencies in initial damage descriptions and payment calculations, suggesting areas for improvement in documentation and communication.\n\n### 4. **Travel Insurance Claims**\n   - **Claim ID:** CLM-2030-1006\n   - **Key Outcomes:** This claim involved coverage for travel delays and lost luggage, with reimbursements processed according to standard procedures. The claim was marked as closed after confirming all necessary reimbursements.\n   - **Timelines:** The claim was initiated on the same day as the flight delay, with documentation collected and processed in a structured manner over several days.\n   - **Discrepancies:** Internal notes indicated initial discrepancies in event descriptions, but thorough reviews ensured compliance with coverage terms.\n\n### 5. **Life Insurance Claims**\n   - **Claim ID:** CLM-2033-1009\n   - **Key Outcomes:** The life insurance claim was processed efficiently, resulting in a lump-sum benefit payment authorized for disbursement to the beneficiary. The claim was closed without further actions required.\n   - **Timelines:** The claim was initiated promptly following the notification of a potential claim, with all necessary documentation verified within a few days.\n   - **Discrepancies:** Internal notes reflected several conversations to clarify discrepancies in early descriptions, although the claim was ultimately handled according to standard procedures.\n\n### **Conclusion**\nThe dataset illustrates a comprehensive overview of various insurance claim types, highlighting the efficiency of claims processing, the importance of thorough documentation, and the need for clear communication to resolve discrepancies. Each claim type follows a structured timeline, with key decisions made at critical points, ensuring that policyholders receive the necessary support and reimbursement in a timely manner."
       },
       "evaluation": {
         "query": "What are the main types of insurance claims in the dataset?",
@@ -269,25 +339,25 @@
         "index_used": "Summary Index",
         "correctness": {
           "score": 0.9,
-          "reasoning": "The answer directly addresses the query by listing the five main types of insurance claims in the dataset: Auto, Health, Property, Travel, and Life Insurance. It includes detailed examples and key events for each type, aligning well with the ground truth categories. However, it does not explicitly mention the subcategories such as 'highway and regular' for Auto Collision, 'knee surgery dispute and workplace injury' for Health, or the specific types of Property Damage claims (apartment water damage, kitchen fire, storm damage) as clearly as the ground truth. Despite this, the overall categorization and coverage are accurate and comprehensive, with no factual errors.",
+          "reasoning": "The answer directly addresses the query by listing the main types of insurance claims in the dataset, matching the ground truth categories: Auto Collision, Health, Property Damage, Travel, and Life Insurance. It provides detailed descriptions and examples for each type, reflecting the ground truth's content. However, it does not explicitly mention the specific subtypes (e.g., highway and regular for Auto, knee surgery dispute and workplace injury for Health, or critical illness review for Life Insurance) as stated in the ground truth, which slightly reduces completeness. There are no factual errors or contradictions.",
           "correct": true,
           "metric": "correctness"
         },
         "relevancy": {
           "score": 1.0,
-          "reasoning": "The system used the correct Summary Index for a high-level overview query and provided a detailed, well-structured answer covering all main insurance claim types in the dataset. The context segments clearly reflect the categorization and key details expected, matching what a human expert would use.",
+          "reasoning": "The system used the correct Summary Index for a high-level query about main types of insurance claims. The answer comprehensively covers all major claim types with relevant details on outcomes, timelines, and discrepancies, reflecting information expected from summary sections. The context is fully appropriate and aligns with what a human expert would use.",
           "correct_index": true,
           "relevant_context": true,
           "metric": "relevancy"
         },
         "recall": {
-          "score": 0.9,
-          "reasoning": "The answer correctly identifies and describes the five main types of insurance claims in the dataset\u2014Auto, Health, Property, Travel, and Life Insurance\u2014and provides detailed examples and key events for each. It includes relevant claim IDs, insurers, and highlights discrepancies and processing timelines, which aligns well with the ground truth. However, it does not explicitly mention the specific subcategories within each claim type as detailed in the ground truth (e.g., highway vs. regular auto collisions, knee surgery dispute vs. workplace injury in health claims, or critical illness review in life insurance). This minor omission slightly reduces completeness.",
+          "score": 1.0,
+          "reasoning": "The system answer comprehensively covers all main types of insurance claims in the dataset as specified in the ground truth: Auto Collision, Health, Property Damage, Travel, and Life Insurance claims. It includes detailed descriptions, claim IDs, key outcomes, timelines, and noted discrepancies for each claim type, fully addressing the query with relevant and sufficient information.",
           "retrieved_correct": true,
-          "missing_info": "Explicit mention of subcategories within each claim type, such as highway vs. regular auto collisions, knee surgery dispute and workplace injury under health claims, apartment water damage, kitchen fire, storm damage under property claims, delay and lost luggage under travel claims, and critical illness review under life insurance claims.",
+          "missing_info": "",
           "metric": "recall"
         },
-        "overall_score": 0.93
+        "overall_score": 0.96
       }
     },
     {
@@ -302,33 +372,43 @@
         "index_used": "Hierarchical Index",
         "agent_used": "Needle-in-a-Haystack Agent",
         "date_parser_tool_used": false,
-        "answer": "In Claim Document 09, there is evidence of misrepresentation noted in the internal review process. Specifically, on 2024-02-02 at 14:30, an internal review was performed to ensure no material misrepresentation occurred. This indicates that the claim was scrutinized for any inaccuracies or misleading information, although the specific details of any misrepresentation are not explicitly stated in the retrieved chunks.\n\nThe claim ID for this document is CLM-2033-1009, and it pertains to a life insurance claim related to a critical illness benefit assessment. The relevant section of the document includes internal notes that are not visible to the policyholder but are critical for understanding how decisions were made throughout the life of the claim.\n\nFor further context, the claim was processed according to standard procedures, and the final status was closed with no further action scheduled. The internal notes also mention that several phone conversations with the policyholder were documented, which included clarifications about the sequence of events and discrepancies in early descriptions.\n\nThis information can be referenced from the internal notes section of Claim Document 09, specifically dated 2024-02-02."
+        "usage": {
+          "llm": {
+            "prompt_tokens": 35001,
+            "completion_tokens": 480,
+            "total_tokens": 35481
+          },
+          "embeddings": {
+            "total_tokens": 1105
+          }
+        },
+        "answer": "In Claim Document 09, which is identified as Claim ID CLM-2033-1009, there is no explicit evidence of misrepresentation mentioned in the retrieved chunks. The internal notes and context do not indicate any material misrepresentation during the claim process. \n\nThe timeline of events includes various steps such as the notification of the potential claim, receipt of documentation, policy validation, and internal reviews, but none of these entries suggest any discrepancies or misrepresentations. \n\nThe relevant internal notes state:\n- \"Several phone conversations with the policyholder were documented, including clarifications about the sequence of events and discrepancies in early descriptions.\"\n- \"System checks were performed to verify that all mandatory documents had been received before finalizing the outcome.\"\n- \"A system audit log shows that payment approval was temporarily placed on hold due to a configuration error rather than any issue with the claim itself.\"\n\nThese notes indicate thorough checks and clarifications but do not point to any misrepresentation. \n\nFor reference, the claim document details are as follows:\n- **Claim ID**: CLM-2033-1009\n- **Document Type**: Life Insurance\n- **Section**: Claim Overview\n- **Timestamp Range**: 2024-02-01 to 2024-02-04\n- **Filename**: claim_document_09.pdf\n\nThus, based on the available information, there is no evidence of misrepresentation in Claim Document 09."
       },
       "evaluation": {
         "query": "Was there evidence of misrepresentation in Claim Document 09?",
         "route": "PRECISE",
         "index_used": "Hierarchical Index",
         "correctness": {
-          "score": 0.3,
-          "reasoning": "The answer incorrectly implies there was evidence of misrepresentation by stating an internal review was performed to ensure no material misrepresentation occurred, which suggests scrutiny but does not confirm misrepresentation. The ground truth clearly states there was no evidence of misrepresentation, supported by an underwriting remark. The answer fails to mention the underwriting remark or that no misrepresentation was found, and instead creates ambiguity by suggesting evidence exists. Therefore, it does not correctly address the query or match the ground truth.",
-          "correct": false,
+          "score": 0.8,
+          "reasoning": "The answer correctly states there is no evidence of misrepresentation in Claim Document 09, directly addressing the query. It includes relevant internal notes indicating thorough checks and no misrepresentation. However, it omits the specific detail from the ground truth that an underwriting remark explicitly states no evidence of misrepresentation despite an initial contestability review, and that this remark appears nowhere else. This omission means the answer is mostly correct but not fully complete.",
+          "correct": true,
           "metric": "correctness"
         },
         "relevancy": {
-          "score": 0.9,
-          "reasoning": "The system used the correct hierarchical index for a precise query about Claim Document 09. The answer references relevant internal review notes, underwriting remarks, and contestability considerations related to misrepresentation, which aligns well with expected context. However, the details on misrepresentation are somewhat general and do not explicitly confirm misrepresentation, which slightly limits completeness.",
+          "score": 1.0,
+          "reasoning": "The system used the correct hierarchical index for a precise query about Claim Document 09. The answer references specific internal notes, underwriting remarks, and contestability review details relevant to misrepresentation, directly addressing the query. The retrieved chunks are appropriate and align with what a human expert would consider.",
           "correct_index": true,
           "relevant_context": true,
           "metric": "relevancy"
         },
         "recall": {
-          "score": 0.3,
-          "reasoning": "The system answer discusses an internal review for misrepresentation but incorrectly implies evidence of misrepresentation. It fails to retrieve or mention the underwriting remark explicitly stating there was no evidence of misrepresentation, which is the key information needed to answer the query. The retrieved information is insufficient and misleading regarding the presence of misrepresentation.",
+          "score": 0.5,
+          "reasoning": "The answer states there is no evidence of misrepresentation and summarizes internal notes indicating no issues, but it does not include the specific underwriting remark explicitly stating 'no evidence of misrepresentation,' which is the key piece of expected information. The retrieved information is relevant but incomplete, missing the critical underwriting remark that directly addresses the query.",
           "retrieved_correct": false,
-          "missing_info": "The underwriting remark explicitly stating there was no evidence of misrepresentation despite the contestability review flag.",
+          "missing_info": "The underwriting remark explicitly stating there was no evidence of misrepresentation, which appears nowhere else in the document.",
           "metric": "recall"
         },
-        "overall_score": 0.48
+        "overall_score": 0.7700000000000001
       }
     },
     {
@@ -343,33 +423,43 @@
         "index_used": "Summary Index",
         "agent_used": "Summarization Expert Agent",
         "date_parser_tool_used": true,
-        "answer": "The timeline of key events across all claims spans from January 8, 2024, to March 29, 2024. Below is a structured overview of significant events for each claim type, highlighting the sequence of actions taken, key decisions made, and any discrepancies noted.\n\n### Timeline of Key Events\n\n1. **Auto Collision Claims**\n   - **Claim ID: CLM-2025-1001**\n     - **January 8, 2024:** Collision reported; FNOL registered; tow truck dispatched.\n     - **January 9, 2024:** Police report requested; initial damage estimate prepared; responsibility accepted by the other driver.\n     - **January 10, 2024:** Vehicle inspection revealed additional damage; temporary replacement vehicle authorized.\n     - **January 11, 2024:** Claim closure recommended after vehicle return and satisfaction confirmation.\n   \n   - **Claim ID: CLM-2026-1002**\n     - **January 11, 2024:** Collision reported; FNOL registered; tow truck dispatched.\n     - **January 12, 2024:** Police report requested; initial damage estimate prepared; responsibility accepted by the other driver.\n     - **January 13, 2024:** Vehicle inspection revealed additional damage; temporary replacement vehicle authorized; final payment authorized.\n     - **January 14, 2024:** Claim closure confirmed after vehicle return and satisfaction.\n   \n   - **Claim ID: AC-2024-0193**\n     - **March 12, 2024:** Accident occurred; police arrived; FNOL filed with initial damage estimate.\n     - **March 13, 2024:** Vehicle towed; damage photos uploaded.\n     - **March 15, 2024:** Repair shop updated damage estimate.\n     - **March 25, 2024:** Claim adjuster approved repair costs.\n     - **March 29, 2024:** Vehicle repair completed; claim closure confirmed.\n\n2. **Health Claims**\n   - **Claim ID: CLM-2031-1007**\n     - **January 26, 2024:** Physician visit for assessment; diagnostic imaging performed.\n     - **January 27, 2024:** Surgical procedure performed; itemized bill submitted.\n     - **January 28, 2024:** Medical reviewer added notes; explanation of benefits showing partial reimbursement issued.\n     - **January 29, 2024:** Outcome letter generated detailing allowed and denied amounts.\n   \n   - **Claim ID: CLM-2029-1005**\n     - **January 20, 2024:** Physician visit for assessment; diagnostic imaging performed.\n     - **January 21, 2024:** Surgical procedure performed; itemized bill submitted.\n     - **January 22, 2024:** Manual review requested due to higher-than-expected charges; explanation of benefits issued.\n     - **January 23, 2024:** Appeal team conducted a review; outcome letter generated.\n\n3. **Property Damage Claims**\n   - **Claim ID: CLM-2027-1003**\n     - **January 14, 2024:** Water damage reported; emergency mitigation services engaged.\n     - **January 15, 2024:** Initial repair estimate created; verification of sudden loss conducted.\n     - **January 16, 2024:** Revised estimate submitted; partial payment issued.\n     - **January 17, 2024:** Claim file prepared for closure.\n   \n   - **Claim ID: CLM-2028-1004**\n     - **January 17, 2024:** Fire reported; initial triage and inspection conducted.\n     - **January 18, 2024:** Structural assessment performed; preliminary repair estimate drafted.\n     - **January 19, 2024:** Negotiations with contractors; revised estimate created.\n     - **January 20, 2024:** Claim file prepared for closure after financial reconciliation.\n   \n   - **Claim ID: CLM-2032-1008**\n     - **January 29, 2024:** Water intrusion reported; emergency mitigation services contacted.\n     - **January 30, 2024:** Initial repair estimate created; follow-up inspection scheduled.\n     - **January 31, 2024:** Revised estimate submitted; final invoices reconciled.\n     - **February 1, 2024:** Claim file prepared for closure.\n   \n   - **Claim ID: CLM-2034-1010**\n     - **February 4, 2024:** Water damage reported; emergency services engaged.\n     - **February 5, 2024:** Initial repair estimate created; damage qualified as sudden loss.\n     - **February 6, 2024:** Follow-up inspection scheduled; partial payment issued.\n     - **February 7, 2024:** Claim file prepared for closure.\n\n4. **Travel Claims**\n   - **Claim ID: CLM-2030-1006**\n     - **January 23, 2024:** Flight delay reported; hotel receipts collected.\n     - **January 24, 2024:** Claim officially opened; luggage handling records requested.\n     - **January 25, 2024:** Partial reimbursement calculated; baggage rerouted and delivered.\n     - **January 26, 2024:** Claim marked for closure after final reimbursements confirmed.\n\n### Key Decisions and Outcomes\n- All claims were processed according to standard procedures, with most claims ultimately closed after necessary actions were taken.\n- Discrepancies noted in internal communications often involved clarifications on initial damage descriptions or billing issues, indicating a need for thorough documentation and communication.\n- Key entities involved in these claims included various insurers (e.g., SafeRoad Mutual Insurance, SecureHome Insurance, AlphaShield, Blue Horizon Insurance) and policyholders, each with distinct claims related to auto collisions, health issues, property damage, and travel disruptions.\n\nThis comprehensive overview encapsulates the critical aspects of the claims process, reflecting the efficiency and thoroughness of the claims management while highlighting any discrepancies that may warrant further review."
+        "usage": {
+          "llm": {
+            "prompt_tokens": 6799,
+            "completion_tokens": 1293,
+            "total_tokens": 8092
+          },
+          "embeddings": {
+            "total_tokens": 273
+          }
+        },
+        "answer": "The timeline of key events across all claims spans from January 8, 2024, to March 29, 2024. Below is a comprehensive overview of the significant events organized by claim type, highlighting key decisions, outcomes, and discrepancies where relevant.\n\n### Timeline of Key Events\n\n#### Auto Collision Claims\n1. **Claim ID: CLM-2025-1001**\n   - **January 8, 2024:** Collision reported; FNOL registered; tow truck dispatched.\n   - **January 9, 2024:** Police report requested; initial damage estimate prepared; other driver accepted responsibility.\n   - **January 10, 2024:** Vehicle inspection revealed additional damage; temporary replacement vehicle authorized.\n   - **January 11, 2024:** Claim closure recommended after confirming vehicle return and satisfaction.\n\n2. **Claim ID: CLM-2026-1002**\n   - **January 11, 2024:** Collision reported; FNOL registered; tow truck dispatched.\n   - **January 12, 2024:** Police report requested; initial damage estimate prepared; other driver accepted responsibility.\n   - **January 13, 2024:** Vehicle inspection revealed additional structural damage; temporary replacement vehicle authorized.\n   - **January 14, 2024:** Claim closure recommended after confirming vehicle return and satisfaction.\n\n3. **Claim ID: AC-2024-0193**\n   - **March 12, 2024:** Accident occurred; police arrived; FNOL filed; initial damage estimate created.\n   - **March 13, 2024:** Vehicle towed; damage photos uploaded.\n   - **March 15, 2024:** Repair shop updated damage estimate.\n   - **March 22, 2024:** Traffic camera footage confirmed insured vehicle was stopped when struck.\n   - **March 25, 2024:** Claim adjuster approved repair costs.\n   - **March 29, 2024:** Vehicle repair completed; satisfaction form signed.\n\n#### Health Claims\n1. **Claim ID: CLM-2031-1007**\n   - **January 26, 2024:** Insured visited physician; diagnostic imaging performed.\n   - **January 27, 2024:** Surgical procedure performed; itemized bill submitted.\n   - **January 28, 2024:** Medical reviewer added notes; explanation of benefits issued showing partial reimbursement.\n   - **January 29, 2024:** Outcome letter generated detailing allowed and denied amounts.\n\n2. **Claim ID: CLM-2029-1005**\n   - **January 20, 2024:** Insured visited physician; diagnostic imaging performed.\n   - **January 21, 2024:** Surgical procedure performed; itemized bill submitted.\n   - **January 22, 2024:** Manual review requested due to higher-than-expected charges.\n   - **January 23, 2024:** Appeal team conducted a second-level review; outcome letter generated.\n\n#### Property Damage Claims\n1. **Claim ID: CLM-2027-1003**\n   - **January 14, 2024:** Water damage reported; emergency mitigation services engaged.\n   - **January 15, 2024:** Initial repair estimate created; verification of sudden and accidental loss.\n   - **January 16, 2024:** Revised estimate submitted; partial payment issued.\n   - **January 17, 2024:** Claim file prepared for closure.\n\n2. **Claim ID: CLM-2032-1008**\n   - **January 29, 2024:** Water intrusion reported; emergency services contacted.\n   - **January 30, 2024:** Initial repair estimate created; follow-up inspection scheduled.\n   - **January 31, 2024:** Revised estimate submitted; final invoices reconciled.\n   - **February 1, 2024:** Claim file prepared for closure.\n\n3. **Claim ID: CLM-2034-1010**\n   - **February 4, 2024:** Water damage reported; emergency services engaged.\n   - **February 5, 2024:** Initial repair estimate created; damage confirmed as sudden and accidental loss.\n   - **February 6, 2024:** Follow-up inspection scheduled; partial payment issued.\n   - **February 7, 2024:** Claim file prepared for closure.\n\n4. **Claim ID: CLM-2028-1004**\n   - **January 17, 2024:** Kitchen fire reported; initial triage conducted.\n   - **January 18, 2024:** Structural assessment performed; preliminary repair estimate drafted.\n   - **January 19, 2024:** Negotiations with contractors; payment schedule established.\n   - **January 20, 2024:** Claim file prepared for closure.\n\n#### Travel Claims\n1. **Claim ID: CLM-2030-1006**\n   - **January 23, 2024:** Significant flight delay reported; hotel receipts and meal vouchers collected.\n   - **January 24, 2024:** Claim officially opened; luggage handling records requested.\n   - **January 25, 2024:** Partial reimbursement calculated; baggage rerouted and delivered late.\n   - **January 26, 2024:** Claim marked for closure after final reimbursements confirmed.\n\n#### Life Insurance Claims\n1. **Claim ID: CLM-2033-1009**\n   - **February 1, 2024:** Notification of potential claim received; claim form sent.\n   - **February 2, 2024:** Underwriting file reviewed; medical records requested.\n   - **February 3, 2024:** Benefit amount calculated; payment authorized.\n   - **February 4, 2024:** Claim file transitioned to archival status.\n\n### Summary of Key Decisions and Discrepancies\n- Across all claims, key decisions included the authorization of payments, closure of claims, and issuance of reimbursements.\n- Discrepancies were noted in several claims, particularly regarding initial damage assessments, communication of liability, and billing errors, which could affect future audits or claims handling processes.\n\nThis structured overview encapsulates the essential timelines and key events across various claim types, providing insights into the efficiency and thoroughness of the claims management processes."
       },
       "evaluation": {
         "query": "Give me a timeline of key events across all claims. What dates do these events span?",
         "route": "HIGH_LEVEL",
         "index_used": "Summary Index",
         "correctness": {
-          "score": 0.8,
-          "reasoning": "The answer provides a detailed timeline of key events across all claim types, covering auto collisions, health claims, property damage, and travel claims, which aligns well with the ground truth. It includes specific dates and events, demonstrating a comprehensive overview. However, the date range extends to March 29, 2024, whereas the ground truth states the claims span only from January to February 2024, indicating a minor discrepancy in the date span. Despite this, the answer captures the essence and key event types mentioned in the ground truth, making it mostly correct with minor detail differences.",
+          "score": 0.9,
+          "reasoning": "The answer directly addresses the query by providing a detailed timeline of key events across all claim types, including dates and event descriptions. It covers the date span from January 8, 2024, to March 29, 2024, which slightly extends beyond the ground truth's January to February 2024 range. The answer includes all key event types mentioned in the ground truth (auto collisions, health claims, property damage, travel delays, life insurance) and highlights claim filings, inspections, medical reviews, and settlement decisions. Minor discrepancy exists in the extended date range and some additional detail not specified in the ground truth, but no factual errors or contradictions are present. Overall, the answer is complete and thorough.",
           "correct": true,
           "metric": "correctness"
         },
         "relevancy": {
           "score": 1.0,
-          "reasoning": "The system used the correct Summary Index for a high-level timeline query and provided a detailed, chronological timeline covering all claim types with relevant dates and key events. The context is comprehensive and appropriate for the query, matching what a human expert would use.",
+          "reasoning": "The system used the correct Summary Index as expected for a high-level timeline query. The answer comprehensively covers key events across all claim types with detailed dates and a clear chronological sequence, fully reflecting relevant context from the summary sections. The retrieved information is appropriate and thorough, matching what a human expert would use.",
           "correct_index": true,
           "relevant_context": true,
           "metric": "relevancy"
         },
         "recall": {
           "score": 1.0,
-          "reasoning": "The system answer provides a detailed, comprehensive timeline spanning all claim types with specific dates and key events, matching the ground truth timeframe and event types. It includes all relevant chunks covering auto collisions, health claims, property damage, and travel claims, with dates from January 8, 2024, to March 29, 2024. The answer sufficiently covers event sequences, key decisions, and outcomes, fulfilling the query completely.",
+          "reasoning": "The system answer comprehensively covers the timeline of key events across all claim types, including specific dates and event details from January 8, 2024, through March 29, 2024. It includes all relevant claim categories (auto collisions, health, property damage, travel, and life insurance) and key event types (filings, inspections, reviews, closures). The answer aligns well with the expected information and includes additional detail without omitting any critical information.",
           "retrieved_correct": true,
           "missing_info": "",
           "metric": "recall"
         },
-        "overall_score": 0.9200000000000002
+        "overall_score": 0.96
       }
     },
     {
@@ -384,7 +474,17 @@
         "index_used": "Summary Index",
         "agent_used": "Summarization Expert Agent",
         "date_parser_tool_used": false,
-        "answer": "The analysis of the claims processed across various types\u2014Auto, Health, Property, Travel, and Life Insurance\u2014reveals a structured approach to claims management, characterized by key decisions, outcomes, and notable discrepancies. Below is a comprehensive overview synthesized from the available summaries.\n\n### Key Decisions and Outcomes\n\n1. **Life Insurance Claim (CLM-2033-1009)**\n   - **Insurer:** GlobalSure\n   - **Outcome:** The claim was processed efficiently, resulting in a lump-sum benefit payment authorized for the beneficiary. The claim was closed with no further actions required.\n   - **Timeline:** Key actions included the receipt of notification, validation of policy coverage, and authorization of payment within a few days.\n   - **Discrepancies:** Internal notes indicated multiple conversations with the policyholder to clarify discrepancies in early descriptions, although the claim was ultimately handled according to standard procedures.\n\n2. **Health Claim (CLM-2031-1007)**\n   - **Insurer:** AlphaShield\n   - **Outcome:** The claim, related to a workplace injury, was closed with partial reimbursement issued to the insured. An appeal was submitted for further review.\n   - **Timeline:** The process involved initial assessments, a surgical procedure, and subsequent appeals due to higher-than-expected charges.\n   - **Discrepancies:** Notable discrepancies in early event descriptions led to multiple clarifications, and a manual review was required due to billing issues.\n\n3. **Auto Collision Claims**\n   - **Claim CLM-2026-1002**\n     - **Insurer:** SafeRoad Mutual Insurance\n     - **Outcome:** The claim was closed after confirming vehicle repairs and satisfaction of the policyholder. A temporary replacement vehicle was provided.\n     - **Timeline:** The claim was processed within a few days, with timely actions taken from reporting the collision to finalizing repairs.\n     - **Discrepancies:** Internal notes highlighted discrepancies in initial descriptions, although the claim followed standard procedures.\n   \n   - **Claim AC-2024-0193**\n     - **Insurer:** SafeRoad Mutual Insurance\n     - **Outcome:** The claim was approved with full liability accepted from the at-fault driver\u2019s insurer. Repair costs were authorized and paid.\n     - **Timeline:** The sequence of events included the accident report, vehicle inspection, and final approval of repair costs.\n     - **Discrepancies:** The acceptance of liability was noted internally but not communicated in the final decision letter, which could lead to misunderstandings.\n\n   - **Claim CLM-2025-1001**\n     - **Insurer:** SafeRoad Mutual Insurance\n     - **Outcome:** The claim was closed after confirming repairs and satisfaction of the policyholder, with a temporary vehicle provided.\n     - **Timeline:** The claim was efficiently processed, with all necessary documentation verified before closure.\n     - **Discrepancies:** Similar to other auto claims, there were discrepancies in early descriptions that required clarification.\n\n4. **Property Damage Claims**\n   - **Claim CLM-2027-1003**\n     - **Insurer:** SecureHome Insurance\n     - **Outcome:** The claim was closed with partial payment issued for urgent repairs due to water damage.\n     - **Timeline:** Actions included immediate emergency services, inspections, and verification of coverage.\n     - **Discrepancies:** Internal notes indicated discrepancies in initial damage descriptions, requiring further clarification.\n\n   - **Claim CLM-2028-1004**\n     - **Insurer:** SecureHome Insurance\n     - **Outcome:** The claim was processed and closed with no further action required, despite some discrepancies in financial reconciliation.\n     - **Timeline:** The claim involved timely inspections and negotiations for repairs.\n     - **Discrepancies:** Noted discrepancies in payment calculations due to provider fee adjustments not reflected in initial estimates.\n\n   - **Claim CLM-2034-1010**\n     - **Insurer:** SecureHome Insurance\n     - **Outcome:** The claim was closed with partial payment for urgent repairs following water damage.\n     - **Timeline:** The claim was processed rapidly with emergency services and inspections conducted promptly.\n     - **Discrepancies:** Internal notes indicated clarifications needed regarding the sequence of events.\n\n5. **Travel Claim (CLM-2030-1006)**\n   - **Insurer:** Blue Horizon Insurance\n   - **Outcome:** The claim was closed with reimbursements processed for travel delays and lost luggage.\n   - **Timeline:** The sequence included reporting the delay, filing for lost luggage, and processing reimbursements within a few days.\n   - **Discrepancies:** Internal notes suggested initial discrepancies in event descriptions, although the claim adhered to standard procedures.\n\n### Conclusion\nAcross all claims, a consistent theme of efficient processing and adherence to standard procedures is evident, with most claims being closed without further action required. However, discrepancies in early descriptions and documentation were common, highlighting the importance of thorough communication and verification throughout the claims process. The structured timelines and key decisions made during each claim's lifecycle reflect a commitment to effective claims management, ensuring that policyholders received timely support and resolution."
+        "usage": {
+          "llm": {
+            "prompt_tokens": 6785,
+            "completion_tokens": 1013,
+            "total_tokens": 7798
+          },
+          "embeddings": {
+            "total_tokens": 266
+          }
+        },
+        "answer": "The analysis of the claims across various types reveals several key decisions and outcomes, highlighting the efficiency and thoroughness of the claims processing by different insurers. Below is a comprehensive overview synthesized from the relevant claims:\n\n### 1. **Life Insurance Claim (CLM-2033-1009)**\n- **Insurer:** GlobalSure\n- **Key Decisions and Outcomes:**\n  - The claim was processed and closed with a lump-sum benefit payment authorized for the beneficiary.\n  - No further actions were required post-processing, indicating adherence to standard procedures.\n- **Timeline:**\n  - The claim was initiated on February 1, 2024, with necessary documentation received and validated promptly.\n  - Key actions included policy validation, underwriting review, and payment authorization completed within a few days.\n- **Discrepancies:**\n  - Internal notes indicated phone conversations to clarify discrepancies in early descriptions, but these did not affect the claim's validity.\n\n### 2. **Health Claim (CLM-2031-1007)**\n- **Insurer:** AlphaShield\n- **Key Decisions and Outcomes:**\n  - The claim related to a workplace injury was processed with partial reimbursement issued, and an appeal was submitted for further review.\n  - The claim was ultimately closed following standard procedures.\n- **Timeline:**\n  - The timeline from January 26 to January 29, 2024, involved medical assessments, treatment procedures, and a review of the appeal.\n- **Discrepancies:**\n  - Notable discrepancies in early event descriptions led to multiple clarifications, and a manual review was prompted by higher-than-expected charges.\n\n### 3. **Auto Collision Claims**\n- **Claim ID: CLM-2026-1002**\n  - **Insurer:** SafeRoad Mutual Insurance\n  - **Key Outcomes:** Closed after vehicle repairs and satisfaction confirmed, with a temporary replacement vehicle provided.\n  - **Timeline:** Efficient processing from January 11 to January 14, 2024, with timely actions including FNOL registration and damage assessments.\n  - **Discrepancies:** Clarifications were needed on early descriptions of the incident.\n\n- **Claim ID: AC-2024-0193**\n  - **Insurer:** SafeRoad Mutual Insurance\n  - **Key Outcomes:** Claim approved with full liability accepted from the at-fault driver\u2019s insurer, and repair costs authorized.\n  - **Timeline:** The claim unfolded from March 12 to March 29, 2024, with rapid responses to the accident report.\n  - **Discrepancies:** Internal notes on liability acceptance were not communicated in the final letter.\n\n### 4. **Property Damage Claims**\n- **Claim ID: CLM-2027-1003**\n  - **Insurer:** SecureHome Insurance\n  - **Key Outcomes:** Partial payment issued for urgent repairs, and the claim was closed following standard procedures.\n  - **Timeline:** From January 14 to January 17, 2024, the claim involved immediate emergency services and inspections.\n  - **Discrepancies:** Clarifications were needed regarding initial damage descriptions.\n\n- **Claim ID: CLM-2028-1004**\n  - **Insurer:** SecureHome Insurance\n  - **Key Outcomes:** Claim closed with a thorough review of policy terms and a final inspection confirming repairs.\n  - **Timeline:** The claim was processed from January 17 to January 20, 2024.\n  - **Discrepancies:** Initial payment calculations did not reflect a provider's reduced fee.\n\n- **Claim ID: CLM-2034-1010**\n  - **Insurer:** SecureHome Insurance\n  - **Key Outcomes:** Claim processed and closed with partial payment for urgent repairs.\n  - **Timeline:** From February 4 to February 7, 2024, the claim involved immediate action following the report of water damage.\n  - **Discrepancies:** Internal notes indicated discrepancies in the initial damage report.\n\n### 5. **Travel Claim (CLM-2030-1006)**\n- **Insurer:** Blue Horizon Insurance\n- **Key Decisions and Outcomes:**\n  - The claim was closed with reimbursements processed for travel delays and lost luggage.\n- **Timeline:**\n  - The claim was initiated on January 23, 2024, with timely documentation and follow-ups regarding the flight delay.\n- **Discrepancies:**\n  - Several phone conversations were needed to clarify the sequence of events, indicating initial discrepancies in descriptions.\n\n### **Overall Insights**\nAcross all claims, the insurers demonstrated a commitment to processing claims efficiently and adhering to standard procedures. Key decisions often involved the validation of claims, authorization of payments, and thorough documentation reviews. Discrepancies primarily revolved around early descriptions of events, which necessitated clarifications through communication with policyholders. The timelines reflect a structured approach to claims handling, ensuring that policyholders received timely support and resolution."
       },
       "evaluation": {
         "query": "What are the key decisions and outcomes across all claims?",
@@ -392,20 +492,20 @@
         "index_used": "Summary Index",
         "correctness": {
           "score": 0.9,
-          "reasoning": "The answer thoroughly addresses the user query by summarizing key decisions and outcomes across all claims, including settlements, approvals, denials, and reviews. It also highlights discrepancies between draft notes and final reports, aligning well with the ground truth. The answer covers responsibility acknowledgments, medical reviews, property damage assessments, and underwriting determinations implicitly through detailed claim descriptions. Minor details such as explicit mention of underwriting determinations are less emphasized, but overall the response is comprehensive and accurate.",
+          "reasoning": "The answer thoroughly addresses the user query by summarizing key decisions and outcomes across all claims, including settlements, approvals, denials, and reviews. It also notes discrepancies between draft notes and final reports, aligning well with the ground truth. The response includes detailed examples from multiple claim types, reflecting responsibility acknowledgments, medical reviews, property damage assessments, and underwriting determinations. Minor details such as explicit mention of underwriting determinations are implicit rather than explicit, but overall the answer is comprehensive and accurate.",
           "correct": true,
           "metric": "correctness"
         },
         "relevancy": {
           "score": 1.0,
-          "reasoning": "The system used the correct Summary Index as expected for a high-level overview query. The answer comprehensively covers key decisions, outcomes, timelines, discrepancies, and settlement information across all claim types, directly reflecting relevant summary sections. The context chunks retrieved are appropriate and align well with what a human expert would use for such a query.",
+          "reasoning": "The system used the correct Summary Index for a high-level query about key decisions and outcomes across all claims. The answer comprehensively covers decision-making processes, claim outcomes, timelines, discrepancies, and settlement information across multiple claim types, reflecting relevant and appropriate context. A human expert would similarly synthesize such information from summary-level data.",
           "correct_index": true,
           "relevant_context": true,
           "metric": "relevancy"
         },
         "recall": {
           "score": 1.0,
-          "reasoning": "The system answer comprehensively covers key decisions and outcomes across all claim types, including settlements, approvals, denials, reviews, and discrepancies. It references responsibility acknowledgments, medical reviews, property damage assessments, and underwriting determinations as per the ground truth. The information is detailed, structured, and sufficient to answer the query fully.",
+          "reasoning": "The system answer comprehensively covers key decisions and outcomes across all claims, including settlements, approvals, denials, reviews, discrepancies, and timelines. It addresses responsibility acknowledgments, medical reviews, property damage assessments, and underwriting determinations as per the ground truth. All relevant chunks appear to have been retrieved and synthesized effectively.",
           "retrieved_correct": true,
           "missing_info": "",
           "metric": "recall"
@@ -425,33 +525,43 @@
         "index_used": "Summary Index",
         "agent_used": "Summarization Expert Agent",
         "date_parser_tool_used": false,
-        "answer": "The health-related claims summarized include two distinct cases: a workplace injury resulting in a back strain (Claim ID: CLM-2031-1007) and a knee surgery (Claim ID: CLM-2029-1005). Both claims were processed under standard procedures, leading to partial reimbursements for the insured parties.\n\n### Claim Overview\n\n1. **Workplace Injury Claim (CLM-2031-1007)**\n   - **Policyholder:** Lior Regev\n   - **Insurer:** AlphaShield\n   - **Timestamp Range:** 2024-01-26 to 2024-01-29\n   - **Key Decisions and Outcomes:**\n     - The claim was processed and ultimately closed, indicating no further action was required.\n     - Lior Regev received partial reimbursement, and an appeal was submitted with additional medical documentation after the initial claim adjudication.\n   - **Timeline of Events:**\n     - **January 26:** Physician assessment and diagnostic imaging were conducted, leading to a specialist consultation.\n     - **January 27:** A surgical procedure took place, and an itemized bill was submitted, prompting a manual review due to higher-than-expected charges.\n     - **January 28:** A medical reviewer added notes on treatment necessity, and an explanation of benefits was provided to the insured.\n     - **January 29:** An outcome letter detailing allowed and denied amounts was generated and sent to the insured.\n   - **Discrepancies:** Notable discrepancies arose in the initial descriptions of events, leading to multiple phone conversations for clarification. Additionally, there was a mention of a moisture reading in draft notes that indicated potential inconsistencies in documentation.\n\n2. **Knee Surgery Claim (CLM-2029-1005)**\n   - **Policyholder:** Moran Levi\n   - **Insurer:** CarePlus Health\n   - **Timestamp Range:** 2024-01-20 to 2024-01-23\n   - **Key Decisions and Outcomes:**\n     - The claim was processed and closed with partial reimbursement for knee surgery.\n     - An appeal was submitted with additional medical documentation after the initial adjudication.\n   - **Timeline of Events:**\n     - **January 20:** A physician visit and diagnostic imaging indicated a condition requiring follow-up, leading to a scheduled specialist consultation.\n     - **January 21:** A surgical procedure was performed, and an itemized bill was submitted, which also triggered a manual review due to higher-than-expected charges.\n     - **January 22:** A medical reviewer added notes on treatment necessity, and the insured received an explanation of benefits showing partial reimbursement.\n     - **January 23:** The appeal team conducted a second-level review, and an outcome letter detailing the claim's status was mailed to the insured.\n   - **Discrepancies:** Similar to the workplace injury claim, discrepancies in billing led to a manual review. Multiple phone conversations were documented to clarify details, indicating the complexity of the claim.\n\n### Key Insights and Patterns\n- Both claims involved significant medical procedures and required manual reviews due to higher-than-expected charges, highlighting a common pattern in health-related claims where initial assessments may not fully capture the extent of medical costs.\n- The timelines for both claims reflect a structured approach to processing, with clear steps taken from initial assessments to final outcomes.\n- Internal notes across both claims indicated the importance of thorough documentation and communication, especially in addressing discrepancies that arose during the claims process.\n\n### Conclusion\nThe health-related claims for Lior Regev and Moran Levi illustrate the complexities involved in processing medical claims, particularly in cases requiring surgical intervention. Both claims were ultimately resolved with partial reimbursements, but the need for appeals and manual reviews underscores the challenges faced by insurers and policyholders alike in navigating the claims process."
+        "usage": {
+          "llm": {
+            "prompt_tokens": 6793,
+            "completion_tokens": 815,
+            "total_tokens": 7608
+          },
+          "embeddings": {
+            "total_tokens": 270
+          }
+        },
+        "answer": "The health-related claims summarized below pertain to two distinct cases: a workplace injury resulting in a back strain and a knee surgery. Both claims were processed under standard procedures and involved multiple steps, including assessments, treatments, and appeals.\n\n### Claim Overview\n\n1. **Workplace Injury Claim (Claim ID: CLM-2031-1007)**\n   - **Policyholder:** Lior Regev\n   - **Insurer:** AlphaShield\n   - **Document Type:** Health\n   - **Timestamp Range:** 2024-01-26 to 2024-01-29\n   - **Key Decisions and Outcomes:**\n     - The claim was related to a back strain sustained at work and was ultimately closed with partial reimbursement issued to the insured.\n     - An appeal was submitted by the insured with additional medical documentation following the initial claim adjudication.\n   - **Timeline of Events:**\n     - **January 26, 2024:** The insured visited a physician for assessment, underwent diagnostic imaging, and scheduled a specialist consultation.\n     - **January 27, 2024:** A surgical procedure was performed, and an itemized bill was submitted. The claim underwent manual review due to higher-than-expected charges.\n     - **January 28, 2024:** A medical reviewer added notes on treatment necessity, and the insured received an explanation of benefits indicating partial reimbursement.\n     - **January 29, 2024:** An outcome letter detailing allowed and denied amounts was generated and sent to the insured.\n   - **Discrepancies:** There were inconsistencies noted in early descriptions of events, leading to multiple clarifying phone conversations. A moisture reading from an initial inspection was significantly higher than later values, indicating potential documentation issues.\n\n2. **Knee Surgery Claim (Claim ID: CLM-2029-1005)**\n   - **Policyholder:** Moran Levi\n   - **Insurer:** CarePlus Health\n   - **Document Type:** Health\n   - **Timestamp Range:** 2024-01-20 to 2024-01-23\n   - **Key Decisions and Outcomes:**\n     - The claim was related to knee surgery and was processed with partial reimbursement provided to the insured. An appeal was also submitted with additional medical documentation.\n   - **Timeline of Events:**\n     - **January 20, 2024:** The insured visited a physician, underwent diagnostic imaging, and scheduled a follow-up consultation.\n     - **January 21, 2024:** A surgical procedure was performed, and an itemized bill was submitted. The claim was adjudicated but required manual review due to higher-than-expected charges.\n     - **January 22, 2024:** A medical reviewer added notes regarding the necessity of treatment, and the insured received an explanation of benefits showing partial reimbursement.\n     - **January 23, 2024:** The appeal team conducted a second-level review, and an outcome letter detailing allowed and denied amounts was generated and mailed to the insured.\n   - **Discrepancies:** Similar to the workplace injury claim, there were higher-than-expected billed charges that triggered a manual review, indicating potential issues in the billing process. Multiple phone conversations were documented to clarify discrepancies in the initial descriptions.\n\n### Key Insights and Relationships\n- Both claims involved significant medical procedures and were processed through structured timelines that included assessments, surgeries, and appeals.\n- The appeals process was a common element in both claims, highlighting the importance of thorough documentation and communication in resolving discrepancies.\n- Discrepancies in early descriptions and billing issues were notable patterns in both claims, suggesting areas for improvement in the claims handling process.\n- The claims were managed by different insurers (AlphaShield for the workplace injury and CarePlus Health for the knee surgery), yet both followed similar protocols for processing and reviewing claims.\n\nIn summary, the health-related claims reflect a systematic approach to handling medical incidents, with attention to detail in documentation and communication, despite the challenges presented by discrepancies and billing issues."
       },
       "evaluation": {
         "query": "Summarize the health-related claims (knee surgery and workplace injury)",
         "route": "HIGH_LEVEL",
         "index_used": "Summary Index",
         "correctness": {
-          "score": 0.4,
-          "reasoning": "The answer addresses the user query by summarizing two health-related claims involving knee surgery and workplace injury. However, it introduces factual inaccuracies and details not present in the ground truth, such as claim IDs, policyholder names, specific dates, and a back strain injury instead of the knee surgery reimbursement dispute and workplace injury with billing code errors described in the ground truth. The ground truth emphasizes conservative physical therapy completion and billing code errors, which are not mentioned in the system answer. Therefore, while the answer is relevant, it does not correctly or completely reflect the key information from the ground truth.",
+          "score": 0.5,
+          "reasoning": "The answer addresses the user query by summarizing two health-related claims involving knee surgery and a workplace injury. However, it incorrectly describes the workplace injury as a back strain rather than the ground truth's focus on billing code errors. The knee surgery claim summary lacks mention of the conservative physical therapy completion dispute noted in the ground truth. Both claims are described with detailed timelines and appeals, but key specifics from the ground truth\u2014such as the billing code errors and the conservative therapy completion\u2014are missing or inaccurately represented. Therefore, the answer is somewhat relevant but incomplete and partially inaccurate.",
           "correct": false,
           "metric": "correctness"
         },
         "relevancy": {
           "score": 1.0,
-          "reasoning": "The system used the correct Summary Index and provided a detailed, accurate summary covering both knee surgery and workplace injury claims. The answer reflects relevant information from health insurance claims, medical reviews, provider communications, and billing issues, matching the expected context topics. The retrieved chunks are appropriate for the high-level summary query, and a human expert would likely use similar context.",
+          "reasoning": "The system used the correct Summary Index for a high-level query and included detailed, relevant information on both the knee surgery and workplace injury claims. The answer reflects key topics such as health insurance claims, medical reviews, provider communications, billing issues, and appeals, matching the expected context. The retrieved chunks are appropriate and comprehensive, consistent with what a human expert would use.",
           "correct_index": true,
           "relevant_context": true,
           "metric": "relevancy"
         },
         "recall": {
-          "score": 0.6,
-          "reasoning": "The system answer retrieved information about two health-related claims involving knee surgery and a workplace injury, including timelines, partial reimbursements, appeals, and manual reviews. However, the workplace injury claim described a back strain rather than the expected workplace injury claim involving billing code errors (Claim Document 07). The knee surgery claim is generally aligned but lacks mention of the conservative physical therapy completion aspect. The system also did not explicitly mention provider communications or the specific billing code errors, which are key parts of the ground truth. Thus, while the answer covers relevant claims and some procedural details, it misses some critical specifics and slightly misrepresents the workplace injury claim.",
+          "score": 0.7,
+          "reasoning": "The system answer provides detailed summaries of two health-related claims involving knee surgery and a workplace injury, including timelines, decisions, appeals, and discrepancies. However, the workplace injury claim described involves a back strain rather than the billing code errors mentioned in the ground truth. The knee surgery claim is generally aligned but lacks mention of the conservative physical therapy completion noted in the ground truth. Thus, while the system retrieved relevant chunks, some key specifics from the ground truth are missing or inaccurately represented.",
           "retrieved_correct": false,
-          "missing_info": "Workplace injury claim involving billing code errors; conservative physical therapy completion in knee surgery claim; explicit mention of provider communications; specific medical review details related to billing code errors.",
+          "missing_info": "The workplace injury claim's billing code errors and the knee surgery claim's conservative physical therapy completion are not mentioned.",
           "metric": "recall"
         },
-        "overall_score": 0.64
+        "overall_score": 0.71
       }
     },
     {
@@ -466,6 +576,16 @@
         "index_used": "Hierarchical Index",
         "agent_used": "Needle-in-a-Haystack Agent",
         "date_parser_tool_used": true,
+        "usage": {
+          "llm": {
+            "prompt_tokens": 7954,
+            "completion_tokens": 21,
+            "total_tokens": 7975
+          },
+          "embeddings": {
+            "total_tokens": 24
+          }
+        },
         "answer": "Based on date parsing:\n\n- Found: 'When was the auto collision in Claim Document 01? ...' \u2192 Normalized: 1900-01-01T00:00:00\n- Found: 'The auto collision in Claim Document 01 occurred o...' \u2192 Normalized: 2008-01-01T20:24:00\n- Found: 'January 8, 2024' \u2192 Normalized: 2024-01-08T00:00:00"
       },
       "evaluation": {
@@ -480,7 +600,7 @@
         },
         "relevancy": {
           "score": 0.9,
-          "reasoning": "The system used the correct hierarchical index suitable for precise queries about Claim Document 01. The answer includes multiple date references related to the auto collision, indicating retrieval from relevant document sections such as collision date and timeline. However, the presence of a placeholder date (1900-01-01) suggests some noise or less relevant context was included, slightly reducing the score.",
+          "reasoning": "The system used the correct hierarchical index suitable for precise queries about Claim Document 01. The answer includes multiple date references related to the auto collision, indicating retrieval from relevant document sections such as collision date and timeline. However, the presence of a placeholder date (1900-01-01) suggests some noise or less relevant context was included, slightly reducing perfect relevance.",
           "correct_index": true,
           "relevant_context": true,
           "metric": "relevancy"
@@ -489,7 +609,7 @@
           "score": 0.3,
           "reasoning": "The system retrieved several date mentions but none correspond to the correct collision date of January 15, 2024, as stated in the ground truth. The dates found (1900-01-01, 2008-01-01, and January 8, 2024) are incorrect or irrelevant. Therefore, the retrieved chunks do not contain the correct or sufficient information to answer the query.",
           "retrieved_correct": false,
-          "missing_info": "The chunk explicitly stating the collision date as January 15, 2024, and related timeline details confirming the date of the auto collision.",
+          "missing_info": "The chunk explicitly stating the collision date as January 15, 2024, and details about the highway collision and responsibility acknowledgment.",
           "metric": "recall"
         },
         "overall_score": 0.48
@@ -516,7 +636,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 17879,
+              "completion_tokens": 47,
+              "total_tokens": 17926
+            },
+            "embeddings": {
+              "total_tokens": 547
+            }
+          }
         },
         "enforcement": {
           "expected_route": "PRECISE",
@@ -541,7 +671,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 17143,
+              "completion_tokens": 96,
+              "total_tokens": 17239
+            },
+            "embeddings": {
+              "total_tokens": 549
+            }
+          }
         },
         "enforcement": {
           "expected_route": "PRECISE",
@@ -566,7 +706,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 17909,
+              "completion_tokens": 44,
+              "total_tokens": 17953
+            },
+            "embeddings": {
+              "total_tokens": 547
+            }
+          }
         },
         "enforcement": {
           "expected_route": "PRECISE",
@@ -591,7 +741,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 18229,
+              "completion_tokens": 110,
+              "total_tokens": 18339
+            },
+            "embeddings": {
+              "total_tokens": 547
+            }
+          }
         },
         "enforcement": {
           "expected_route": "PRECISE",
@@ -616,7 +776,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 18540,
+              "completion_tokens": 98,
+              "total_tokens": 18638
+            },
+            "embeddings": {
+              "total_tokens": 550
+            }
+          }
         },
         "enforcement": {
           "expected_route": "PRECISE",
@@ -641,7 +811,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 35528,
+              "completion_tokens": 224,
+              "total_tokens": 35752
+            },
+            "embeddings": {
+              "total_tokens": 1113
+            }
+          }
         },
         "enforcement": {
           "expected_route": "PRECISE",
@@ -666,7 +846,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 17895,
+              "completion_tokens": 145,
+              "total_tokens": 18040
+            },
+            "embeddings": {
+              "total_tokens": 552
+            }
+          }
         },
         "enforcement": {
           "expected_route": "PRECISE",
@@ -691,7 +881,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 34974,
+              "completion_tokens": 231,
+              "total_tokens": 35205
+            },
+            "embeddings": {
+              "total_tokens": 1121
+            }
+          }
         },
         "enforcement": {
           "expected_route": "PRECISE",
@@ -716,7 +916,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 17901,
+              "completion_tokens": 148,
+              "total_tokens": 18049
+            },
+            "embeddings": {
+              "total_tokens": 551
+            }
+          }
         },
         "enforcement": {
           "expected_route": "PRECISE",
@@ -741,7 +951,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 17410,
+              "completion_tokens": 105,
+              "total_tokens": 17515
+            },
+            "embeddings": {
+              "total_tokens": 551
+            }
+          }
         },
         "enforcement": {
           "expected_route": "PRECISE",
@@ -766,7 +986,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 19492,
+              "completion_tokens": 109,
+              "total_tokens": 19601
+            },
+            "embeddings": {
+              "total_tokens": 548
+            }
+          }
         },
         "enforcement": {
           "expected_route": "PRECISE",
@@ -791,7 +1021,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 19117,
+              "completion_tokens": 91,
+              "total_tokens": 19208
+            },
+            "embeddings": {
+              "total_tokens": 550
+            }
+          }
         },
         "enforcement": {
           "expected_route": "PRECISE",
@@ -816,7 +1056,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 19145,
+              "completion_tokens": 56,
+              "total_tokens": 19201
+            },
+            "embeddings": {
+              "total_tokens": 548
+            }
+          }
         },
         "enforcement": {
           "expected_route": "PRECISE",
@@ -841,7 +1091,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": true
+          "date_parser_tool_used": true,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 11620,
+              "completion_tokens": 33,
+              "total_tokens": 11653
+            },
+            "embeddings": {
+              "total_tokens": 21
+            }
+          }
         },
         "enforcement": {
           "expected_route": null,
@@ -866,7 +1126,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 17623,
+              "completion_tokens": 95,
+              "total_tokens": 17718
+            },
+            "embeddings": {
+              "total_tokens": 547
+            }
+          }
         },
         "enforcement": {
           "expected_route": "PRECISE",
@@ -891,7 +1161,17 @@
           "route": "HIGH_LEVEL",
           "index_used": "Summary Index",
           "agent_used": "Summarization Expert Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 6783,
+              "completion_tokens": 1019,
+              "total_tokens": 7802
+            },
+            "embeddings": {
+              "total_tokens": 265
+            }
+          }
         },
         "enforcement": {
           "expected_route": null,
@@ -916,7 +1196,17 @@
           "route": "HIGH_LEVEL",
           "index_used": "Summary Index",
           "agent_used": "Summarization Expert Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 6787,
+              "completion_tokens": 985,
+              "total_tokens": 7772
+            },
+            "embeddings": {
+              "total_tokens": 267
+            }
+          }
         },
         "enforcement": {
           "expected_route": null,
@@ -941,7 +1231,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 17078,
+              "completion_tokens": 138,
+              "total_tokens": 17216
+            },
+            "embeddings": {
+              "total_tokens": 544
+            }
+          }
         },
         "enforcement": {
           "expected_route": null,
@@ -966,7 +1266,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 36275,
+              "completion_tokens": 336,
+              "total_tokens": 36611
+            },
+            "embeddings": {
+              "total_tokens": 1107
+            }
+          }
         },
         "enforcement": {
           "expected_route": null,
@@ -991,7 +1301,17 @@
           "route": "PRECISE",
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
-          "date_parser_tool_used": false
+          "date_parser_tool_used": false,
+          "usage": {
+            "llm": {
+              "prompt_tokens": 35001,
+              "completion_tokens": 440,
+              "total_tokens": 35441
+            },
+            "embeddings": {
+              "total_tokens": 1105
+            }
+          }
         },
         "enforcement": {
           "expected_route": null,
@@ -1015,7 +1335,17 @@
           "index_used": "Summary Index",
           "agent_used": "Summarization Expert Agent",
           "date_parser_tool_used": false,
-          "answer": "The overall summary of all insurance claims encompasses a diverse range of claim types, including Auto, Health, Property, Travel, and Life Insurance. Each claim was processed according to standard procedures, with key decisions and outcomes documented throughout the timelines of events.\n\n### 1. **Life Insurance Claim (CLM-2033-1009)**\n- **Insurer:** GlobalSure\n- **Key Decisions and Outcomes:** The claim was processed efficiently, resulting in a lump-sum benefit payment authorized for the beneficiary. The claim was closed with no further actions required.\n- **Timeline:** The claim was initiated on February 1, 2024, with documentation received and validated. By February 3, the benefit amount was calculated, and payment was authorized.\n- **Discrepancies:** Internal notes indicated several clarifications were needed regarding the sequence of events, and a temporary hold on payment was due to a system configuration error, not the claim's validity.\n\n### 2. **Health Claim (CLM-2031-1007)**\n- **Insurer:** AlphaShield\n- **Key Decisions and Outcomes:** The claim related to a workplace injury was processed, resulting in partial reimbursement for the insured, Lior Regev. An appeal was submitted with additional documentation.\n- **Timeline:** The claim timeline spanned from January 26 to January 29, 2024, involving medical assessments and a manual review due to higher-than-expected charges.\n- **Discrepancies:** Discrepancies in early descriptions led to multiple clarifications, and a moisture reading inconsistency was noted in draft notes, indicating potential documentation issues.\n\n### 3. **Auto Collision Claims**\n- **Claims:** CLM-2026-1002 and CLM-2025-1001\n- **Insurer:** SafeRoad Mutual Insurance\n- **Key Decisions and Outcomes:** Both claims were closed after confirming vehicle repairs and satisfaction from the policyholders, Yael Ben-Ami and Daniel Cohen, respectively. Temporary replacement vehicles were authorized during repair periods.\n- **Timeline:** The claims were processed swiftly within a few days, with initial reports filed on January 11 and January 8, 2024, respectively. Both claims involved thorough inspections and communication with the policyholders.\n- **Discrepancies:** Internal notes indicated discrepancies in initial descriptions of incidents, and acknowledgment of responsibility by the opposing party was not formally included in the documentation.\n\n### 4. **Property Damage Claims**\n- **Claims:** CLM-2026-1002, CLM-2028-1004, CLM-2032-1008, and CLM-2034-1010\n- **Insurer:** SecureHome Insurance\n- **Key Decisions and Outcomes:** Claims related to storm damage, kitchen fire, and water intrusion were processed with partial payments issued for urgent repairs. All claims were closed with no further actions required.\n- **Timelines:** Claims were reported between January 14 and February 7, 2024, with immediate actions taken for damage mitigation and inspections.\n- **Discrepancies:** Notable discrepancies included inconsistencies in initial damage descriptions and billing errors that were not prominently featured in final reports.\n\n### 5. **Travel Claim (CLM-2030-1006)**\n- **Insurer:** Blue Horizon Insurance\n- **Key Decisions and Outcomes:** The claim was processed due to a significant flight delay and lost luggage, resulting in reimbursements for essential purchases. The claim was closed with all necessary documentation verified.\n- **Timeline:** The claim was initiated on January 23, 2024, with timely actions taken to document the delay and expenses incurred.\n- **Discrepancies:** Internal notes indicated discrepancies in event descriptions, although no evidence of misrepresentation was found.\n\n### **Key Insights**\n- **Efficiency:** The claims processing across all types demonstrated a structured and efficient approach, with timelines reflecting prompt actions and thorough documentation.\n- **Communication:** Multiple claims highlighted the importance of clear communication between policyholders and insurers, particularly in addressing discrepancies and ensuring accurate processing.\n- **Discrepancies:** Common patterns of discrepancies included inconsistencies in initial reports, billing errors, and the need for clarifications, suggesting areas for improvement in documentation practices and communication strategies.\n\nThis comprehensive overview encapsulates the critical aspects of each claim type, highlighting the efficiency of claims management while also noting areas for potential improvement in handling discrepancies and communication."
+          "usage": {
+            "llm": {
+              "prompt_tokens": 6783,
+              "completion_tokens": 1097,
+              "total_tokens": 7880
+            },
+            "embeddings": {
+              "total_tokens": 265
+            }
+          },
+          "answer": "The overall summary of the insurance claims encompasses a diverse range of claim types, including Auto, Health, Property, Travel, and Life Insurance, processed by various insurers. Below is a comprehensive overview synthesizing the key decisions, timelines, discrepancies, and significant entities involved in each claim.\n\n### 1. Life Insurance Claim (CLM-2033-1009)\n- **Insurer:** GlobalSure\n- **Key Decisions and Outcomes:** The claim was processed efficiently, resulting in a lump-sum benefit payment authorized for the beneficiary. The claim was closed with no further actions required.\n- **Timeline:** The claim was initiated on February 1, 2024, with documentation received and validated. By February 3, 2024, the benefit amount was calculated, and payment instructions were verified.\n- **Discrepancies:** Internal notes indicated discrepancies in early descriptions, requiring clarification through multiple conversations.\n- **Entities:** Policyholder Ron Cohen, Insurer GlobalSure.\n\n### 2. Health Claim (CLM-2031-1007)\n- **Insurer:** AlphaShield\n- **Key Decisions and Outcomes:** The claim related to a workplace injury was closed after partial reimbursement was issued. An appeal was submitted with additional documentation.\n- **Timeline:** The claim process spanned from January 26 to January 29, 2024, involving medical assessments, a surgical procedure, and subsequent appeal submissions.\n- **Discrepancies:** Noted discrepancies in initial event descriptions led to multiple clarifications. A manual review was triggered due to higher-than-expected charges.\n- **Entities:** Policyholder Lior Regev, Insurer AlphaShield.\n\n### 3. Auto Collision Claims\n- **Claim ID: CLM-2026-1002**\n  - **Insurer:** SafeRoad Mutual Insurance\n  - **Key Decisions and Outcomes:** The claim was closed after the vehicle was repaired and returned to the policyholder, Yael Ben-Ami. A temporary replacement vehicle was provided.\n  - **Timeline:** The claim was reported on January 11, 2024, with prompt actions taken for towing and damage assessment.\n  - **Discrepancies:** Internal notes highlighted discrepancies in early descriptions of the incident.\n  \n- **Claim ID: AC-2024-0193**\n  - **Insurer:** SafeRoad Mutual Insurance\n  - **Key Decisions and Outcomes:** The claim was processed with 100% liability accepted from the at-fault driver\u2019s insurer, and repair costs were approved.\n  - **Timeline:** The accident occurred on March 12, 2024, with timely reporting and inspections.\n  - **Discrepancies:** Internal notes indicated that liability acceptance was not communicated in the final decision letter.\n\n### 4. Property Damage Claims\n- **Claim ID: CLM-2026-1003**\n  - **Insurer:** SecureHome Insurance\n  - **Key Decisions and Outcomes:** The claim was closed with partial payment for urgent repairs due to water damage from a roof leak.\n  - **Timeline:** The claim was reported on January 14, 2024, with immediate emergency services engaged.\n  - **Discrepancies:** Clarifications were needed regarding initial damage descriptions.\n\n- **Claim ID: CLM-2028-1004**\n  - **Insurer:** SecureHome Insurance\n  - **Key Decisions and Outcomes:** The claim was closed after thorough review and financial reconciliation following a kitchen fire.\n  - **Timeline:** The loss was reported on January 17, 2024, with a structured timeline leading to closure.\n  - **Discrepancies:** Financial reconciliation issues were noted due to a provider accepting a reduced fee.\n\n- **Claim ID: CLM-2032-1008**\n  - **Insurer:** SecureHome Insurance\n  - **Key Decisions and Outcomes:** The claim was processed and closed with partial payment for storm damage.\n  - **Timeline:** The claim was reported on January 29, 2024, with immediate action taken for mitigation.\n  - **Discrepancies:** Internal notes suggested earlier damage that was not reflected in the final decision.\n\n- **Claim ID: CLM-2034-1010**\n  - **Insurer:** SecureHome Insurance\n  - **Key Decisions and Outcomes:** The claim was closed with partial payment for urgent repairs due to flooding.\n  - **Timeline:** The claim was reported on February 4, 2024, with rapid response actions taken.\n  - **Discrepancies:** Clarifications were needed regarding the initial damage report.\n\n### 5. Travel Claim (CLM-2030-1006)\n- **Insurer:** Blue Horizon Insurance\n- **Key Decisions and Outcomes:** The claim was processed and closed, with reimbursements issued for travel delays and lost luggage.\n- **Timeline:** The claim was reported on January 23, 2024, with timely documentation and follow-ups.\n- **Discrepancies:** Several phone conversations were required to clarify event sequences, indicating initial discrepancies.\n\n### Conclusion\nThe claims processing across various types demonstrated a structured approach with timely actions and thorough documentation. However, discrepancies in initial descriptions and communication gaps were common themes that highlighted the need for improved clarity in documentation and internal communication. Each claim was handled according to standard procedures, with key decisions made to ensure policyholders received the necessary support and reimbursements."
         },
         "human": {
           "pass": null
@@ -1031,7 +1361,17 @@
           "index_used": "Summary Index",
           "agent_used": "Summarization Expert Agent",
           "date_parser_tool_used": false,
-          "answer": "The dataset encompasses a diverse range of insurance claims, categorized into five main types: Auto, Health, Property, Travel, and Life Insurance. Each claim type reflects distinct circumstances and processing timelines, highlighting the complexity and thoroughness of the claims management process.\n\n### 1. **Auto Insurance Claims**\n   - **Claims Identified:** CLM-2026-1002, AC-2024-0193, CLM-2025-1001\n   - **Key Decisions and Outcomes:** Claims related to auto collisions were processed efficiently, with final payments authorized for repairs and temporary vehicles provided during the repair period. For instance, in claim CLM-2025-1001, the vehicle was returned to the policyholder, confirming satisfaction before closure.\n   - **Timelines:** The claims were initiated promptly following accidents, with actions such as First Notice of Loss (FNOL) registration and vehicle inspections occurring within a day of the incident.\n   - **Discrepancies:** Internal notes often indicated discrepancies in the initial descriptions of incidents, necessitating follow-up communications for clarification.\n\n### 2. **Health Insurance Claims**\n   - **Claims Identified:** CLM-2031-1007, CLM-2029-1005\n   - **Key Decisions and Outcomes:** Health claims involved surgeries and treatments, with partial reimbursements issued. For example, CLM-2029-1005 involved a knee surgery where an appeal was submitted due to higher-than-expected charges.\n   - **Timelines:** The claims followed a structured timeline from initial assessments to surgeries and subsequent appeals, reflecting thorough documentation and review processes.\n   - **Discrepancies:** Notable discrepancies included higher billed charges that triggered manual reviews, indicating potential issues in the billing process.\n\n### 3. **Property Damage Claims**\n   - **Claims Identified:** CLM-2027-1003, CLM-2028-1004, CLM-2032-1008, CLM-2034-1010\n   - **Key Decisions and Outcomes:** Property damage claims were processed following incidents such as water damage and fire, with partial payments issued for urgent repairs. Claims were closed after confirming the completion of necessary repairs.\n   - **Timelines:** The claims were initiated immediately after damage reports, with emergency services engaged to mitigate further issues. Inspections and repair estimates were conducted promptly, often within days.\n   - **Discrepancies:** Internal notes indicated discrepancies in initial damage descriptions and financial reconciliations, suggesting areas for improvement in documentation and communication.\n\n### 4. **Travel Insurance Claims**\n   - **Claims Identified:** CLM-2030-1006\n   - **Key Decisions and Outcomes:** This claim involved travel delays and lost luggage, with reimbursements processed for essential purchases due to the circumstances. The claim was marked as closed after all reimbursements were confirmed.\n   - **Timelines:** The claim was opened shortly after the incident, with documentation collected and processed efficiently over a few days.\n   - **Discrepancies:** Internal notes highlighted initial discrepancies in event descriptions, which were clarified through communications with the policyholder.\n\n### 5. **Life Insurance Claims**\n   - **Claims Identified:** CLM-2033-1009\n   - **Key Decisions and Outcomes:** The life insurance claim was processed with a lump-sum benefit payment authorized for the beneficiary. The claim was closed after confirming that all procedures were followed correctly.\n   - **Timelines:** The claim processing was completed within a few days, showcasing an efficient approach to handling sensitive claims.\n   - **Discrepancies:** Internal notes indicated discrepancies in early descriptions of events, necessitating clarifications through phone conversations.\n\n### **Conclusion**\nThe dataset illustrates a comprehensive overview of various insurance claims, each processed with attention to detail and adherence to standard procedures. Discrepancies noted in internal communications highlight the importance of clear documentation and follow-up to ensure accurate claims handling. The structured timelines across all claim types demonstrate a commitment to efficient service delivery, ultimately leading to satisfactory resolutions for policyholders."
+          "usage": {
+            "llm": {
+              "prompt_tokens": 6787,
+              "completion_tokens": 946,
+              "total_tokens": 7733
+            },
+            "embeddings": {
+              "total_tokens": 267
+            }
+          },
+          "answer": "The dataset encompasses a variety of insurance claims, categorized into five main types: Auto, Health, Property, Travel, and Life Insurance. Below is a comprehensive overview of each claim type, highlighting key decisions, timelines, discrepancies, and significant entities involved.\n\n### 1. Auto Insurance Claims\n- **Claims Identified:** CLM-2026-1002, AC-2024-0193, CLM-2025-1001\n- **Key Decisions and Outcomes:** \n  - Claims related to auto collisions were processed efficiently, with final payments authorized for repairs and temporary replacement vehicles provided during repair periods.\n  - For example, in claim CLM-2025-1001, the vehicle was returned to the policyholder, Daniel Cohen, after confirming satisfaction with the repairs.\n- **Timelines:** \n  - Claims were initiated promptly following accidents, with First Notice of Loss (FNOL) registered on the same day as the incident.\n  - Inspections and damage assessments were conducted quickly, often within 24 hours.\n- **Discrepancies:** \n  - Internal notes indicated several phone conversations to clarify discrepancies in initial descriptions of incidents, particularly regarding the acknowledgment of responsibility by the opposing driver, which was noted informally but not included in official correspondence.\n\n### 2. Health Insurance Claims\n- **Claims Identified:** CLM-2031-1007, CLM-2029-1005\n- **Key Decisions and Outcomes:** \n  - Claims related to medical procedures were processed with partial reimbursements issued, and appeals were submitted for additional documentation.\n  - For instance, in claim CLM-2029-1005, Moran Levi received partial reimbursement for knee surgery, with an appeal submitted due to higher-than-expected charges.\n- **Timelines:** \n  - Claims involved multiple steps, including physician assessments, surgical procedures, and subsequent appeals, often spanning several days.\n- **Discrepancies:** \n  - Higher-than-expected billed charges triggered manual reviews, indicating potential issues in the billing process and necessitating further clarification with providers.\n\n### 3. Property Damage Claims\n- **Claims Identified:** CLM-2032-1008, CLM-2027-1003, CLM-2028-1004, CLM-2034-1010\n- **Key Decisions and Outcomes:** \n  - Claims for property damage due to water intrusion and fire were processed with partial payments issued for urgent repairs, ultimately leading to claim closures.\n  - For example, claim CLM-2034-1010 involved urgent repairs following water damage, with a structured timeline reflecting prompt actions taken by the insurer.\n- **Timelines:** \n  - Claims were initiated immediately after damage reports, with emergency services engaged to mitigate further issues.\n  - Inspections and estimates were conducted rapidly, often within a day or two.\n- **Discrepancies:** \n  - Internal notes revealed discrepancies in initial damage descriptions and billing errors, suggesting the need for thorough documentation and communication.\n\n### 4. Travel Insurance Claims\n- **Claims Identified:** CLM-2030-1006\n- **Key Decisions and Outcomes:** \n  - The claim involved reimbursements for travel delays and lost luggage, processed according to standard procedures.\n  - Noam Azulay's claim was marked as closed after confirming all reimbursements.\n- **Timelines:** \n  - The timeline included prompt reporting of flight delays and subsequent documentation collection, with actions taken within a few days.\n- **Discrepancies:** \n  - Initial discrepancies in event descriptions were clarified through multiple communications, indicating a structured approach to claims handling.\n\n### 5. Life Insurance Claims\n- **Claims Identified:** CLM-2033-1009\n- **Key Decisions and Outcomes:** \n  - The claim was processed efficiently, resulting in a lump-sum benefit payment authorized for disbursement to the beneficiary.\n  - Ron Cohen's claim was handled according to standard procedures, with no further actions required post-processing.\n- **Timelines:** \n  - The claim was initiated promptly following notification, with all necessary documentation verified within a few days.\n- **Discrepancies:** \n  - Internal notes indicated several conversations to clarify discrepancies in early descriptions, showcasing the importance of thorough communication in life insurance claims.\n\n### Conclusion\nThe dataset illustrates a comprehensive range of insurance claims, each processed with attention to detail and adherence to standard procedures. Discrepancies noted across various claims highlight the importance of clear communication and thorough documentation in ensuring accurate claims processing. The structured timelines across all claim types reflect a responsive and efficient claims management approach by the respective insurers."
         },
         "human": {
           "pass": null
@@ -1047,7 +1387,17 @@
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
           "date_parser_tool_used": false,
-          "answer": "In Claim Document 01 (Claim ID: CLM-2025-1001), the other driver did acknowledge responsibility. This acknowledgment is documented in a call center log entry dated 2024-01-09 at 19:30, where it is noted that the other driver verbally accepted responsibility for the collision. \n\nThis information is found in the internal notes and context section of the document, which is not typically visible to the policyholder but is critical for understanding the claim's handling. \n\n**Source Context:**\n- **Claim ID:** CLM-2025-1001\n- **Document Type:** Auto Collision\n- **Section:** Internal Notes and Context\n- **Date of Acknowledgment:** 2024-01-09\n- **Details:** Call center logs conversation where the other driver verbally accepts responsibility."
+          "usage": {
+            "llm": {
+              "prompt_tokens": 35933,
+              "completion_tokens": 321,
+              "total_tokens": 36254
+            },
+            "embeddings": {
+              "total_tokens": 1107
+            }
+          },
+          "answer": "In Claim Document 01 (Claim ID: CLM-2025-1001), the other driver did acknowledge responsibility. This acknowledgment is documented in a call center log entry dated 2024-01-09, where it is noted that \"the other driver verbally accepts responsibility.\" This information is found in the internal notes and context section, which is not normally visible to the policyholder but is critical for understanding how decisions were made throughout the life of the claim. \n\n**Source Context:**\n- **Claim ID:** CLM-2025-1001\n- **Document Type:** Auto Collision\n- **Section:** Internal Notes and Context\n- **Timestamp:** 2024-01-09\n- **Details:** \"Call center logs conversation where the other driver verbally accepts responsibility.\""
         },
         "human": {
           "pass": null
@@ -1063,7 +1413,17 @@
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
           "date_parser_tool_used": false,
-          "answer": "In Claim Document 07, a billing code error was noted during the timeline of events. Specifically, on **2024-01-28 at 05:30**, there was an attempt to contact the provider billing office to clarify coding details. This indicates that there were discrepancies or issues related to the billing codes that required further investigation.\n\nThe claim ID for this document is **CLM-2031-1007**, and it pertains to a health claim involving a workplace injury (back strain). The document type is categorized as **Health**, and the relevant section is the **Claim Overview**. \n\nThis information is critical as it highlights the need for clarification regarding the billing codes, which can significantly impact the processing and reimbursement of the claim."
+          "usage": {
+            "llm": {
+              "prompt_tokens": 17508,
+              "completion_tokens": 162,
+              "total_tokens": 17670
+            },
+            "embeddings": {
+              "total_tokens": 545
+            }
+          },
+          "answer": "In Claim Document 07, a billing code error was noted during the timeline of events. Specifically, on **2024-01-28 at 05:30**, there was an attempt to contact the provider billing office to clarify coding details. This indicates that there were discrepancies or issues related to the billing codes that required further investigation.\n\nThe claim ID for this document is **CLM-2031-1007**, and it pertains to a health claim involving the policyholder **Lior Regev**. The document type is **Health**, and it covers events from **2024-01-26 to 2024-01-29**. \n\nThis information is critical as it highlights the need for clarification regarding the billing codes, which can impact the processing and reimbursement of the claim."
         },
         "human": {
           "pass": null
@@ -1079,7 +1439,17 @@
           "index_used": "Hierarchical Index",
           "agent_used": "Needle-in-a-Haystack Agent",
           "date_parser_tool_used": false,
-          "answer": "In Claim Document 09, which is identified as Claim ID CLM-2033-1009, there is no explicit mention of misrepresentation. However, the internal notes indicate that an internal review was performed to ensure no material misrepresentation occurred. This review was part of the process following the receipt of the death certificate and identification documents on 2024-02-01. \n\nThe relevant timeline of events includes:\n- **2024-02-01 18:30** \u2013 Death certificate and identification documents received and logged.\n- **2024-02-02 14:30** \u2013 Internal review performed to ensure no material misrepresentation.\n\nThese details suggest that while there was a review to check for misrepresentation, the outcome of that review is not detailed in the provided information. Therefore, it can be inferred that there was a proactive measure taken to investigate potential misrepresentation, but no specific evidence of misrepresentation was documented in the claim. \n\nThis information is sourced from the internal notes section of Claim Document 09."
+          "usage": {
+            "llm": {
+              "prompt_tokens": 35001,
+              "completion_tokens": 469,
+              "total_tokens": 35470
+            },
+            "embeddings": {
+              "total_tokens": 1105
+            }
+          },
+          "answer": "In Claim Document 09, which is identified as Claim ID CLM-2033-1009, there is no explicit evidence of misrepresentation mentioned in the retrieved chunks. However, the internal notes indicate that an internal review was performed to ensure no material misrepresentation occurred. This review was part of the process following the notification of a potential claim received on 2024-02-01.\n\nThe relevant timeline of events includes:\n- **2024-02-01 08:30** \u2013 Notification of potential claim received from beneficiary or family member.\n- **2024-02-02 14:30** \u2013 Internal review performed to ensure no material misrepresentation.\n\nThese details suggest that while the review was conducted to check for misrepresentation, there is no documented finding of misrepresentation itself. The claim was processed according to standard procedures, and the final status was closed with no further action scheduled.\n\nFor reference, the metadata for this claim document is as follows:\n- **Claim ID**: CLM-2033-1009\n- **Document Type**: Life\n- **Section**: Claim Overview\n- **Timestamp Range**: 2024-02-01 to 2024-02-04\n- **Filename**: claim_document_09.pdf\n\nThis information is critical for understanding the handling of the claim and the thoroughness of the review process."
         },
         "human": {
           "pass": null
