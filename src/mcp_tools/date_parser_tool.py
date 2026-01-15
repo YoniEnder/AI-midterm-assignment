@@ -17,7 +17,17 @@ class DateParserTool:
 
     def __init__(self):
         """Initialize the date parser tool"""
-        pass
+        # Tracks whether this tool instance was used during the current query.
+        # Callers should reset via `reset_usage()` at the start of each query.
+        self.used: bool = False
+
+    def reset_usage(self) -> None:
+        """Reset usage tracking (should be called once per user query)."""
+        self.used = False
+
+    def _mark_used(self) -> None:
+        """Mark this tool as used."""
+        self.used = True
 
     def parse_date(self, date_string: str) -> Optional[datetime]:
         """
@@ -29,6 +39,7 @@ class DateParserTool:
         Returns:
             datetime object if parsing successful, None otherwise
         """
+        self._mark_used()
         if not date_string or not date_string.strip():
             return None
 
@@ -57,6 +68,7 @@ class DateParserTool:
         Returns:
             Normalized date string, or None if parsing failed
         """
+        self._mark_used()
         parsed_date = self.parse_date(date_string)
         if not parsed_date:
             return None
@@ -87,6 +99,7 @@ class DateParserTool:
                 ...
             ]
         """
+        self._mark_used()
         if not text:
             return []
 
@@ -156,6 +169,7 @@ class DateParserTool:
         Returns:
             Formatted date string
         """
+        self._mark_used()
         if not isinstance(date_obj, datetime):
             return str(date_obj)
 
@@ -184,6 +198,7 @@ class DateParserTool:
         Returns:
             Dictionary with difference information, or None if parsing failed
         """
+        self._mark_used()
         date1 = self.parse_date(date1_str)
         date2 = self.parse_date(date2_str)
 

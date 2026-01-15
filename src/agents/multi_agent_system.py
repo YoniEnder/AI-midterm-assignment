@@ -50,6 +50,13 @@ class MultiAgentSystem:
         Main entry point for queries
         Returns a dictionary with routing decision and answer
         """
+        # Reset tool usage tracking for this query (if supported)
+        if self.date_parser_tool and hasattr(self.date_parser_tool, "reset_usage"):
+            try:
+                self.date_parser_tool.reset_usage()
+            except Exception:
+                pass
+
         # Step 1: Route the query
         route = self.manager.route_query(user_query)
 
@@ -72,13 +79,16 @@ class MultiAgentSystem:
         else:
             answer = result if isinstance(result, str) else result.get("answer", "")
 
-        # Check if date parser tool was used
-        date_parser_tool_used = False
-        if self.date_parser_tool:
-            query_lower = user_query.lower()
-            date_parser_tool_used = any(
-                keyword in query_lower for keyword in DATE_PARSING_KEYWORDS
-            )
+        # Tool usage signals:
+        # - `date_parser_tool_triggered`: whether the query *looks like* it needs date parsing (keyword heuristic)
+        # - `date_parser_tool_used`: whether the tool actually ran (tracked by DateParserTool)
+        query_lower = user_query.lower()
+        date_parser_tool_triggered = any(
+            keyword in query_lower for keyword in DATE_PARSING_KEYWORDS
+        )
+        date_parser_tool_used = bool(
+            getattr(self.date_parser_tool, "used", False)
+        )
 
         return {
             "query": user_query,
@@ -86,6 +96,7 @@ class MultiAgentSystem:
             "index_used": index_type,
             "agent_used": agent_used,
             "date_parser_tool_used": date_parser_tool_used,
+            "date_parser_tool_triggered": date_parser_tool_triggered,
             "answer": answer,
             "chunks": chunks if return_chunks else [],
         }
